@@ -1,33 +1,34 @@
 import React from "react";
 import logo from "../../assets/logo.png";
 
+const tabs = [
+  { id: 0, title: "Home" },
+  { id: 1, title: "About Us" },
+  { id: 2, title: "Become a Distributor" },
+  { id: 3, title: "Contact Us" },
+];
+
 const Navigation = () => {
   return (
-    <nav className="nav">
-      <img src={logo} alt="Brand Logo" className="nav__logo" />
-      <ul className="nav__list">
-        <li className="nav__listItem">
-          <a href="#!" className="nav__link">
-            Home
-          </a>
-        </li>
-        <li className="nav__listItem">
-          <a href="#!" className="nav__link">
-            About Us
-          </a>
-        </li>
-        <li className="nav__listItem">
-          <a href="#!" className="nav__link">
-            Become a Distributor
-          </a>
-        </li>
-        <li className="nav__listItem">
-          <a href="#!" className="nav__link">
-            Contact Us
-          </a>
-        </li>
-      </ul>
-    </nav>
+    <div className="navigation">
+      <a href="#!">
+        <img src={logo} alt="Brand Logo" className="navigation__logo" />
+      </a>
+      <div className="navigation__menu">
+        <span className="navigation__menuIcon" />
+      </div>
+      <nav className="navigation__nav">
+        <ul className="navigation__list">
+          {tabs.map((tab) => (
+            <li className="navigation__listItem" key={tab.id}>
+              <a href="#!" className="navigation__link">
+                {tab.title}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </nav>
+    </div>
   );
 };
 

@@ -1,14 +1,73 @@
-.nav {
+.navigation {
   display: flex;
   align-items: center;
+  background: transparent;
+  position: fixed;
+  top: 1em;
+  left: 10em;
+  z-index: 99999;
+  width: 100%;
+
+  @include breakpoint(sm) {
+    padding: 0 2em;
+  }
+
+  @include breakpoint(sm) {
+    justify-content: space-between;
+    left: 0;
+  }
 
   &__logo {
     margin-right: 8em;
   }
 
+  &__nav {
+    @include breakpoint(sm) {
+      display: none;
+    }
+  }
+
+  &__menu {
+    cursor: pointer;
+    width: 3em;
+  }
+
+  &__menuIcon {
+    position: relative;
+    &,
+    &:before,
+    &::after {
+      height: 0.4em;
+      background: $color-primary;
+      border-radius: 2em;
+      display: inline-block;
+    }
+
+    & {
+      margin: 0.5em 0;
+      width: 100%;
+    }
+
+    &::before,
+    &::after {
+      content: "";
+      position: absolute;
+    }
+
+    &::before {
+      top: -0.8em;
+      right: 0;
+      width: 2.25em;
+    }
+
+    &::after {
+      top: 0.8em;
+      right: 0;
+      width: 1.5em;
+    }
+  }
+
   &__list {
-    list-style: none;
-    color: $color-primary;
     display: flex;
   }
 

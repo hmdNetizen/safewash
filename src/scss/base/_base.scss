@@ -6,15 +6,21 @@
   box-sizing: border-box;
 }
 
+a {
+  text-decoration: none;
+}
+
+ul {
+  list-style-type: none;
+}
+
 html {
+  // Font-size is equivalent to 10px => 1em
   font-size: 62.5%;
   scroll-behavior: smooth;
 }
 
 body {
   font-family: $font-primary;
-}
-
-.container {
-  padding: 1em 7em;
+  height: 2000px;
 }
