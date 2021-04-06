@@ -1,0 +1,27 @@
+.nav {
+  display: flex;
+  align-items: center;
+
+  &__logo {
+    margin-right: 8em;
+  }
+
+  &__list {
+    list-style: none;
+    color: $color-primary;
+    display: flex;
+  }
+
+  &__listItem {
+    font-size: 1.4rem;
+
+    &:not(:last-child) {
+      margin-right: 5em;
+    }
+  }
+
+  &__link {
+    text-decoration: none;
+    color: $color-primary;
+  }
+}

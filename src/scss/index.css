@@ -1,0 +1,56 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Open Sans", sans-serif;
+}
+
+.container {
+  padding: 1em 7em;
+}
+
+.nav {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.nav__logo {
+  margin-right: 8em;
+}
+
+.nav__list {
+  list-style: none;
+  color: #483d3f;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.nav__listItem {
+  font-size: 1.4rem;
+}
+
+.nav__listItem:not(:last-child) {
+  margin-right: 5em;
+}
+
+.nav__link {
+  text-decoration: none;
+  color: #483d3f;
+}
+/*# sourceMappingURL=index.css.map */
