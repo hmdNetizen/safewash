@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import logo from "../../assets/logo.png";
 
 const tabs = [
@@ -9,13 +9,23 @@ const tabs = [
 ];
 
 const Navigation = () => {
+  const [menuOpen, setMenuOpen] = useState(false);
   return (
     <div className="navigation">
       <a href="#!">
         <img src={logo} alt="Brand Logo" className="navigation__logo" />
       </a>
-      <div className="navigation__menu">
-        <span className="navigation__menuIcon" />
+      <div
+        className="navigation__menu"
+        onClick={() => setMenuOpen((prev) => !prev)}
+      >
+        <span
+          className={`navigation__menuIcon ${
+            !menuOpen
+              ? "navigation__menuIcon--open"
+              : "navigation__menuIcon--close"
+          }`}
+        />
       </div>
       <nav className="navigation__nav">
         <ul className="navigation__list">

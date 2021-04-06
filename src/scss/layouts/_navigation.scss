@@ -52,18 +52,37 @@
     &::after {
       content: "";
       position: absolute;
+      transition: all 0.2s;
     }
 
-    &::before {
-      top: -0.8em;
-      right: 0;
-      width: 2.25em;
+    &--open {
+      &::before {
+        top: -0.8em;
+        right: 0;
+        width: 2.25em;
+      }
+
+      &::after {
+        top: 0.8em;
+        right: 0;
+        width: 1.5em;
+      }
     }
 
-    &::after {
-      top: 0.8em;
-      right: 0;
-      width: 1.5em;
+    &--close {
+      background: transparent;
+
+      &::before {
+        width: 100%;
+        transform: rotate(-135deg);
+        top: 0;
+      }
+
+      &::after {
+        width: 100%;
+        transform: rotate(135deg);
+        top: 0;
+      }
     }
   }
 

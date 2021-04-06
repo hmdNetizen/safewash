@@ -99,18 +99,38 @@ body {
 .navigation__menuIcon::before, .navigation__menuIcon::after {
   content: "";
   position: absolute;
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
 }
 
-.navigation__menuIcon::before {
+.navigation__menuIcon--open::before {
   top: -0.8em;
   right: 0;
   width: 2.25em;
 }
 
-.navigation__menuIcon::after {
+.navigation__menuIcon--open::after {
   top: 0.8em;
   right: 0;
   width: 1.5em;
+}
+
+.navigation__menuIcon--close {
+  background: transparent;
+}
+
+.navigation__menuIcon--close::before {
+  width: 100%;
+  -webkit-transform: rotate(-135deg);
+          transform: rotate(-135deg);
+  top: 0;
+}
+
+.navigation__menuIcon--close::after {
+  width: 100%;
+  -webkit-transform: rotate(135deg);
+          transform: rotate(135deg);
+  top: 0;
 }
 
 .navigation__list {
