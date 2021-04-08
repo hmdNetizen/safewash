@@ -5,12 +5,14 @@ import { createMuiTheme } from "@material-ui/core/styles";
 const dark = "#483d3f";
 const pink = "#FE96C6";
 const green = "#6EB245";
+const blue = "#21A4C4";
 
 const theme = createMuiTheme({
   palette: {
     common: {
-      dark: dark,
-      pink: pink,
+      dark,
+      pink,
+      blue,
     },
     primary: {
       main: pink,
@@ -20,15 +22,24 @@ const theme = createMuiTheme({
     },
   },
   typography: {
-    fontFamily: "Open Sans, sans-serif",
+    fontFamily: ['"Open Sans"', "sans-serif", "Cocon"].join(", "),
     fontSize: 10,
     htmlFontSize: 10,
+
     h1: {
       fontSize: "3rem",
+      fontFamily: '"Cocon", Open Sans',
       margin: 0,
     },
     body1: {
       fontSize: "1rem",
+    },
+    square: {
+      borderRadius: 5,
+      border: `1px solid ${blue}`,
+      transform: "rotate(106deg)",
+      position: "absolute",
+      filter: "blur(2px)",
     },
   },
   overrides: {
@@ -41,6 +52,11 @@ const theme = createMuiTheme({
       gutters: {
         paddingLeft: 0,
         paddingRight: 0,
+      },
+    },
+    MuiButton: {
+      root: {
+        borderRadius: "none",
       },
     },
   },

@@ -13,7 +13,7 @@ const useStyles = makeStyles((theme) => ({
   appBar: {
     background: "transparent",
     boxShadow: "none",
-    padding: "0 0 0 7em",
+    padding: "0 0 0 8em",
 
     [theme.breakpoints.down("md")]: {
       padding: 0,
