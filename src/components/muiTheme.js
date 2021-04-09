@@ -29,7 +29,10 @@ const theme = createMuiTheme({
     h1: {
       fontSize: "3rem",
       fontFamily: '"Cocon", Open Sans',
+      fontWeight: 700,
       margin: 0,
+      color: pink,
+      lineHeight: 1.5,
     },
     body1: {
       fontSize: "1rem",
@@ -40,6 +43,37 @@ const theme = createMuiTheme({
       transform: "rotate(106deg)",
       position: "absolute",
       filter: "blur(2px)",
+    },
+    squareSm: {
+      width: 21,
+      height: 21,
+    },
+    squareBg: {
+      width: 51,
+      height: 51,
+    },
+    btn: {
+      background: green,
+      borderRadius: 10,
+      borderBottomLeftRadius: 0,
+      color: "#fff",
+      textTransform: "none",
+      fontFamily: "Gilroy-Thin",
+      fontWeight: 700,
+      padding: ".75em 2em",
+    },
+    circle: {
+      width: 53,
+      height: 53,
+      borderRadius: "50%",
+      border: `1px solid ${pink}`,
+      filter: "blur(2px)",
+      position: "absolute",
+    },
+    planetShape: {
+      borderRadius: "50%",
+      background: "rgba(255, 255, 255, .8)",
+      position: "relative",
     },
   },
   overrides: {

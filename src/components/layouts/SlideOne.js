@@ -22,12 +22,7 @@ const useStyles = makeStyles((theme) => ({
     marginTop: "12em",
   },
   circle: {
-    width: 53,
-    height: 53,
-    borderRadius: "50%",
-    border: `1px solid ${theme.palette.common.pink}`,
-    filter: "blur(2px)",
-    position: "absolute",
+    ...theme.typography.circle,
     top: 73,
     left: 90,
   },
@@ -36,10 +31,6 @@ const useStyles = makeStyles((theme) => ({
   },
   secondaryHeadingWrapper: {
     marginBottom: "2em",
-  },
-  primaryHeading: {
-    color: theme.palette.primary.main,
-    lineHeight: 1.5,
   },
   secondaryHeading: {
     fontSize: "2.5rem",
@@ -50,8 +41,7 @@ const useStyles = makeStyles((theme) => ({
   },
   squareSm: {
     ...theme.typography.square,
-    width: 21,
-    height: 21,
+    ...theme.typography.squareSm,
     top: "19.8em",
     left: "41em",
   },
@@ -65,24 +55,16 @@ const useStyles = makeStyles((theme) => ({
   },
   squareBg: {
     ...theme.typography.square,
-    width: 51,
-    height: 51,
+    ...theme.typography.squareBg,
     top: "22.5em",
     left: "5em",
   },
   squareBgOne: {
     top: "1em",
+    left: "5em",
   },
   btn: {
-    background: theme.palette.secondary.main,
-    borderRadius: 10,
-    borderBottomLeftRadius: 0,
-    color: "#fff",
-    textTransform: "none",
-    fontFamily: "Gilroy-Thin",
-    fontWeight: 700,
-    padding: ".75em 2em",
-
+    ...theme.typography.btn,
     "&:hover": {
       background: theme.palette.secondary.light,
     },
@@ -96,7 +78,7 @@ const useStyles = makeStyles((theme) => ({
     position: "absolute",
     bottom: "-3em",
     transform: "scale(1.2)",
-    filter: "drop-shadow(0px 4px 30px #FE96C6)",
+    filter: `drop-shadow(0px 4px 30px ${theme.palette.primary.main})`,
   },
 }));
 
@@ -107,8 +89,8 @@ const SlideOne = () => {
       <Grid item className={classes.leftGridWrapper}>
         <Grid container direction="column" className={classes.contentWrapper}>
           <div className={classes.circle} />
-          <Grid item className={classes.primaryHeadingWrapper}>
-            <Typography variant="h1" className={classes.primaryHeading}>
+          <Grid item>
+            <Typography variant="h1">
               A liquid laundary detergent <br /> specifically formulated for
             </Typography>
           </Grid>
@@ -121,7 +103,7 @@ const SlideOne = () => {
           </Grid>
           <Grid item>
             <Button variant="contained" classes={{ root: classes.btn }}>
-              Find Distributors around you?
+              Find Distributors Around You?
             </Button>
           </Grid>
           <div className={`${classes.squareSm} ${classes.squareSmOne}`} />
