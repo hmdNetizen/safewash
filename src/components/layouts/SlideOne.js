@@ -17,7 +17,7 @@ const useStyles = makeStyles((theme) => ({
   leftGridWrapper: {
     position: "relative",
   },
-  contentWrapper: {
+  textContentWrapper: {
     marginLeft: "10em",
     marginTop: "12em",
   },
@@ -87,7 +87,11 @@ const SlideOne = () => {
   return (
     <Grid container className={classes.parentGrid}>
       <Grid item className={classes.leftGridWrapper}>
-        <Grid container direction="column" className={classes.contentWrapper}>
+        <Grid
+          container
+          direction="column"
+          className={classes.textContentWrapper}
+        >
           <div className={classes.circle} />
           <Grid item>
             <Typography variant="h1">

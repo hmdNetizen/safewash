@@ -2,13 +2,15 @@ import React from "react";
 import Grid from "@material-ui/core/Grid";
 import SlideOne from "./SlideOne";
 import SlideTwo from "./SlideTwo";
+import SlideThree from "./SlideThree";
 
 const Home = () => {
   return (
     <Grid container direction="column">
       <section>
         {/* <SlideOne /> */}
-        <SlideTwo />
+        {/* <SlideTwo /> */}
+        <SlideThree />
       </section>
     </Grid>
   );
