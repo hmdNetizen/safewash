@@ -145,7 +145,7 @@ const useStyles = makeStyles((theme) => ({
       transform: "translate(-45%, -50%)",
     },
   },
-  babyImg: {
+  slideImg: {
     position: "absolute",
     left: "5em",
   },
@@ -198,7 +198,7 @@ const SlideTwo = () => {
             <div className={classes.planetShapeSm} />
             <div className={classes.planetShape} />
             <img
-              className={classes.babyImg}
+              className={classes.slideImg}
               src={safeWashBaby2}
               alt="Cute baby places hand on the safewash liquid detergent gallon"
             />

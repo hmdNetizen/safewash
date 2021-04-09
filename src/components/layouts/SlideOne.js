@@ -6,7 +6,6 @@ import safeWashBaby1 from "../../assets/safewash-baby-1.png";
 const useStyles = makeStyles((theme) => ({
   parentGrid: {
     overflow: "hidden",
-    background: "rgba(254,150,198, .3)",
     paddingBottom: "5em",
     background:
       "linear-gradient(163deg, rgba(33,164,196,0.23012955182072825) 0%, rgba(255,255,255,0.3561799719887955) 16%, rgba(255,255,255,0.21332282913165268) 59%, rgba(254,150,198,0.3225665266106442) 88%, rgba(255,255,255,1) 100%)",
@@ -33,7 +32,7 @@ const useStyles = makeStyles((theme) => ({
     marginBottom: "2em",
   },
   secondaryHeading: {
-    fontSize: "2.5rem",
+    fontSize: "3rem",
     lineHeight: 1.6,
     fontWeight: 700,
     color: "#fff",
@@ -73,7 +72,7 @@ const useStyles = makeStyles((theme) => ({
       background: theme.palette.secondary.dark,
     },
   },
-  backgroundImg: {
+  slideImg: {
     maxWidth: "40em",
     position: "absolute",
     bottom: "-3em",
@@ -119,7 +118,7 @@ const SlideOne = () => {
         <img
           src={safeWashBaby1}
           alt="A cute baby sitting down"
-          className={classes.backgroundImg}
+          className={classes.slideImg}
         />
       </Grid>
     </Grid>

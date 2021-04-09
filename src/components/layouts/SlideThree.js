@@ -37,7 +37,7 @@ const useStyles = makeStyles((theme) => ({
       background: theme.palette.secondary.dark,
     },
   },
-  babyImg: {
+  slideImg: {
     maxWidth: "22em",
     position: "absolute",
     top: "-14em",
@@ -45,7 +45,7 @@ const useStyles = makeStyles((theme) => ({
     transform: "scale(1.2)",
     filter: `drop-shadow(0px 4px 30px ${theme.palette.primary.main})`,
   },
-  circleBackground: {
+  ringCircleBackground: {
     position: "absolute",
     maxWidth: "32em",
     top: "-12em",
@@ -160,12 +160,12 @@ const SlideThree = () => {
         <img
           src={ringWire}
           alt="A blurry blue ring wire circling around the baby"
-          className={classes.circleBackground}
+          className={classes.ringCircleBackground}
         />
         <img
           src={safeWashBaby3}
           alt="A cute baby sitting down"
-          className={classes.babyImg}
+          className={classes.slideImg}
         />
         <div className={classes.circle} />
         <div className={`${classes.squareSm}`} />

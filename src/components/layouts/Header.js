@@ -1,9 +1,9 @@
-import { useState, Fragment } from "react";
+import { Fragment } from "react";
 import logo from "../../assets/logo.png";
 import AppBar from "@material-ui/core/AppBar";
 import Button from "@material-ui/core/Button";
 import { Toolbar } from "@material-ui/core";
-import { makeStyles, useTheme } from "@material-ui/core/styles";
+import { makeStyles } from "@material-ui/core/styles";
 import Navigation from "./Navigation";
 import HideOnScroll from "../utils/HideOnScroll";
 import useScrollTrigger from "@material-ui/core/useScrollTrigger";
@@ -29,7 +29,7 @@ const useStyles = makeStyles((theme) => ({
 
 const Header = (props) => {
   const classes = useStyles();
-  const theme = useTheme();
+  // const theme = useTheme();
   const trigger = useScrollTrigger();
 
   return (
