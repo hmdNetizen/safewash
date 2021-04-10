@@ -7,8 +7,9 @@ import safeWashBaby1 from "../../assets/safewash-baby-1.png";
 const useStyles = makeStyles((theme) => ({
   parentGrid: {
     overflow: "hidden",
-    paddingBottom: "10em",
-    paddingTop: "5em",
+    // paddingBottom: "10em",
+    // paddingTop: "5em",
+    height: "45em",
     background:
       "linear-gradient(163deg, rgba(33,164,196,0.23012955182072825) 0%, rgba(255,255,255,0.3561799719887955) 16%, rgba(255,255,255,0.21332282913165268) 59%, rgba(254,150,198,0.3225665266106442) 88%, rgba(255,255,255,1) 100%)",
     zIndex: -2,
@@ -126,13 +127,15 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   squareSmOne: {
+    ...theme.typography.square,
+    ...theme.typography.squareSm,
     top: "36em",
     left: "34em",
 
     [theme.breakpoints.down("md")]: {
       top: "20%",
       left: "50%",
-      transform: "translateX(-50%)",
+      transform: "translateX(-50%) rotate(106deg)",
     },
 
     [theme.breakpoints.down("sm")]: {
@@ -141,6 +144,8 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   squareTwo: {
+    ...theme.typography.square,
+    ...theme.typography.squareSm,
     top: "37em",
     left: "45em",
 
@@ -264,7 +269,13 @@ const SlideOne = () => {
             <Typography
               variant="h1"
               className={classes.primaryHeading}
-              style={{ fontSize: !matchesXXXS ? "2rem" : "1.65rem" }}
+              style={{
+                fontSize: matchesXXXS
+                  ? "1.5rem"
+                  : matchesXXS
+                  ? "1.85rem"
+                  : undefined,
+              }}
             >
               A liquid laundry {matchesXXS && <br />} detergent{" "}
               {!matchesXXS && <br />} specifically {matchesXXS && <br />}{" "}
@@ -276,7 +287,13 @@ const SlideOne = () => {
             <Typography
               variant="h2"
               className={classes.secondaryHeading}
-              style={{ fontSize: !matchesXXXS ? "2rem" : "1.5rem" }}
+              style={{
+                fontSize: matchesXXXS
+                  ? "1.5rem"
+                  : matchesXXS
+                  ? "1.85rem"
+                  : undefined,
+              }}
             >
               Babies and Children <br /> Clothing
             </Typography>
@@ -306,8 +323,8 @@ const SlideOne = () => {
               Find Distributors Around You?
             </Button>
           </Grid>
-          <div className={`${classes.squareSm} ${classes.squareSmOne}`} />
-          <div className={`${classes.squareSm} ${classes.squareTwo}`} />
+          <div className={`${classes.squareSmOne}`} />
+          <div className={`${classes.squareTwo}`} />
         </Grid>
       </Grid>
       <Grid item>

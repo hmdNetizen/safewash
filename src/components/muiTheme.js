@@ -41,7 +41,7 @@ const theme = createMuiTheme({
       transform: "rotate(106deg)",
       position: "absolute",
       filter: "blur(1.5px)",
-      zIndex: -2,
+      zIndex: 1,
     },
     squareSm: {
       width: 21,
