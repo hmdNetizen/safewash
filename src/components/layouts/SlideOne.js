@@ -255,7 +255,7 @@ const SlideOne = () => {
           <div className={classes.circle} />
           <Grid item>
             <Typography variant="h1" className={classes.primaryHeading}>
-              A liquid laundary {matchesXXS && <br />} detergent{" "}
+              A liquid laundry {matchesXXS && <br />} detergent{" "}
               {!matchesXXS && <br />} specifically {matchesXXS && <br />}{" "}
               formulated for
             </Typography>
