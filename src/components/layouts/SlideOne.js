@@ -2,7 +2,7 @@ import Typography from "@material-ui/core/Typography";
 import Grid from "@material-ui/core/Grid";
 import Button from "@material-ui/core/Button";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
-import { makeStyles /*useTheme */ } from "@material-ui/core/styles";
+import { makeStyles, useTheme } from "@material-ui/core/styles";
 import safeWashBaby1 from "../../assets/safewash-baby-1.png";
 const useStyles = makeStyles((theme) => ({
   parentGrid: {
@@ -107,8 +107,8 @@ const useStyles = makeStyles((theme) => ({
   squareSm: {
     ...theme.typography.square,
     ...theme.typography.squareSm,
-    top: "19.5em",
-    left: "41em",
+    top: "16.5em",
+    left: "30em",
 
     [theme.breakpoints.down("md")]: {
       left: "25em",
@@ -121,7 +121,7 @@ const useStyles = makeStyles((theme) => ({
     },
 
     [theme.breakpoints.down("xs")]: {
-      left: "20em",
+      left: "25em",
       top: "30em",
     },
   },
@@ -152,6 +152,9 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.down("sm")]: {
       left: "35em",
       top: "30em",
+    },
+    [theme.breakpoints.down("xs")]: {
+      display: "none",
     },
   },
   squareBg: {
@@ -201,9 +204,10 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   slideImg: {
-    maxWidth: "55em",
+    maxWidth: "45em",
     position: "absolute",
     bottom: 0,
+    right: 0,
     transform: "scale(1.2)",
     filter: `drop-shadow(0px 4px 30px ${theme.palette.primary.main})`,
 
@@ -232,11 +236,13 @@ const useStyles = makeStyles((theme) => ({
 
 const SlideOne = () => {
   const classes = useStyles();
-  // const theme = useTheme();
+  const theme = useTheme();
 
   // MEDIA QUERIES FOR DIFFERENT BREAKPOINTS
+  const matchesMD = useMediaQuery(theme.breakpoints.down("md"));
+  const matchesSM = useMediaQuery(theme.breakpoints.down("sm"));
   const matchesSMX = useMediaQuery("(max-width: 760px)");
-  // const matchesXS = useMediaQuery(theme.breakpoints.down("xs"));
+  const matchesXS = useMediaQuery(theme.breakpoints.down("xs"));
   const matchesXXS = useMediaQuery("(max-width: 450px)");
   const matchesXXXS = useMediaQuery("(max-width: 340px)");
 
@@ -258,7 +264,7 @@ const SlideOne = () => {
             <Typography
               variant="h1"
               className={classes.primaryHeading}
-              style={{ fontSize: !matchesXXXS ? "2rem" : "1.75rem" }}
+              style={{ fontSize: !matchesXXXS ? "2rem" : "1.65rem" }}
             >
               A liquid laundry {matchesXXS && <br />} detergent{" "}
               {!matchesXXS && <br />} specifically {matchesXXS && <br />}{" "}
@@ -270,11 +276,26 @@ const SlideOne = () => {
             <Typography
               variant="h2"
               className={classes.secondaryHeading}
-              style={{ fontSize: !matchesXXXS ? "2rem" : "1.75rem" }}
+              style={{ fontSize: !matchesXXXS ? "2rem" : "1.5rem" }}
             >
               Babies and Children <br /> Clothing
             </Typography>
-            <div className={classes.squareBg} />
+            <div
+              className={classes.squareBg}
+              style={{
+                top: matchesXXXS
+                  ? "26em"
+                  : matchesXXS
+                  ? "30em"
+                  : matchesXS
+                  ? "25em"
+                  : matchesSM
+                  ? "29em"
+                  : matchesMD
+                  ? "23em"
+                  : "20em",
+              }}
+            />
           </Grid>
           <Grid item>
             <Button
