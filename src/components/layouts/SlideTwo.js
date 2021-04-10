@@ -56,6 +56,14 @@ const useStyles = makeStyles((theme) => ({
       right: "17em",
       top: "22.5em",
     },
+
+    [theme.breakpoints.down("sm")]: {
+      right: "14.5em",
+    },
+
+    [theme.breakpoints.down("xs")]: {
+      visibility: "hidden",
+    },
   },
   squareSmOne: {
     ...theme.typography.square,
@@ -68,8 +76,12 @@ const useStyles = makeStyles((theme) => ({
       top: "20em",
     },
 
+    [theme.breakpoints.down("sm")]: {
+      right: "29em",
+    },
+
     [theme.breakpoints.down("xs")]: {
-      left: "5%",
+      left: "0",
       top: "10em",
     },
   },
@@ -113,8 +125,8 @@ const useStyles = makeStyles((theme) => ({
 
     [theme.breakpoints.down("xs")]: {
       visibility: "visible",
-      left: "7em",
-      top: "8em",
+      left: "10%",
+      top: "7em",
     },
   },
   planetShapeSmOne: {
@@ -122,12 +134,16 @@ const useStyles = makeStyles((theme) => ({
     left: "43em",
 
     [theme.breakpoints.down("xs")]: {
-      left: "4em",
+      left: "5%",
     },
   },
   planetShapeTwo: {
-    top: "11em",
     left: "55em",
+
+    [theme.breakpoints.down("xs")]: {
+      top: "-9em",
+      left: "50%",
+    },
   },
   planetShapeMd: {
     ...theme.typography.planetShape,
@@ -368,6 +384,7 @@ const SlideTwo = () => {
               className={classes.slideImg}
               src={safeWashBaby2}
               alt="Cute baby places hand on the safewash liquid detergent gallon"
+              style={{ transform: matchesXXS ? "translateX(-40%)" : undefined }}
             />
             <div className={classes.squareBg} />
             <div className={classes.planetShapeMd} />
