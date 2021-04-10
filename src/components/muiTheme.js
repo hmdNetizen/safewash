@@ -43,6 +43,7 @@ const theme = createMuiTheme({
       transform: "rotate(106deg)",
       position: "absolute",
       filter: "blur(2px)",
+      zIndex: -2,
     },
     squareSm: {
       width: 21,
@@ -63,8 +64,8 @@ const theme = createMuiTheme({
       padding: ".75em 2em",
     },
     circle: {
-      width: 53,
-      height: 53,
+      width: 50,
+      height: 50,
       borderRadius: "50%",
       border: `1px solid ${pink}`,
       filter: "blur(2px)",
