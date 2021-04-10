@@ -4,7 +4,7 @@ import muiTheme from "./components/muiTheme";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import { ThemeProvider } from "@material-ui/core/styles";
 import Home from "./components/layouts/Home";
-// import "./scss/index.css";
+import "./App.css";
 
 const App = () => {
   return (

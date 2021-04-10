@@ -1,5 +1,21 @@
 import { createMuiTheme } from "@material-ui/core/styles";
 
+// import Cocon from "../assets/fonts/Cocon-Regular.woff2";
+
+// const cocon = {
+//   fontFamily: "Cocon",
+//   fontStyle: "normal",
+//   fontDisplay: "swap",
+//   fontWeight: "600",
+//   src: `
+//    local('Cocon'),
+//    local('Cocon-Regular'),
+//    url(${Cocon}) format('woff2')
+//  `,
+//   unicodeRange:
+//     "U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF UTF-8",
+// };
+
 // The customization of my typography and colors is done in this file
 
 const dark = "#483d3f";
@@ -59,8 +75,8 @@ const theme = createMuiTheme({
       borderBottomLeftRadius: 0,
       color: "#fff",
       textTransform: "none",
-      fontFamily: "Gilroy-Thin",
-      fontWeight: 700,
+      fontFamily: "Gilroy-Bold",
+      fontWeight: 500,
       padding: ".75em 2em",
     },
     circle: {
@@ -78,6 +94,11 @@ const theme = createMuiTheme({
     },
   },
   overrides: {
+    // MuiCssBaseline: {
+    //   "@global": {
+    //     "@font-face": [cocon],
+    //   },
+    // },
     MuiListItemText: {
       primary: {
         fontSize: "1.2rem",
