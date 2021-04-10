@@ -16,6 +16,11 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.down("md")]: {
       paddingTop: "10em",
     },
+
+    [theme.breakpoints.down("xs")]: {
+      background: "none",
+      paddingTop: "5em",
+    },
   },
   textContentWrapper: {
     marginLeft: "10em",
@@ -75,7 +80,7 @@ const useStyles = makeStyles((theme) => ({
     },
     // This style is applied to all screen sizes below 600px
     [theme.breakpoints.down("xs")]: {
-      fontSize: "1.5rem",
+      fontSize: "2rem",
     },
   },
   secondaryHeading: {
@@ -91,12 +96,12 @@ const useStyles = makeStyles((theme) => ({
     },
 
     // This style is applied to all screen sizes below 960px
-    [theme.breakpoints.down("md")]: {
-      fontSize: "1.75rem",
+    [theme.breakpoints.down("sm")]: {
+      fontSize: "2rem",
     },
     // This style is applied to all screen sizes below 600px
-    [theme.breakpoints.down("md")]: {
-      fontSize: "1.5rem",
+    [theme.breakpoints.down("xs")]: {
+      fontSize: "2rem",
     },
   },
   squareSm: {
@@ -132,7 +137,7 @@ const useStyles = makeStyles((theme) => ({
 
     [theme.breakpoints.down("sm")]: {
       left: "2em",
-      top: "12em",
+      top: "7em",
     },
   },
   squareTwo: {
@@ -166,7 +171,7 @@ const useStyles = makeStyles((theme) => ({
     },
 
     [theme.breakpoints.down("xs")]: {
-      top: "30em",
+      top: "25em",
       left: "2em",
     },
   },
@@ -193,11 +198,6 @@ const useStyles = makeStyles((theme) => ({
 
     "&:active": {
       background: theme.palette.secondary.dark,
-    },
-
-    [theme.breakpoints.down("xs")]: {
-      padding: ".5em",
-      fontSize: ".9rem",
     },
   },
   slideImg: {
@@ -238,6 +238,7 @@ const SlideOne = () => {
   const matchesSMX = useMediaQuery("(max-width: 760px)");
   // const matchesXS = useMediaQuery(theme.breakpoints.down("xs"));
   const matchesXXS = useMediaQuery("(max-width: 450px)");
+  const matchesXXXS = useMediaQuery("(max-width: 340px)");
 
   return (
     <Grid
@@ -254,7 +255,11 @@ const SlideOne = () => {
         >
           <div className={classes.circle} />
           <Grid item>
-            <Typography variant="h1" className={classes.primaryHeading}>
+            <Typography
+              variant="h1"
+              className={classes.primaryHeading}
+              style={{ fontSize: !matchesXXXS ? "2rem" : "1.75rem" }}
+            >
               A liquid laundry {matchesXXS && <br />} detergent{" "}
               {!matchesXXS && <br />} specifically {matchesXXS && <br />}{" "}
               formulated for
@@ -262,13 +267,21 @@ const SlideOne = () => {
           </Grid>
           <div className={classes.squareSm} />
           <Grid item className={classes.secondaryHeadingWrapper}>
-            <Typography variant="h2" className={classes.secondaryHeading}>
+            <Typography
+              variant="h2"
+              className={classes.secondaryHeading}
+              style={{ fontSize: !matchesXXXS ? "2rem" : "1.75rem" }}
+            >
               Babies and Children <br /> Clothing
             </Typography>
             <div className={classes.squareBg} />
           </Grid>
           <Grid item>
-            <Button variant="contained" classes={{ root: classes.btn }}>
+            <Button
+              variant="contained"
+              classes={{ root: classes.btn }}
+              style={{ padding: !matchesXXS ? ".75em 2em" : ".75em" }}
+            >
               Find Distributors Around You?
             </Button>
           </Grid>
