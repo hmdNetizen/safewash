@@ -141,8 +141,8 @@ const useStyles = makeStyles((theme) => ({
     left: "55em",
 
     [theme.breakpoints.down("xs")]: {
-      top: "-9em",
-      left: "50%",
+      top: "-12em",
+      left: "60%",
     },
   },
   planetShapeMd: {

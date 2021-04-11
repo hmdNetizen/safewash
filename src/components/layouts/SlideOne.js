@@ -244,12 +244,24 @@ const SlideOne = () => {
   const theme = useTheme();
 
   // MEDIA QUERIES FOR DIFFERENT BREAKPOINTS
-  const matchesMD = useMediaQuery(theme.breakpoints.down("md"));
-  const matchesSM = useMediaQuery(theme.breakpoints.down("sm"));
-  const matchesSMX = useMediaQuery("(max-width: 760px)");
-  const matchesXS = useMediaQuery(theme.breakpoints.down("xs"));
-  const matchesXXS = useMediaQuery("(max-width: 450px)");
-  const matchesXXXS = useMediaQuery("(max-width: 340px)");
+  const matchesXXXS = useMediaQuery(
+    "(max-width: 340px)"
+  ); /* THIS APPLIES TO SCREEN SIZES EQUALS OR BELOW 340PX */
+  const matchesXXS = useMediaQuery(
+    "(max-width: 450px)"
+  ); /* THIS APPLIES TO SCREEN SIZES EQUALS OR BELOW 450PX */
+  const matchesXS = useMediaQuery(
+    theme.breakpoints.down("xs")
+  ); /* THIS APPLIES TO SCREEN SIZES EQUALS OR BELOW 600PX */
+  const matchesSMX = useMediaQuery(
+    "(max-width: 760px)"
+  ); /* THIS APPLIES TO SCREEN SIZES EQUALS OR BELOW 760PX */
+  const matchesSM = useMediaQuery(
+    theme.breakpoints.down("sm")
+  ); /* THIS APPLIES TO SCREEN SIZES EQUALS OR BELOW 960PX */
+  const matchesMD = useMediaQuery(
+    theme.breakpoints.down("md")
+  ); /* THIS APPLIES TO SCREEN SIZES EQUALS OR BELOW 1280PX */
 
   return (
     <Grid

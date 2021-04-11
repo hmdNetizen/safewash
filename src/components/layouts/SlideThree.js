@@ -1,32 +1,77 @@
 import Typography from "@material-ui/core/Typography";
 import Grid from "@material-ui/core/Grid";
 import Button from "@material-ui/core/Button";
-import { makeStyles } from "@material-ui/core/styles";
+import useMediaQuery from "@material-ui/core/useMediaQuery";
+import { makeStyles, useTheme } from "@material-ui/core/styles";
 import safeWashBaby3 from "../../assets/safewash-baby-3.png";
 import ringWire from "../../assets/Vector 22.png";
 
 const useStyles = makeStyles((theme) => ({
   parentGrid: {
-    height: "100vh",
+    height: "45em",
     textTranform: "capitalize",
     background:
       "linear-gradient(180deg, #FFFFFF 0%, rgba(255, 255, 255, 0) 100%), linear-gradient(180deg, #FFFFFF 0%, rgba(255, 255, 255, 0) 100%), linear-gradient(146.99deg, rgba(255, 255, 255, 0.5) 4.13%, rgba(254, 150, 198, 0.5) 80.31%)",
-    overflow: "hidden",
+
+    [theme.breakpoints.down("xs")]: {
+      background: "none",
+    },
   },
   textContentWrapper: {
     marginLeft: "10em",
+
+    [theme.breakpoints.down("md")]: {
+      marginLeft: "5em",
+    },
+
+    [theme.breakpoints.down("sm")]: {
+      marginLeft: "2em",
+    },
+
+    [theme.breakpoints.down("xs")]: {
+      marginLeft: "1em",
+    },
+  },
+  primaryHeading: {
+    position: "relative",
+    zIndex: 9,
+    [theme.breakpoints.down("md")]: {
+      fontSize: "2rem",
+    },
+
+    [theme.breakpoints.down("xs")]: {
+      position: "absolute",
+      top: "7em",
+    },
+  },
+  secondaryHeadingWrapper: {
+    marginTop: "2em",
+    marginBottom: "4em",
+
+    [theme.breakpoints.down("xs")]: {
+      marginTop: 0,
+      marginBottom: 0,
+    },
   },
   secondaryHeading: {
     fontSize: "2.5rem",
     lineHeight: 1.6,
     fontWeight: 700,
+    position: "relative",
+    zIndex: 9,
     color: "#fff",
     textShadow: `-1px -1px 0 ${theme.palette.primary.main}, 1px -1px 0 ${theme.palette.primary.main}, -1px  1px 0 ${theme.palette.primary.main}, 1px  1px 0 ${theme.palette.primary.main}`,
+
+    [theme.breakpoints.down("md")]: {
+      fontSize: "2rem",
+    },
+
+    [theme.breakpoints.down("xs")]: {
+      position: "absolute",
+      top: "11em",
+    },
   },
-  secondaryHeadingWrapper: {
-    marginTop: "2em",
-    marginBottom: "4em",
-  },
+
   btn: {
     ...theme.typography.btn,
     "&:hover": {
@@ -36,54 +81,116 @@ const useStyles = makeStyles((theme) => ({
     "&:active": {
       background: theme.palette.secondary.dark,
     },
+
+    [theme.breakpoints.down("xs")]: {
+      position: "absolute",
+      zIndex: 5,
+      top: "30em",
+    },
   },
   slideImg: {
-    maxWidth: "22em",
+    maxWidth: "25em",
     position: "absolute",
-    top: "-14em",
-    left: "6em",
+    top: "6em",
+    right: "10em",
     transform: "scale(1.2)",
     filter: `drop-shadow(0px 4px 30px ${theme.palette.primary.main})`,
+
+    [theme.breakpoints.down("md")]: {
+      right: "5em",
+    },
+
+    [theme.breakpoints.down("sm")]: {
+      maxWidth: "20em",
+      top: "10em",
+      right: 0,
+    },
+    [theme.breakpoints.down("xs")]: {
+      maxWidth: "15em",
+      top: "13em",
+    },
   },
   ringCircleBackground: {
     position: "absolute",
-    maxWidth: "32em",
-    top: "-12em",
-    left: "2em",
+    maxWidth: "35em",
+    top: "7em",
+    right: "3em",
+
+    [theme.breakpoints.down("md")]: {
+      right: 0,
+    },
+
+    [theme.breakpoints.down("sm")]: {
+      maxWidth: "28em",
+      right: "-5em",
+      top: "11em",
+    },
+
+    [theme.breakpoints.down("xs")]: {
+      maxWidth: "25em",
+    },
   },
   squareSm: {
     ...theme.typography.square,
     ...theme.typography.squareSm,
-    top: "15em",
-    left: "-15em",
+    top: "12em",
+    right: "5em",
+
+    [theme.breakpoints.down("sm")]: {
+      right: "2em",
+    },
+
+    [theme.breakpoints.down("xs")]: {
+      visibility: "hidden",
+    },
   },
   squareSmOne: {
     ...theme.typography.square,
     ...theme.typography.squareSm,
-    left: "40em",
+    left: "50%",
+    transform: "translateX(-50%) rotate(106deg)",
     top: "20em",
+
+    [theme.breakpoints.down("xs")]: {
+      visibility: "hidden",
+    },
   },
   squareBgOne: {
     ...theme.typography.square,
     ...theme.typography.squareBg,
-    top: "-20.5em",
-    left: "10em",
+    top: "1em",
+    right: "27em",
+    filter: "blur(2px)",
+
+    [theme.breakpoints.down("md")]: {
+      visibility: "hidden",
+    },
   },
   circle: {
     ...theme.typography.circle,
-    left: "-10em",
-    top: "7em",
+    left: "50%",
+    top: "27em",
+    transform: "translateX(-50%)",
+
+    [theme.breakpoints.down("xs")]: {
+      visibility: "hidden",
+    },
   },
   circleOne: {
     ...theme.typography.circle,
-    left: "40em",
-    top: "18em",
+    right: "3em",
+    top: "90%",
+    transform: "translateY(-45%)",
+
+    [theme.breakpoints.down("xs")]: {
+      visibility: "hidden",
+    },
   },
   planetShapeSm: {
     width: 30,
     height: 30,
-    top: "15em",
-    left: "10em",
+    top: "17em",
+    right: "-35em",
     ...theme.typography.planetShape,
 
     "&::after": {
@@ -98,14 +205,18 @@ const useStyles = makeStyles((theme) => ({
       left: "50%",
       top: "50%",
       transform: "translate(-60%, -60%)",
+    },
+
+    [theme.breakpoints.down("xs")]: {
+      visibility: "hidden",
     },
   },
   planetShapeSmOne: {
     ...theme.typography.planetShape,
     width: 30,
     height: 30,
-    top: "12em",
-    left: 0,
+    top: "15em",
+    right: "-15em",
 
     "&::after": {
       content: '""',
@@ -120,10 +231,18 @@ const useStyles = makeStyles((theme) => ({
       top: "50%",
       transform: "translate(-60%, -60%)",
     },
+
+    [theme.breakpoints.down("xs")]: {
+      visibility: "hidden",
+    },
   },
 }));
 const SlideThree = () => {
   const classes = useStyles();
+  const theme = useTheme();
+  const matchesXXXS = useMediaQuery("(max-width: 340px)");
+  const matchesXXS = useMediaQuery("(max-width: 450px)");
+  const matchesXS = useMediaQuery(theme.breakpoints.down("xs"));
   return (
     <Grid container className={classes.parentGrid} alignItems="center">
       <Grid item>
@@ -133,29 +252,51 @@ const SlideThree = () => {
           className={classes.textContentWrapper}
         >
           <Grid item>
-            <Typography variant="h1">
-              Keeps your baby smiling <br /> all day
+            <Typography
+              variant="h1"
+              className={classes.primaryHeading}
+              style={{
+                fontSize: matchesXXXS
+                  ? "1.5rem"
+                  : matchesXXS
+                  ? "1.85rem"
+                  : undefined,
+                top: matchesXXXS ? "10em" : undefined,
+              }}
+            >
+              Keeps your baby {matchesXS && <br />} smiling{" "}
+              {!matchesXS && <br />} all day
             </Typography>
             <div className={classes.squareSmOne} />
           </Grid>
           <Grid item className={classes.secondaryHeadingWrapper}>
-            <Typography variant="h2" className={classes.secondaryHeading}>
+            <Typography
+              variant="h2"
+              className={classes.secondaryHeading}
+              style={{
+                fontSize: matchesXXXS
+                  ? "1.5rem"
+                  : matchesXXS
+                  ? "1.85rem"
+                  : undefined,
+                top: matchesXXXS ? "14em" : undefined,
+              }}
+            >
               Zero Skin Irritations
             </Typography>
           </Grid>
           <Grid item>
-            <Button variant="contained" classes={{ root: classes.btn }}>
+            <Button
+              variant="contained"
+              classes={{ root: classes.btn }}
+              style={{ padding: !matchesXXXS ? ".75em 2em" : ".75em" }}
+            >
               Become A Distributor
             </Button>
           </Grid>
         </Grid>
       </Grid>
-      <Grid
-        item
-        style={{
-          position: "relative",
-        }}
-      >
+      <Grid item>
         <div className={`${classes.squareBgOne}`} />
         <img
           src={ringWire}
