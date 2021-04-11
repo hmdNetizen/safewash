@@ -41,7 +41,7 @@ const useStyles = makeStyles((theme) => ({
 
     [theme.breakpoints.down("xs")]: {
       position: "absolute",
-      top: "7em",
+      top: "5em",
     },
   },
   secondaryHeadingWrapper: {
@@ -68,7 +68,7 @@ const useStyles = makeStyles((theme) => ({
 
     [theme.breakpoints.down("xs")]: {
       position: "absolute",
-      top: "11em",
+      top: "9em",
     },
   },
 
@@ -85,7 +85,7 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.down("xs")]: {
       position: "absolute",
       zIndex: 5,
-      top: "30em",
+      top: "23em",
     },
   },
   slideImg: {
@@ -107,7 +107,7 @@ const useStyles = makeStyles((theme) => ({
     },
     [theme.breakpoints.down("xs")]: {
       maxWidth: "15em",
-      top: "13em",
+      top: "8em",
     },
   },
   ringCircleBackground: {
@@ -128,6 +128,7 @@ const useStyles = makeStyles((theme) => ({
 
     [theme.breakpoints.down("xs")]: {
       maxWidth: "25em",
+      top: "6em",
     },
   },
   squareSm: {
@@ -261,7 +262,7 @@ const SlideThree = () => {
                   : matchesXXS
                   ? "1.85rem"
                   : undefined,
-                top: matchesXXXS ? "10em" : undefined,
+                top: matchesXXXS ? "5em" : undefined,
               }}
             >
               Keeps your baby {matchesXS && <br />} smiling{" "}
@@ -279,7 +280,7 @@ const SlideThree = () => {
                   : matchesXXS
                   ? "1.85rem"
                   : undefined,
-                top: matchesXXXS ? "14em" : undefined,
+                top: matchesXXXS ? "10em" : undefined,
               }}
             >
               Zero Skin Irritations
@@ -289,7 +290,10 @@ const SlideThree = () => {
             <Button
               variant="contained"
               classes={{ root: classes.btn }}
-              style={{ padding: !matchesXXXS ? ".75em 2em" : ".75em" }}
+              style={{
+                padding: !matchesXXXS ? ".75em 2em" : ".75em",
+                top: matchesXXXS ? "22em" : undefined,
+              }}
             >
               Become A Distributor
             </Button>
