@@ -1,27 +1,44 @@
 import Typography from "@material-ui/core/Typography";
 import Grid from "@material-ui/core/Grid";
 import Button from "@material-ui/core/Button";
-import { makeStyles } from "@material-ui/core/styles";
+import useMediaQuery from "@material-ui/core/useMediaQuery";
+import { makeStyles, useTheme } from "@material-ui/core/styles";
 import safeWashLady from "../../assets/safewash-lady-1.png";
 
 const useStyles = makeStyles((theme) => ({
   parentGrid: {
-    height: "100vh",
+    height: "45em",
     textTranform: "capitalize",
     position: "relative",
     zIndex: -3,
     background:
       "linear-gradient(163deg, rgba(33,164,196,0.23012955182072825) 1%, rgba(255,255,255,0.3561799719887955) 29%, rgba(255,255,255,0.06766456582633051) 51%, rgba(254,150,198,0.25253851540616246) 69%, rgba(255,216,234,0.5326505602240896) 89%, rgba(255,255,255,0.44861694677871145) 100%)",
     overflow: "hidden",
+
+    [theme.breakpoints.down("xs")]: {
+      background:
+        "linear-gradient(163deg, rgba(33,164,196,0.23012955182072825) 1%, rgba(255,255,255,0.3561799719887955) 29%, rgba(255,255,255,0.65) 51%, rgba(255,255,255,0.65) 69%, rgba(255,255,255,0.65) 89%, rgba(255,255,255,0.65) 100%)",
+    },
   },
   textContentWrapper: {
     marginLeft: "10em",
+
+    [theme.breakpoints.down("md")]: {
+      marginLeft: "5em",
+    },
+    [theme.breakpoints.down("sm")]: {
+      marginLeft: "2em",
+    },
+
+    [theme.breakpoints.down("xs")]: {
+      marginLeft: "1em",
+    },
   },
   planetShapeXL: {
     ...theme.typography.planetShape,
     width: 90,
     height: 90,
-    top: "-5em",
+    top: "-2em",
     left: "-7em",
     "&::after": {
       content: '""',
@@ -36,6 +53,26 @@ const useStyles = makeStyles((theme) => ({
       top: "50%",
       transform: "translate(-60%, -50%)",
     },
+
+    [theme.breakpoints.down("sm")]: {
+      left: "3em",
+      top: "-3em",
+    },
+
+    [theme.breakpoints.down("xs")]: {
+      top: "-10em",
+      left: "1em",
+    },
+  },
+  primaryHeading: {
+    [theme.breakpoints.down("md")]: {
+      fontSize: "2rem",
+
+      [theme.breakpoints.down("xs")]: {
+        position: "absolute",
+        top: "8em",
+      },
+    },
   },
   secondaryHeadingWrapper: {
     marginBottom: "5em",
@@ -47,47 +84,71 @@ const useStyles = makeStyles((theme) => ({
     fontWeight: 700,
     color: "#fff",
     textShadow: `-1px -1px 0 ${theme.palette.primary.main}, 1px -1px 0 ${theme.palette.primary.main}, -1px  1px 0 ${theme.palette.primary.main}, 1px  1px 0 ${theme.palette.primary.main}`,
+
+    [theme.breakpoints.down("md")]: {
+      fontSize: "2rem",
+    },
+
+    [theme.breakpoints.down("xs")]: {
+      position: "absolute",
+      top: "12em",
+      zIndex: 9,
+    },
   },
   circleSm: {
     ...theme.typography.circle,
-    top: "26em",
+    top: "25em",
     width: 30,
     height: 30,
-    filter: "blur(1px)",
     zIndex: -1,
     left: "9em",
   },
   circleSmOne: {
-    left: "79em",
+    left: "89%",
     zIndex: -3,
   },
   circleMd: {
     ...theme.typography.circle,
     width: 45,
     height: 45,
-    filter: "blur(1px)",
-    left: "42em",
+    left: "54%",
     top: "32em",
+
+    [theme.breakpoints.down("xs")]: {
+      top: "8em",
+      left: "50%",
+      transform: "translateX(-50%)",
+      width: 60,
+      height: 60,
+    },
   },
   circleMdOne: {
-    left: "90em",
+    left: "95%",
     top: "40em",
     width: 60,
     height: 60,
+
+    [theme.breakpoints.down("xs")]: {
+      visibility: "hidden",
+    },
   },
   squareBg: {
     ...theme.typography.square,
     ...theme.typography.squareBg,
     top: "10em",
-    left: "52em",
-    zIndex: -3,
+    left: "62%",
+    zIndex: 1,
+
+    [theme.breakpoints.down("xs")]: {
+      top: "75%",
+      left: "10%",
+    },
   },
   squareSm: {
     ...theme.typography.square,
     ...theme.typography.squareSm,
     top: "10em",
-    left: "85em",
-    filter: "blur(1px)",
+    right: "10%",
   },
   btn: {
     ...theme.typography.btn,
@@ -98,19 +159,43 @@ const useStyles = makeStyles((theme) => ({
     "&:active": {
       background: theme.palette.secondary.dark,
     },
+
+    [theme.breakpoints.down("xs")]: {
+      position: "absolute",
+      top: "32em",
+      zIndex: 9,
+    },
   },
   slideImg: {
     maxWidth: "60em",
     position: "absolute",
-    transform: "scale(1.5)",
+    transform: "scale(1.4)",
     bottom: "5em",
-    right: "23em",
+    right: "15%",
     zIndex: -2,
+
+    [theme.breakpoints.down("md")]: {
+      maxWidth: "50em",
+    },
+    [theme.breakpoints.down("sm")]: {
+      maxWidth: "40em",
+    },
+
+    [theme.breakpoints.down("xs")]: {
+      top: "8em",
+      left: "50%",
+      transform: "translateX(-50%)",
+    },
   },
 }));
 
 const SlideFour = () => {
   const classes = useStyles();
+  const theme = useTheme();
+
+  const matchesXXXS = useMediaQuery("(max-width: 340px)");
+  const matchesXXS = useMediaQuery("(max-width: 450px)");
+  const matchesXS = useMediaQuery(theme.breakpoints.down("xs"));
   return (
     <Grid container className={classes.parentGrid} alignItems="center">
       <Grid item>
@@ -121,25 +206,60 @@ const SlideFour = () => {
         >
           <Grid item>
             <div className={classes.planetShapeXL} />
-            <Typography variant="h1" className={classes.primaryHeading}>
-              Remove 99% Food and <br /> Tough Stains
+            <Typography
+              variant="h1"
+              className={classes.primaryHeading}
+              style={{
+                fontSize: matchesXXXS
+                  ? "1.5rem"
+                  : matchesXXS
+                  ? "1.85rem"
+                  : undefined,
+                top: matchesXXXS ? "10em" : undefined,
+              }}
+            >
+              Remove 99% Food {matchesXXS && <br />} and {!matchesXXS && <br />}{" "}
+              Tough Stains
             </Typography>
           </Grid>
           <Grid item className={classes.secondaryHeadingWrapper}>
             <div className={classes.circleSm} />
-            <Typography variant="h2" className={classes.secondaryHeading}>
-              Preserve Clothing Colors
+            <Typography
+              variant="h2"
+              className={classes.secondaryHeading}
+              style={{
+                fontSize: matchesXXXS
+                  ? "1.5rem"
+                  : matchesXXS
+                  ? "1.85rem"
+                  : undefined,
+                top: matchesXXXS ? "14em" : undefined,
+              }}
+            >
+              Preserve Clothing {matchesXS && <br />} Colors
             </Typography>
           </Grid>
           <Grid item>
-            <Button variant="contained" classes={{ root: classes.btn }}>
+            <Button
+              variant="contained"
+              classes={{ root: classes.btn }}
+              style={{
+                padding: !matchesXXXS ? ".75em 2em" : ".75em",
+                top: matchesXXXS ? "28em" : undefined,
+                left: matchesXXXS ? "50%" : undefined,
+                transform: matchesXXXS ? "translateX(-50%)" : undefined,
+              }}
+            >
               Find Distributors Around You?
             </Button>
           </Grid>
         </Grid>
       </Grid>
       <Grid item>
-        <div className={classes.squareBg} />
+        <div
+          className={classes.squareBg}
+          style={{ top: matchesXXXS ? "65%" : undefined }}
+        />
         <div className={classes.squareSm} />
         <img
           src={safeWashLady}

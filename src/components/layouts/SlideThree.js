@@ -85,7 +85,7 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.down("xs")]: {
       position: "absolute",
       zIndex: 5,
-      top: "23em",
+      top: "25em",
     },
   },
   slideImg: {
