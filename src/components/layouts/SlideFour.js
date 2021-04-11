@@ -62,6 +62,8 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.down("xs")]: {
       top: "-10em",
       left: "1em",
+      width: 60,
+      height: 60,
     },
   },
   primaryHeading: {
@@ -102,10 +104,18 @@ const useStyles = makeStyles((theme) => ({
     height: 30,
     zIndex: -1,
     left: "9em",
+
+    [theme.breakpoints.down("xs")]: {
+      visibility: "hidden",
+    },
   },
   circleSmOne: {
     left: "89%",
     zIndex: -3,
+
+    [theme.breakpoints.down("xs")]: {
+      visibility: "hidden",
+    },
   },
   circleMd: {
     ...theme.typography.circle,
@@ -149,6 +159,11 @@ const useStyles = makeStyles((theme) => ({
     ...theme.typography.squareSm,
     top: "10em",
     right: "10%",
+
+    [theme.breakpoints.down("xs")]: {
+      left: "1em",
+      top: "13em",
+    },
   },
   btn: {
     ...theme.typography.btn,
