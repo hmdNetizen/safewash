@@ -20,7 +20,7 @@ const theme = createMuiTheme({
     },
   },
   typography: {
-    fontFamily: ['"Open Sans"', "sans-serif", "Cocon"].join(", "),
+    fontFamily: ['"Open Sans"', "Roboto", "sans-serif", "Cocon"].join(", "),
     fontSize: 10,
     htmlFontSize: 10,
 
@@ -32,8 +32,16 @@ const theme = createMuiTheme({
       color: pink,
       lineHeight: 1.5,
     },
+    h2: {
+      fontSize: "2.5rem",
+      fontWeight: 700,
+    },
+    h5: {
+      fontSize: "1.2rem",
+    },
     body1: {
       fontSize: "1rem",
+      lineHeight: 1.7,
     },
     square: {
       borderRadius: 5,
@@ -73,6 +81,10 @@ const theme = createMuiTheme({
       borderRadius: "50%",
       background: "rgba(255, 255, 255, .8)",
       position: "relative",
+    },
+    wire: {
+      maxWidth: "30em",
+      position: "absolute",
     },
   },
   overrides: {

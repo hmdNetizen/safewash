@@ -8,12 +8,13 @@ import safeWashLady from "../../assets/safewash-lady-1.png";
 const useStyles = makeStyles((theme) => ({
   parentGrid: {
     height: "45em",
+    width: "100%",
+    overflow: "hidden",
     textTranform: "capitalize",
     position: "relative",
     zIndex: -3,
     background:
       "linear-gradient(163deg, rgba(33,164,196,0.23012955182072825) 1%, rgba(255,255,255,0.3561799719887955) 29%, rgba(255,255,255,0.06766456582633051) 51%, rgba(254,150,198,0.25253851540616246) 69%, rgba(255,216,234,0.5326505602240896) 89%, rgba(255,255,255,0.44861694677871145) 100%)",
-    overflow: "hidden",
 
     [theme.breakpoints.down("xs")]: {
       background:
@@ -67,6 +68,8 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   primaryHeading: {
+    position: "relative",
+    zIndex: 9,
     [theme.breakpoints.down("md")]: {
       fontSize: "2rem",
 
@@ -86,6 +89,8 @@ const useStyles = makeStyles((theme) => ({
     fontWeight: 700,
     color: "#fff",
     textShadow: `-1px -1px 0 ${theme.palette.primary.main}, 1px -1px 0 ${theme.palette.primary.main}, -1px  1px 0 ${theme.palette.primary.main}, 1px  1px 0 ${theme.palette.primary.main}`,
+    position: "relative",
+    zIndex: 9,
 
     [theme.breakpoints.down("md")]: {
       fontSize: "2rem",
@@ -167,6 +172,8 @@ const useStyles = makeStyles((theme) => ({
   },
   btn: {
     ...theme.typography.btn,
+    position: "relative",
+    zIndex: 9,
     "&:hover": {
       background: theme.palette.secondary.light,
     },
@@ -178,7 +185,6 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.down("xs")]: {
       position: "absolute",
       top: "32em",
-      zIndex: 9,
     },
   },
   slideImg: {
@@ -187,7 +193,7 @@ const useStyles = makeStyles((theme) => ({
     transform: "scale(1.4)",
     bottom: "5em",
     right: "15%",
-    zIndex: -2,
+    zIndex: 1,
 
     [theme.breakpoints.down("md")]: {
       maxWidth: "50em",
@@ -259,7 +265,7 @@ const SlideFour = () => {
               variant="contained"
               classes={{ root: classes.btn }}
               style={{
-                padding: !matchesXXXS ? ".75em 2em" : ".75em",
+                padding: !matchesXXS ? ".75em 2em" : ".75em",
                 top: matchesXXXS ? "28em" : undefined,
                 left: matchesXXXS ? "50%" : undefined,
                 transform: matchesXXXS ? "translateX(-50%)" : undefined,
