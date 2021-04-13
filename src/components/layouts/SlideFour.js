@@ -8,8 +8,7 @@ import safeWashLady from "../../assets/safewash-lady-1.png";
 const useStyles = makeStyles((theme) => ({
   parentGrid: {
     height: "45em",
-    width: "100%",
-    overflow: "hidden",
+    // width: "100%",
     textTranform: "capitalize",
     position: "relative",
     zIndex: -3,

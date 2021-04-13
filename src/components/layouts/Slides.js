@@ -46,12 +46,11 @@ const Slides = () => {
     };
   }, [pause, slider]);
   return (
-    <section className="navigation-wrapper">
-      <div
-        ref={sliderRef}
-        className="keen-slider"
-        style={{ position: "relative", overflow: "hidden" }}
-      >
+    <section
+      className="navigation-wrapper"
+      style={{ position: "relative", overflow: "hidden" }}
+    >
+      <div ref={sliderRef} className="keen-slider">
         <div className="keen-slider__slide number-slide1">
           <SlideOne />
         </div>

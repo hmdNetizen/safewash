@@ -9,8 +9,7 @@ import ringWire from "../../assets/Vector 22.png";
 const useStyles = makeStyles((theme) => ({
   parentGrid: {
     height: "45em",
-    width: "100%",
-    overflow: "hidden",
+    // width: "100%",
     textTranform: "capitalize",
     background:
       "linear-gradient(180deg, #FFFFFF 0%, rgba(255, 255, 255, 0) 100%), linear-gradient(180deg, #FFFFFF 0%, rgba(255, 255, 255, 0) 100%), linear-gradient(146.99deg, rgba(255, 255, 255, 0.5) 4.13%, rgba(254, 150, 198, 0.5) 80.31%)",

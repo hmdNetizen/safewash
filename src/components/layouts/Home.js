@@ -1,5 +1,5 @@
 import Grid from "@material-ui/core/Grid";
-import Features from "./Features";
+// import Features from "./Features";
 import Slides from "./Slides";
 
 const Home = () => {
@@ -8,9 +8,7 @@ const Home = () => {
       <Grid item>
         <Slides />
       </Grid>
-      <Grid item style={{ position: "relative", overflow: "hidden" }}>
-        <Features />
-      </Grid>
+      <Grid item>{/* <Features /> */}</Grid>
     </Grid>
   );
 };
