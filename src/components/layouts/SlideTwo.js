@@ -10,7 +10,7 @@ const useStyles = makeStyles((theme) => ({
   parentGrid: {
     overflow: "hidden",
     height: "45em",
-    width: "100%",
+    // width: "100%",
     background:
       "linear-gradient(212.16deg, rgba(254, 150, 198, 0.2) 10.33%, rgba(254, 150, 198, 0.3) 31.35%, rgba(255, 255, 255, 0.5) 83.91%), linear-gradient(180deg, #FFFFFF 0%, rgba(255, 255, 255, 0) 100%), linear-gradient(213.01deg, #FFFFFF 4.13%, rgba(254, 150, 198, 0.5) 80.31%)",
     zIndex: 1,
