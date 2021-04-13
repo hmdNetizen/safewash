@@ -3,8 +3,8 @@ import { makeStyles, useTheme } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 import Hidden from "@material-ui/core/Hidden";
-import greenWire from "../../assets/Vector-14.png";
-import pinkWire from "../../assets/Vector-13.png";
+// import greenWire from "../../assets/Vector-14.png";
+// import pinkWire from "../../assets/Vector-13.png";
 import shield from "../../assets/shield.png";
 import leaves from "../../assets/leaves.png";
 import special from "../../assets/special.png";
@@ -121,8 +121,11 @@ const Features = () => {
       className={classes.parentGrid}
     >
       <Hidden mdUp>
-        <Grid item style={{ position: "relative", height: "22em" }}>
-          <img
+        <Grid
+          item
+          style={{ position: "relative", height: "22em", overflow: "hidden" }}
+        >
+          {/* <img
             src={greenWire}
             alt="A green wireframe around a baby"
             className={classes.greenWire}
@@ -131,7 +134,7 @@ const Features = () => {
             src={pinkWire}
             alt="A pink wireframe around a baby"
             className={classes.pinkWire}
-          />
+          /> */}
 
           {/* <div className={classes.planetShapeXL} /> */}
         </Grid>
@@ -161,7 +164,7 @@ const Features = () => {
         >
           <Hidden smDown>
             <Grid item style={{ position: "relative" }}>
-              <img
+              {/* <img
                 src={greenWire}
                 alt="A green wireframe around a baby"
                 className={classes.greenWire}
@@ -170,8 +173,8 @@ const Features = () => {
                 src={pinkWire}
                 alt="A pink wireframe around a baby"
                 className={classes.pinkWire}
-              />
-
+              /> */}
+              Image
               {/* <div className={classes.planetShapeXL} /> */}
             </Grid>
           </Hidden>

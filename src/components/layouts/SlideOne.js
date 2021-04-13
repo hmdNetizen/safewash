@@ -7,7 +7,7 @@ import safeWashBaby1 from "../../assets/safewash-baby-1.png";
 const useStyles = makeStyles((theme) => ({
   parentGrid: {
     overflow: "hidden",
-    // width: "100%",
+    width: "100%",
     height: "45em",
     background:
       "linear-gradient(163deg, rgba(33,164,196,0.23012955182072825) 0%, rgba(255,255,255,0.3561799719887955) 16%, rgba(255,255,255,0.21332282913165268) 59%, rgba(254,150,198,0.3225665266106442) 88%, rgba(255,255,255,1) 100%)",

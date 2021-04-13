@@ -8,7 +8,7 @@ const Home = () => {
       <Grid item>
         <Slides />
       </Grid>
-      <Grid item>
+      <Grid item style={{ position: "relative", overflow: "hidden" }}>
         <Features />
       </Grid>
     </Grid>
