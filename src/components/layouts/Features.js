@@ -2,6 +2,7 @@ import Grid from "@material-ui/core/Grid";
 import { makeStyles, useTheme } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
+import Hidden from "@material-ui/core/Hidden";
 import greenWire from "../../assets/Vector-14.png";
 import pinkWire from "../../assets/Vector-13.png";
 import shield from "../../assets/shield.png";
@@ -14,6 +15,11 @@ const useStyles = makeStyles((theme) => ({
     padding: "5em 7em",
     background:
       "linear-gradient(180deg, #FFFFFF 0%, rgba(255, 255, 255, 0) 100%), linear-gradient(131.41deg, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.9) 15.33%, rgba(255, 210, 231, 0.9) 35.21%, rgba(254, 168, 208, 0.9) 51.11%, rgba(254, 166, 207, 0.9) 69.85%, rgba(255, 255, 255, 0.9) 98.24%, rgba(255, 255, 255, 0.9) 109.03%)",
+
+    [theme.breakpoints.only("md")]: {
+      paddingLeft: "2em",
+      paddingRight: "2em",
+    },
 
     [theme.breakpoints.down("xs")]: {
       paddingLeft: "2em",
@@ -29,6 +35,10 @@ const useStyles = makeStyles((theme) => ({
   },
   primaryHeading: {
     color: theme.palette.common.blue,
+
+    [theme.breakpoints.down("xs")]: {
+      fontSize: "1.75rem",
+    },
   },
   secondaryHeading: {
     fontWeight: 600,
@@ -43,15 +53,34 @@ const useStyles = makeStyles((theme) => ({
     top: "-1em",
     left: "-2em",
 
-    [theme.breakpoints.down("xs")]: {
+    [theme.breakpoints.down("md")]: {
       maxWidth: "20em",
+    },
+
+    [theme.breakpoints.down("sm")]: {
+      left: "50%",
+      transform: "translateX(-50%) rotate(-5deg)",
+    },
+
+    [theme.breakpoints.down("xs")]: {
+      maxWidth: "17em",
+      transform: "translateX(-60%) rotate(-5deg)",
     },
   },
   pinkWire: {
     ...theme.typography.wire,
 
-    [theme.breakpoints.down("xs")]: {
+    [theme.breakpoints.down("md")]: {
       maxWidth: "20em",
+    },
+
+    [theme.breakpoints.down("sm")]: {
+      left: "50%",
+      transform: "translateX(-50%)",
+    },
+
+    [theme.breakpoints.down("xs")]: {
+      maxWidth: "18em",
     },
   },
   planetShapeXL: {
@@ -79,8 +108,10 @@ const useStyles = makeStyles((theme) => ({
 const Features = () => {
   const classes = useStyles();
   const theme = useTheme();
-  //   const matchesXS = useMediaQuery(theme.breakpoints.down("xs"));
+  // const matchesXS = useMediaQuery(theme.breakpoints.down("xs"));
   const matchesSM = useMediaQuery(theme.breakpoints.down("sm"));
+  // const matchesMD = useMediaQuery(theme.breakpoints.down("md"));
+  // const matchesMdOnly = useMediaQuery(theme.breakpoints.only("md"));
 
   return (
     <Grid
@@ -89,6 +120,22 @@ const Features = () => {
       justify="center"
       className={classes.parentGrid}
     >
+      <Hidden mdUp>
+        <Grid item style={{ position: "relative", height: "22em" }}>
+          <img
+            src={greenWire}
+            alt="A green wireframe around a baby"
+            className={classes.greenWire}
+          />
+          <img
+            src={pinkWire}
+            alt="A pink wireframe around a baby"
+            className={classes.pinkWire}
+          />
+
+          {/* <div className={classes.planetShapeXL} /> */}
+        </Grid>
+      </Hidden>
       <Grid item className={classes.primaryHeadingWrapper}>
         <Typography
           variant="h2"
@@ -112,19 +159,22 @@ const Features = () => {
           direction={matchesSM ? "column" : "row"}
           justify={matchesSM ? "center" : "space-between"}
         >
-          <Grid item style={{ position: "relative" }}>
-            <img
-              src={greenWire}
-              alt="A green wireframe around a baby"
-              className={classes.greenWire}
-            />
-            <img
-              src={pinkWire}
-              alt="A pink wireframe around a baby"
-              className={classes.pinkWire}
-            />
-            {/* <div className={classes.planetShapeXL} /> */}
-          </Grid>
+          <Hidden smDown>
+            <Grid item style={{ position: "relative" }}>
+              <img
+                src={greenWire}
+                alt="A green wireframe around a baby"
+                className={classes.greenWire}
+              />
+              <img
+                src={pinkWire}
+                alt="A pink wireframe around a baby"
+                className={classes.pinkWire}
+              />
+
+              {/* <div className={classes.planetShapeXL} /> */}
+            </Grid>
+          </Hidden>
           <Grid item>
             <Grid
               container
@@ -173,6 +223,7 @@ const Features = () => {
                     variant="body1"
                     paragraph
                     align={matchesSM ? "center" : undefined}
+                    className={classes.description}
                   >
                     We are moved to create a premium, harmful chemical free,{" "}
                     {!matchesSM && <br />} sparkling clean liquid laundry soap.
@@ -183,7 +234,7 @@ const Features = () => {
           </Grid>
         </Grid>
       </Grid>
-      <Grid item style={{ marginTop: matchesSM ? 0 : "5em" }}>
+      <Grid item>
         <Grid
           container
           direction={matchesSM ? "column" : "row"}
