@@ -30,10 +30,6 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.down("sm")]: {
       marginLeft: "2em",
     },
-
-    [theme.breakpoints.down("xs")]: {
-      marginLeft: "1em",
-    },
   },
   planetShapeXL: {
     ...theme.typography.planetShape,
