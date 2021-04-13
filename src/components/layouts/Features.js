@@ -144,9 +144,10 @@ const Features = () => {
                   variant="body1"
                   paragraph
                   className={classes.description}
+                  align={matchesSM ? "center" : undefined}
                 >
                   We are moved to create a premium, harmful chemical free,{" "}
-                  <br /> sparkling clean liquid laundry soap.
+                  {!matchesSM && <br />} sparkling clean liquid laundry soap.
                 </Typography>
               </Grid>
             </Grid>
@@ -171,10 +172,10 @@ const Features = () => {
                   <Typography
                     variant="body1"
                     paragraph
-                    className={classes.description}
+                    align={matchesSM ? "center" : undefined}
                   >
                     We are moved to create a premium, harmful chemical free,{" "}
-                    <br /> sparkling clean liquid laundry soap.
+                    {!matchesSM && <br />} sparkling clean liquid laundry soap.
                   </Typography>
                 </Grid>
               </Grid>
@@ -182,15 +183,19 @@ const Features = () => {
           </Grid>
         </Grid>
       </Grid>
-      <Grid item style={{ marginTop: "5em" }}>
+      <Grid item style={{ marginTop: matchesSM ? 0 : "5em" }}>
         <Grid
           container
           direction={matchesSM ? "column" : "row"}
           justify={matchesSM ? "flex-start" : "space-between"}
           alignItems={matchesSM ? "center" : undefined}
         >
-          <Grid item>
-            <Grid container direction="column">
+          <Grid item style={{ order: 2 }}>
+            <Grid
+              container
+              direction="column"
+              alignItems={matchesSM ? "center" : "flex-start"}
+            >
               <Grid item>
                 <img src={bubbles} alt="A bubble icon" />
               </Grid>
@@ -204,9 +209,10 @@ const Features = () => {
                   variant="body1"
                   paragraph
                   className={classes.description}
+                  align={matchesSM ? "center" : undefined}
                 >
                   We are moved to create a premium, harmful chemical free,{" "}
-                  <br /> sparkling clean liquid laundry soap .
+                  {!matchesSM && <br />} sparkling clean liquid laundry soap .
                 </Typography>
               </Grid>
             </Grid>
@@ -216,6 +222,7 @@ const Features = () => {
               container
               direction="column"
               alignItems={matchesSM ? "center" : undefined}
+              style={{ marginBottom: matchesSM ? "5em" : 0 }}
             >
               <Grid item>
                 <img
@@ -233,9 +240,10 @@ const Features = () => {
                   variant="body1"
                   paragraph
                   className={classes.description}
+                  align={matchesSM ? "center" : undefined}
                 >
                   We are moved to create a premium, harmful chemical free,{" "}
-                  <br /> sparkling clean liquid laundry soap .
+                  {!matchesSM && <br />} sparkling clean liquid laundry soap .
                 </Typography>
               </Grid>
             </Grid>
