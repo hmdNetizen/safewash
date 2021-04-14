@@ -3,7 +3,7 @@ import "keen-slider/keen-slider.min.css";
 import SlideOne from "./SlideOne";
 import SlideTwo from "./SlideTwo";
 import SlideThree from "./SlideThree";
-import SlideFour from "./SlideFour";
+// import SlideFour from "./SlideFour";
 import { useKeenSlider } from "keen-slider/react";
 
 const Slides = () => {
