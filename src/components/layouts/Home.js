@@ -5,10 +5,10 @@ import Slides from "./Slides";
 const Home = () => {
   return (
     <Grid container direction="column">
+      <Grid item>{/* <Slides /> */}</Grid>
       <Grid item>
-        <Slides />
+        <Features />
       </Grid>
-      <Grid item>{/* <Features /> */}</Grid>
     </Grid>
   );
 };
