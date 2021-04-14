@@ -1,6 +1,6 @@
 import Grid from "@material-ui/core/Grid";
-// import Features from "./Features";
-import Slides from "./Slides";
+import Features from "./Features";
+// import Slides from "./Slides";
 
 const Home = () => {
   return (
