@@ -9,7 +9,7 @@ import laundaryBasket from "../../assets/laundary_basket.png";
 const useStyles = makeStyles((theme) => ({
   parentGrid: {
     height: "45em",
-    // width: "100%",
+    width: "100%",
     background:
       "linear-gradient(212.16deg, rgba(254, 150, 198, 0.2) 10.33%, rgba(254, 150, 198, 0.3) 31.35%, rgba(255, 255, 255, 0.5) 83.91%), linear-gradient(180deg, #FFFFFF 0%, rgba(255, 255, 255, 0) 100%), linear-gradient(213.01deg, #FFFFFF 4.13%, rgba(254, 150, 198, 0.5) 80.31%)",
     zIndex: 1,
@@ -363,7 +363,7 @@ const useStyles = makeStyles((theme) => ({
 const SlideTwo = () => {
   const classes = useStyles();
   const theme = useTheme();
-  const matchesXXXXS = useMediaQuery("(max-width: 290px)");
+  const matchesXXXXS = useMediaQuery("(max-width: 280px)");
   const matchesXXXS = useMediaQuery("(max-width: 340px)");
   const matchesXXS = useMediaQuery("(max-width: 450px)");
   const matchesXS = useMediaQuery(theme.breakpoints.down("xs"));
@@ -380,12 +380,17 @@ const SlideTwo = () => {
             <div className={classes.circle} />
             <div className={classes.planetShapeSm} />
             <div className={classes.planetShape} />
+
             <img
               className={classes.slideImg}
               src={safeWashBaby2}
               alt="Cute baby places hand on the safewash liquid detergent gallon"
-              style={{ transform: matchesXXS ? "translateX(-40%)" : undefined }}
+              style={{
+                transform: matchesXXS ? "translateX(-40%)" : undefined,
+                maxWidth: matchesXXXXS ? "25em" : undefined,
+              }}
             />
+
             <div className={classes.squareBg} />
             <div className={classes.planetShapeMd} />
             <div className={classes.planetShapeLg} />
@@ -410,15 +415,19 @@ const SlideTwo = () => {
               variant="h1"
               className={classes.primaryHeading}
               style={{
-                fontSize: matchesXXXS
+                fontSize: matchesXXXXS
+                  ? "1.4rem"
+                  : matchesXXXS
                   ? "1.75rem"
                   : matchesXXS
                   ? "1.85rem"
                   : undefined,
                 top: matchesXXXXS ? "6em" : undefined,
+                left: matchesXXXXS ? "0.5em" : undefined,
+                right: matchesXXXS ? "0.5em" : undefined,
               }}
             >
-              Mild and Gentle on {!matchesXXXS && matchesXXS && <br />} your{" "}
+              Mild and Gentle on {!matchesXXXXS && matchesXS && <br />} your{" "}
               {!matchesXXS && <br />} baby's soft skin
             </Typography>
             <div className={classes.squareSm} />
@@ -428,8 +437,16 @@ const SlideTwo = () => {
               variant="h2"
               className={classes.secondaryHeading}
               style={{
-                fontSize: matchesXXS ? "1.85rem" : undefined,
+                fontSize: matchesXXXXS
+                  ? "1.4rem"
+                  : matchesXXXS
+                  ? "1.5rem"
+                  : matchesXXS
+                  ? "1.85rem"
+                  : undefined,
                 marginBottom: matchesXXXXS ? "2em" : undefined,
+                left: matchesXXXXS ? "0.5em" : undefined,
+                right: matchesXXXXS ? "0.5em" : undefined,
               }}
             >
               Happy Fragrance
@@ -441,8 +458,9 @@ const SlideTwo = () => {
               classes={{ root: classes.btn }}
               style={{
                 padding: !matchesXXS ? ".75em 2em" : ".75em",
-                left: matchesXXXS ? "50%" : undefined,
-                transform: matchesXXXS ? "translateX(-50%)" : undefined,
+                left: matchesXXXXS ? "0.5em" : undefined,
+                right: matchesXXXXS ? "0.5em" : undefined,
+                fontSize: matchesXXXXS ? "0.75rem" : undefined,
               }}
             >
               Find Distributor Around You?

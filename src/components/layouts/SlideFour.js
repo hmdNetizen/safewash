@@ -8,7 +8,8 @@ import safeWashLady from "../../assets/safewash-lady-1.png";
 const useStyles = makeStyles((theme) => ({
   parentGrid: {
     height: "45em",
-    // width: "100%",
+
+    width: "100%",
     textTranform: "capitalize",
     position: "relative",
     zIndex: -3,
@@ -262,8 +263,6 @@ const SlideFour = () => {
               style={{
                 padding: !matchesXXS ? ".75em 2em" : ".75em",
                 top: matchesXXXS ? "28em" : undefined,
-                left: matchesXXXS ? "50%" : undefined,
-                transform: matchesXXXS ? "translateX(-50%)" : undefined,
               }}
             >
               Find Distributors Around You?
@@ -277,11 +276,13 @@ const SlideFour = () => {
           style={{ top: matchesXXXS ? "65%" : undefined }}
         />
         <div className={classes.squareSm} />
-        <img
-          src={safeWashLady}
-          alt="Lady expressing excitement after washing clothes with safewash detergent"
-          className={classes.slideImg}
-        />
+        {!matchesXXXS && (
+          <img
+            src={safeWashLady}
+            alt="Lady expressing excitement after washing clothes with safewash detergent"
+            className={classes.slideImg}
+          />
+        )}
         <div className={classes.circleMd} />
         <div className={`${classes.circleMd} ${classes.circleMdOne}`} />
         <div className={`${classes.circleSm} ${classes.circleSmOne}`} />

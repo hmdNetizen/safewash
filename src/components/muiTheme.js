@@ -86,6 +86,12 @@ const theme = createMuiTheme({
       maxWidth: "30em",
       position: "absolute",
     },
+
+    trimmedBabyImg: {
+      position: "absolute",
+      top: "1em",
+      zIndex: 1,
+    },
   },
   overrides: {
     MuiListItemText: {

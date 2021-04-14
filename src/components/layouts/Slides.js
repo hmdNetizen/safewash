@@ -60,11 +60,11 @@ const Slides = () => {
         <div className="keen-slider__slide number-slide3">
           <SlideThree />
         </div>
-        <div className="keen-slider__slide number-slide4">
+        {/* <div className="keen-slider__slide number-slide4">
           <SlideFour />
-        </div>
+        </div> */}
       </div>
-      {/* THE STYLES OF THE NAVIGATION DOTS IS IMPLEMENTED IS APP.CSS FILE */}
+      {/* THE STYLES OF THE NAVIGATION DOTS IS IMPLEMENTED IN THE APP.CSS FILE */}
       {slider && (
         <div className="dots__container">
           <div className="dots">

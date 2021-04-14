@@ -3,12 +3,13 @@ import { makeStyles, useTheme } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 import Hidden from "@material-ui/core/Hidden";
-// import greenWire from "../../assets/Vector-14.png";
-// import pinkWire from "../../assets/Vector-13.png";
+import greenWire from "../../assets/Vector-14.png";
+import pinkWire from "../../assets/Vector-13.png";
 import shield from "../../assets/shield.png";
 import leaves from "../../assets/leaves.png";
 import special from "../../assets/special.png";
 import bubbles from "../../assets/bubbles.png";
+import babyImg from "../../assets/safewash-baby-trimmed.png";
 
 const useStyles = makeStyles((theme) => ({
   parentGrid: {
@@ -19,6 +20,10 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.only("md")]: {
       paddingLeft: "2em",
       paddingRight: "2em",
+    },
+
+    [theme.breakpoints.down("sm")]: {
+      marginTop: "5em",
     },
 
     [theme.breakpoints.down("xs")]: {
@@ -52,6 +57,7 @@ const useStyles = makeStyles((theme) => ({
     transform: "rotate(-5deg)",
     top: "-1em",
     left: "-2em",
+    zIndex: 9,
 
     [theme.breakpoints.down("md")]: {
       maxWidth: "20em",
@@ -69,6 +75,7 @@ const useStyles = makeStyles((theme) => ({
   },
   pinkWire: {
     ...theme.typography.wire,
+    zIndex: 9,
 
     [theme.breakpoints.down("md")]: {
       maxWidth: "20em",
@@ -83,6 +90,17 @@ const useStyles = makeStyles((theme) => ({
       maxWidth: "18em",
     },
   },
+  babyImg: {
+    ...theme.typography.trimmedBabyImg,
+    maxWidth: "30em",
+
+    [theme.breakpoints.down("xs")]: {
+      maxWidth: "18em",
+      left: "50%",
+      transform: "translateX(-50%)",
+    },
+  },
+
   planetShapeXL: {
     ...theme.typography.planetShape,
     width: 90,
@@ -121,11 +139,8 @@ const Features = () => {
       className={classes.parentGrid}
     >
       <Hidden mdUp>
-        <Grid
-          item
-          style={{ position: "relative", height: "22em", overflow: "hidden" }}
-        >
-          {/* <img
+        <Grid item style={{ position: "relative", height: "22em" }}>
+          <img
             src={greenWire}
             alt="A green wireframe around a baby"
             className={classes.greenWire}
@@ -134,7 +149,13 @@ const Features = () => {
             src={pinkWire}
             alt="A pink wireframe around a baby"
             className={classes.pinkWire}
-          /> */}
+          />
+
+          <img
+            src={babyImg}
+            alt="A beautiful baby girl sitting comfortably in a basket"
+            className={classes.babyImg}
+          />
 
           {/* <div className={classes.planetShapeXL} /> */}
         </Grid>
@@ -164,7 +185,7 @@ const Features = () => {
         >
           <Hidden smDown>
             <Grid item style={{ position: "relative" }}>
-              {/* <img
+              <img
                 src={greenWire}
                 alt="A green wireframe around a baby"
                 className={classes.greenWire}
@@ -173,8 +194,12 @@ const Features = () => {
                 src={pinkWire}
                 alt="A pink wireframe around a baby"
                 className={classes.pinkWire}
-              /> */}
-              Image
+              />
+              <img
+                src={babyImg}
+                alt="A beautiful baby girl sitting comfortably in a basket"
+                className={classes.babyImg}
+              />
               {/* <div className={classes.planetShapeXL} /> */}
             </Grid>
           </Hidden>

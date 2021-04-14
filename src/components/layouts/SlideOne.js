@@ -6,7 +6,7 @@ import { makeStyles, useTheme } from "@material-ui/core/styles";
 import safeWashBaby1 from "../../assets/safewash-baby-1.png";
 const useStyles = makeStyles((theme) => ({
   parentGrid: {
-    // width: "100%",
+    width: "100%",
     height: "45em",
     background:
       "linear-gradient(163deg, rgba(33,164,196,0.23012955182072825) 0%, rgba(255,255,255,0.3561799719887955) 16%, rgba(255,255,255,0.21332282913165268) 59%, rgba(254,150,198,0.3225665266106442) 88%, rgba(255,255,255,1) 100%)",
@@ -205,6 +205,11 @@ const useStyles = makeStyles((theme) => ({
     "&:active": {
       background: theme.palette.secondary.dark,
     },
+
+    [theme.breakpoints.down("xs")]: {
+      position: "relative",
+      zIndex: 9,
+    },
   },
   slideImg: {
     maxWidth: "45em",
@@ -242,6 +247,9 @@ const SlideOne = () => {
   const theme = useTheme();
 
   // MEDIA QUERIES FOR DIFFERENT BREAKPOINTS
+  const matchesXXXXS = useMediaQuery(
+    "(max-width: 280px)"
+  ); /* THIS APPLIES TO SCREEN SIZES EQUALS OR BELOW 280PX */
   const matchesXXXS = useMediaQuery(
     "(max-width: 340px)"
   ); /* THIS APPLIES TO SCREEN SIZES EQUALS OR BELOW 340PX */
@@ -280,7 +288,9 @@ const SlideOne = () => {
               variant="h1"
               className={classes.primaryHeading}
               style={{
-                fontSize: matchesXXXS
+                fontSize: matchesXXXXS
+                  ? "1.4rem"
+                  : matchesXXXS
                   ? "1.5rem"
                   : matchesXXS
                   ? "1.85rem"
@@ -288,8 +298,8 @@ const SlideOne = () => {
               }}
             >
               A liquid laundry {matchesXXS && <br />} detergent{" "}
-              {!matchesXXS && <br />} specifically {matchesXXS && <br />}{" "}
-              formulated for
+              {!matchesXXS && <br />} specifically{" "}
+              {!matchesXXXXS && matchesXXS && <br />} formulated for
             </Typography>
           </Grid>
           <div className={classes.squareSm} />
@@ -298,11 +308,15 @@ const SlideOne = () => {
               variant="h2"
               className={classes.secondaryHeading}
               style={{
-                fontSize: matchesXXXS
+                fontSize: matchesXXXXS
+                  ? "1.4rem"
+                  : matchesXXXS
                   ? "1.5rem"
                   : matchesXXS
                   ? "1.85rem"
                   : undefined,
+                left: matchesXXXXS ? "0.5em" : undefined,
+                right: matchesXXXXS ? "0.5em" : undefined,
               }}
             >
               Babies and Children <br /> Clothing
@@ -328,7 +342,12 @@ const SlideOne = () => {
             <Button
               variant="contained"
               classes={{ root: classes.btn }}
-              style={{ padding: !matchesXXS ? ".75em 2em" : ".75em" }}
+              style={{
+                padding: !matchesXXS ? ".75em 2em" : ".75em",
+                fontSize: matchesXXXXS ? "0.75rem" : undefined,
+                left: matchesXXXXS ? "0.5em" : undefined,
+                right: matchesXXXXS ? "0.5em" : undefined,
+              }}
             >
               Find Distributors Around You?
             </Button>

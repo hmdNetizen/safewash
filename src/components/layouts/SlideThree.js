@@ -9,7 +9,8 @@ import ringWire from "../../assets/Vector 22.png";
 const useStyles = makeStyles((theme) => ({
   parentGrid: {
     height: "45em",
-    // width: "100%",
+
+    width: "100%",
     textTranform: "capitalize",
     background:
       "linear-gradient(180deg, #FFFFFF 0%, rgba(255, 255, 255, 0) 100%), linear-gradient(180deg, #FFFFFF 0%, rgba(255, 255, 255, 0) 100%), linear-gradient(146.99deg, rgba(255, 255, 255, 0.5) 4.13%, rgba(254, 150, 198, 0.5) 80.31%)",
@@ -238,6 +239,7 @@ const useStyles = makeStyles((theme) => ({
 const SlideThree = () => {
   const classes = useStyles();
   const theme = useTheme();
+  const matchesXXXXS = useMediaQuery("(max-width: 280px)");
   const matchesXXXS = useMediaQuery("(max-width: 340px)");
   const matchesXXS = useMediaQuery("(max-width: 450px)");
   const matchesXS = useMediaQuery(theme.breakpoints.down("xs"));
@@ -248,21 +250,26 @@ const SlideThree = () => {
           container
           direction="column"
           className={classes.textContentWrapper}
+          style={{ marginLeft: matchesXXXXS ? 0 : undefined }}
         >
           <Grid item>
             <Typography
               variant="h1"
               className={classes.primaryHeading}
               style={{
-                fontSize: matchesXXXS
+                fontSize: matchesXXXXS
+                  ? "1.4rem"
+                  : matchesXXXS
                   ? "1.5rem"
                   : matchesXXS
                   ? "1.85rem"
                   : undefined,
                 top: matchesXXXS ? "5em" : undefined,
+                left: matchesXXXXS ? "1em" : undefined,
+                right: matchesXXXXS ? "1em" : undefined,
               }}
             >
-              Keeps your baby {matchesXS && <br />} smiling{" "}
+              Keeps your baby {!matchesXXXXS && matchesXS && <br />} smiling{" "}
               {!matchesXS && <br />} all day
             </Typography>
             <div className={classes.squareSmOne} />
@@ -272,12 +279,16 @@ const SlideThree = () => {
               variant="h2"
               className={classes.secondaryHeading}
               style={{
-                fontSize: matchesXXXS
+                fontSize: matchesXXXXS
+                  ? "1.4rem"
+                  : matchesXXXS
                   ? "1.5rem"
                   : matchesXXS
                   ? "1.85rem"
                   : undefined,
                 top: matchesXXXS ? "10em" : undefined,
+                left: matchesXXXXS ? "1em" : undefined,
+                right: matchesXXXXS ? "1em" : undefined,
               }}
             >
               Zero Skin Irritations
@@ -289,7 +300,10 @@ const SlideThree = () => {
               classes={{ root: classes.btn }}
               style={{
                 padding: !matchesXXXS ? ".75em 2em" : ".75em",
-                top: matchesXXXS ? "22em" : undefined,
+                top: matchesXXXXS ? "27em" : matchesXXXS ? "22em" : undefined,
+                left: matchesXXXXS ? "1em" : undefined,
+                right: matchesXXXXS ? "1em" : undefined,
+                fontSize: matchesXXXXS ? "0.75rem" : undefined,
               }}
             >
               Become A Distributor
@@ -304,11 +318,13 @@ const SlideThree = () => {
           alt="A blurry blue ring wire circling around the baby"
           className={classes.ringCircleBackground}
         />
-        <img
-          src={safeWashBaby3}
-          alt="A cute baby sitting down"
-          className={classes.slideImg}
-        />
+        {!matchesXXXS && (
+          <img
+            src={safeWashBaby3}
+            alt="A cute baby sitting down"
+            className={classes.slideImg}
+          />
+        )}
         <div className={classes.circle} />
         <div className={`${classes.squareSm}`} />
         <div className={`${classes.planetShapeSm}`} />
