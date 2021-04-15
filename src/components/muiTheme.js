@@ -4,6 +4,7 @@ const dark = "#483d3f";
 const pink = "#FE96C6";
 const green = "#6EB245";
 const blue = "#21A4C4";
+const brown = "#795A69";
 
 const theme = createMuiTheme({
   palette: {
@@ -11,6 +12,7 @@ const theme = createMuiTheme({
       dark,
       pink,
       blue,
+      brown,
     },
     primary: {
       main: pink,

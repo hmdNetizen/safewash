@@ -69,7 +69,7 @@ const useStyles = makeStyles((theme) => ({
     },
 
     [theme.breakpoints.down("xs")]: {
-      maxWidth: "17em",
+      maxWidth: "19em",
       transform: "translateX(-60%) rotate(-5deg)",
     },
   },
@@ -98,6 +98,7 @@ const useStyles = makeStyles((theme) => ({
       maxWidth: "18em",
       left: "50%",
       transform: "translateX(-50%)",
+      top: "0.2em",
     },
   },
 

@@ -1,4 +1,5 @@
 import Grid from "@material-ui/core/Grid";
+import About from "./About";
 import Features from "./Features";
 import Slides from "./Slides";
 
@@ -10,6 +11,9 @@ const Home = () => {
       </Grid>
       <Grid item>
         <Features />
+      </Grid>
+      <Grid item>
+        <About />
       </Grid>
     </Grid>
   );
