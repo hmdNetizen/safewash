@@ -21,7 +21,7 @@ const useStyles = makeStyles((theme) => ({
     },
 
     [theme.breakpoints.down("sm")]: {
-      paddingTop: "5em",
+      paddingTop: 0,
     },
 
     [theme.breakpoints.down("xs")]: {
@@ -33,14 +33,17 @@ const useStyles = makeStyles((theme) => ({
     color: theme.palette.common.blue,
     marginBottom: "1em",
 
-    [theme.breakpoints.down("xs")]: {
+    [theme.breakpoints.down("sm")]: {
       fontSize: "1.75rem",
+    },
+
+    [theme.breakpoints.down("xs")]: {
+      fontSize: "1.5rem",
     },
   },
 
   distributorDescriptionText: {
     textAlign: "center",
-    fontSize: "0.85rem",
   },
 
   cardGrid: {
@@ -127,7 +130,11 @@ const Distributors = () => {
       className={classes.parentGrid}
     >
       <Grid item>
-        <Typography variant="h2" className={classes.primaryHeading}>
+        <Typography
+          variant="h2"
+          className={classes.primaryHeading}
+          align="center"
+        >
           See Our Top Distributors
         </Typography>
       </Grid>
@@ -268,7 +275,6 @@ const Distributors = () => {
         <Typography
           variant="body1"
           paragraph
-          align="center"
           className={classes.distributorDescriptionText}
         >
           We use our knowledge and expertise to providethe most effecient,

@@ -29,8 +29,12 @@ const useStyles = makeStyles((theme) => ({
     color: theme.palette.common.brown,
     marginBottom: "1em",
 
-    [theme.breakpoints.down("xs")]: {
+    [theme.breakpoints.down("sm")]: {
       fontSize: "1.75rem",
+    },
+
+    [theme.breakpoints.down("xs")]: {
+      fontSize: "1.5rem",
     },
   },
   aboutTextContent: {

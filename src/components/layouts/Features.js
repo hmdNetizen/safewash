@@ -46,8 +46,12 @@ const useStyles = makeStyles((theme) => ({
   primaryHeading: {
     color: theme.palette.common.blue,
 
-    [theme.breakpoints.down("xs")]: {
+    [theme.breakpoints.down("sm")]: {
       fontSize: "1.75rem",
+    },
+
+    [theme.breakpoints.down("xs")]: {
+      fontSize: "1.5rem",
     },
   },
   secondaryHeading: {

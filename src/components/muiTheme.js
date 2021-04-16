@@ -42,8 +42,8 @@ const theme = createMuiTheme({
       fontSize: "1.2rem",
     },
     body1: {
-      fontSize: "1rem",
-      lineHeight: 1.7,
+      fontSize: "0.85rem",
+      lineHeight: 1.85,
     },
     square: {
       borderRadius: 5,
