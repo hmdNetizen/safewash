@@ -162,10 +162,7 @@ const Features = () => {
       className={classes.parentGrid}
     >
       <Hidden mdUp>
-        <Grid
-          item
-          style={{ position: "relative", height: "22em", }}
-        >
+        <Grid item style={{ position: "relative", height: "22em" }}>
           <img
             src={greenWire}
             alt="A green wireframe around a baby"
@@ -222,8 +219,7 @@ const Features = () => {
               item
               style={{
                 position: "relative",
-                overflow: "hidden",
-                top: matchesMdOnly ? "7em" : null,
+                top: matchesMdOnly ? "7em" : undefined,
               }}
             >
               <img

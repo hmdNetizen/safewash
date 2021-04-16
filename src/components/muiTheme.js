@@ -79,6 +79,15 @@ const theme = createMuiTheme({
       filter: "blur(2px)",
       position: "absolute",
     },
+    outlineCircle: {
+      width: 100,
+      height: 100,
+      borderRadius: "50%",
+      position: "absolute",
+      top: "-3em",
+      left: "50%",
+      transform: "translateX(-60%)",
+    },
     planetShape: {
       borderRadius: "50%",
       background: "rgba(255, 255, 255, .8)",
