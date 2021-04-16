@@ -14,16 +14,13 @@ import babyImg from "../../assets/safewash-baby-trimmed.png";
 const useStyles = makeStyles((theme) => ({
   parentGrid: {
     padding: "5em 7em",
+
     background:
       "linear-gradient(180deg, #FFFFFF 0%, rgba(255, 255, 255, 0) 100%), linear-gradient(131.41deg, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.9) 15.33%, rgba(255, 210, 231, 0.9) 35.21%, rgba(254, 168, 208, 0.9) 51.11%, rgba(254, 166, 207, 0.9) 69.85%, rgba(255, 255, 255, 0.9) 98.24%, rgba(255, 255, 255, 0.9) 109.03%)",
 
     [theme.breakpoints.only("md")]: {
-      paddingLeft: "2em",
-      paddingRight: "2em",
-    },
-
-    [theme.breakpoints.down("sm")]: {
-      marginTop: "5em",
+      paddingLeft: "5em",
+      paddingRight: "5em",
     },
 
     [theme.breakpoints.down("xs")]: {
@@ -37,6 +34,14 @@ const useStyles = makeStyles((theme) => ({
   },
   primaryHeadingWrapper: {
     marginBottom: "2em",
+
+    [theme.breakpoints.down("sm")]: {
+      marginTop: "8em",
+    },
+
+    [theme.breakpoints.down("xs")]: {
+      marginTop: "2em",
+    },
   },
   primaryHeading: {
     color: theme.palette.common.blue,
@@ -61,16 +66,18 @@ const useStyles = makeStyles((theme) => ({
 
     [theme.breakpoints.down("md")]: {
       maxWidth: "20em",
+      left: "2em",
     },
 
     [theme.breakpoints.down("sm")]: {
+      maxWidth: "25em",
       left: "50%",
-      transform: "translateX(-50%) rotate(-5deg)",
+      transform: "translateX(-55%) rotate(-5deg)",
     },
 
     [theme.breakpoints.down("xs")]: {
       maxWidth: "19em",
-      transform: "translateX(-60%) rotate(-5deg)",
+      transform: "translateX(-50%) rotate(-5deg)",
     },
   },
   pinkWire: {
@@ -79,9 +86,11 @@ const useStyles = makeStyles((theme) => ({
 
     [theme.breakpoints.down("md")]: {
       maxWidth: "20em",
+      left: "3em",
     },
 
     [theme.breakpoints.down("sm")]: {
+      maxWidth: "25em",
       left: "50%",
       transform: "translateX(-50%)",
     },
@@ -93,6 +102,17 @@ const useStyles = makeStyles((theme) => ({
   babyImg: {
     ...theme.typography.trimmedBabyImg,
     maxWidth: "30em",
+
+    [theme.breakpoints.down("md")]: {
+      maxWidth: "18em",
+      left: "3em",
+    },
+
+    [theme.breakpoints.down("sm")]: {
+      maxWidth: "25em",
+      left: "50%",
+      transform: "translateX(-50%)",
+    },
 
     [theme.breakpoints.down("xs")]: {
       maxWidth: "18em",
@@ -128,9 +148,11 @@ const Features = () => {
   const classes = useStyles();
   const theme = useTheme();
   // const matchesXS = useMediaQuery(theme.breakpoints.down("xs"));
+  const matchesXXXS = useMediaQuery("(max-width: 340px)");
   const matchesSM = useMediaQuery(theme.breakpoints.down("sm"));
+  const matchesMDX = useMediaQuery("(max-width: 1096px)");
   // const matchesMD = useMediaQuery(theme.breakpoints.down("md"));
-  // const matchesMdOnly = useMediaQuery(theme.breakpoints.only("md"));
+  const matchesMdOnly = useMediaQuery(theme.breakpoints.only("md"));
 
   return (
     <Grid
@@ -140,22 +162,33 @@ const Features = () => {
       className={classes.parentGrid}
     >
       <Hidden mdUp>
-        <Grid item style={{ position: "relative", height: "22em" }}>
+        <Grid
+          item
+          style={{ position: "relative", height: "22em", }}
+        >
           <img
             src={greenWire}
             alt="A green wireframe around a baby"
             className={classes.greenWire}
+            style={{
+              maxWidth: matchesXXXS ? "15em" : undefined,
+              transform: matchesXXXS
+                ? "translateX(-55%) rotate(-5deg)"
+                : undefined,
+            }}
           />
           <img
             src={pinkWire}
             alt="A pink wireframe around a baby"
             className={classes.pinkWire}
+            style={{ maxWidth: matchesXXXS ? "15em" : undefined }}
           />
 
           <img
             src={babyImg}
             alt="A beautiful baby girl sitting comfortably in a basket"
             className={classes.babyImg}
+            style={{ maxWidth: matchesXXXS ? "15em" : undefined }}
           />
 
           {/* <div className={classes.planetShapeXL} /> */}
@@ -185,7 +218,14 @@ const Features = () => {
           justify={matchesSM ? "center" : "space-between"}
         >
           <Hidden smDown>
-            <Grid item style={{ position: "relative" }}>
+            <Grid
+              item
+              style={{
+                position: "relative",
+                overflow: "hidden",
+                top: matchesMdOnly ? "7em" : null,
+              }}
+            >
               <img
                 src={greenWire}
                 alt="A green wireframe around a baby"
@@ -204,7 +244,12 @@ const Features = () => {
               {/* <div className={classes.planetShapeXL} /> */}
             </Grid>
           </Hidden>
-          <Grid item>
+          <Grid
+            item
+            style={{
+              maxWidth: matchesSM ? null : matchesMDX ? "25em" : null,
+            }}
+          >
             <Grid
               container
               direction="column"
@@ -226,11 +271,18 @@ const Features = () => {
                   align={matchesSM ? "center" : undefined}
                 >
                   We are moved to create a premium, harmful chemical free,{" "}
-                  {!matchesSM && <br />} sparkling clean liquid laundry soap.
+                  {!matchesMDX && <br />} sparkling clean liquid laundry soap.
                 </Typography>
               </Grid>
             </Grid>
-            <Grid item style={{ marginTop: "5em", marginBottom: "5em" }}>
+            <Grid
+              item
+              style={{
+                marginTop: "5em",
+                marginBottom: "5em",
+                maxWidth: matchesSM ? null : matchesMDX ? "25em" : null,
+              }}
+            >
               <Grid
                 container
                 direction="column"
@@ -255,7 +307,7 @@ const Features = () => {
                     className={classes.description}
                   >
                     We are moved to create a premium, harmful chemical free,{" "}
-                    {!matchesSM && <br />} sparkling clean liquid laundry soap.
+                    {!matchesMDX && <br />} sparkling clean liquid laundry soap.
                   </Typography>
                 </Grid>
               </Grid>
@@ -284,7 +336,12 @@ const Features = () => {
                   High Concentration
                 </Typography>
               </Grid>
-              <Grid item>
+              <Grid
+                item
+                style={{
+                  maxWidth: matchesSM ? null : matchesMDX ? "25em" : null,
+                }}
+              >
                 <Typography
                   variant="body1"
                   paragraph
@@ -292,7 +349,7 @@ const Features = () => {
                   align={matchesSM ? "center" : undefined}
                 >
                   We are moved to create a premium, harmful chemical free,{" "}
-                  {!matchesSM && <br />} sparkling clean liquid laundry soap .
+                  {!matchesMDX && <br />} sparkling clean liquid laundry soap .
                 </Typography>
               </Grid>
             </Grid>
@@ -302,7 +359,6 @@ const Features = () => {
               container
               direction="column"
               alignItems={matchesSM ? "center" : undefined}
-              style={{ marginBottom: matchesSM ? "5em" : 0 }}
             >
               <Grid item>
                 <img
@@ -315,7 +371,13 @@ const Features = () => {
                   Unique
                 </Typography>
               </Grid>
-              <Grid item>
+              <Grid
+                item
+                style={{
+                  marginBottom: matchesSM ? "5em" : 0,
+                  maxWidth: matchesSM ? null : matchesMDX ? "25em" : null,
+                }}
+              >
                 <Typography
                   variant="body1"
                   paragraph
@@ -323,7 +385,7 @@ const Features = () => {
                   align={matchesSM ? "center" : undefined}
                 >
                   We are moved to create a premium, harmful chemical free,{" "}
-                  {!matchesSM && <br />} sparkling clean liquid laundry soap .
+                  {!matchesMDX && <br />} sparkling clean liquid laundry soap .
                 </Typography>
               </Grid>
             </Grid>

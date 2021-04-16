@@ -9,10 +9,11 @@ import safeWashLady from "../../assets/safewash-lady-2.png";
 const useStyles = makeStyles((theme) => ({
   parentGrid: {
     padding: "10em 7em",
+    overflow: "hidden",
 
     [theme.breakpoints.only("md")]: {
-      paddingLeft: "2em",
-      paddingRight: "2em",
+      paddingLeft: "5em",
+      paddingRight: "5em",
     },
 
     [theme.breakpoints.down("sm")]: {
@@ -27,10 +28,32 @@ const useStyles = makeStyles((theme) => ({
   primaryHeading: {
     color: theme.palette.common.brown,
     marginBottom: "1em",
+
+    [theme.breakpoints.down("xs")]: {
+      fontSize: "1.75rem",
+    },
+  },
+  aboutTextContent: {
+    [theme.breakpoints.only("md")]: {
+      maxWidth: "30em",
+    },
   },
   pinkWire: {
     ...theme.typography.wire,
     top: "5em",
+
+    [theme.breakpoints.down("lg")]: {
+      maxWidth: "25em",
+    },
+
+    [theme.breakpoints.down("md")]: {
+      maxWidth: "20em",
+      left: "7em",
+    },
+
+    [theme.breakpoints.down("sm")]: {
+      maxWidth: "25em",
+    },
 
     [theme.breakpoints.down("xs")]: {
       maxWidth: "20em",
@@ -44,6 +67,20 @@ const useStyles = makeStyles((theme) => ({
     top: 0,
     left: "-3em",
     zIndex: 2,
+
+    [theme.breakpoints.down("lg")]: {
+      maxWidth: "30em",
+    },
+
+    [theme.breakpoints.down("md")]: {
+      maxWidth: "25em",
+      left: "5em",
+    },
+
+    [theme.breakpoints.down("sm")]: {
+      maxWidth: "30em",
+      left: 0,
+    },
 
     [theme.breakpoints.down("xs")]: {
       maxWidth: "25em",
@@ -67,7 +104,10 @@ const About = () => {
   const classes = useStyles();
   const theme = useTheme();
   const matchesXXS = useMediaQuery("(max-width: 450px)");
+  const matchesXS = useMediaQuery(theme.breakpoints.down("xs"));
   const matchesSM = useMediaQuery(theme.breakpoints.down("sm"));
+  const matchesMDX = useMediaQuery("(max-width: 1096px)");
+  // const matchesLG = useMediaQuery(theme.breakpoints.down("lg"));
 
   return (
     <Grid
@@ -100,6 +140,17 @@ const About = () => {
               variant="body1"
               paragraph
               align={matchesSM ? "center" : undefined}
+              className={classes.aboutTextContent}
+              style={{
+                maxWidth: matchesSM ? null : matchesMDX ? "25em" : undefined,
+                textAlign: matchesXS
+                  ? "justify"
+                  : matchesSM
+                  ? "left"
+                  : matchesMDX
+                  ? "justify"
+                  : "left",
+              }}
             >
               We use our knowledge and expertise to provide the most effecient,
               effective and environmentally friendly cleaning possible. Having
