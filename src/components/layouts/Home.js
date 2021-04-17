@@ -4,6 +4,7 @@ import Distributors from "./Distributors";
 import Features from "./Features";
 import Slides from "./Slides";
 import Contact from "./Contact";
+import Testimonies from "./Testimonies";
 
 const Home = () => {
   return (
@@ -22,6 +23,9 @@ const Home = () => {
       </Grid>
       <Grid item>
         <Contact />
+      </Grid>
+      <Grid item>
+        <Testimonies />
       </Grid>
     </Grid>
   );
