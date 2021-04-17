@@ -46,8 +46,14 @@ const useStyles = makeStyles((theme) => ({
     textAlign: "center",
   },
 
-  cardGrid: {
+  cardSectionGrid: {
     paddingTop: "10em",
+    flexDirection: "row",
+
+    [theme.breakpoints.down("sm")]: {
+      paddingTop: "7em",
+      flexDirection: "column",
+    },
   },
 
   card: {
@@ -57,25 +63,52 @@ const useStyles = makeStyles((theme) => ({
     textAlign: "center",
     overflow: "visible",
     boxShadow: theme.shadows[5],
+
+    [theme.breakpoints.down("sm")]: {
+      padding: "8em 4em 2em",
+    },
+
+    [theme.breakpoints.down("xs")]: {
+      padding: "8em 3em 2em",
+    },
   },
   greenOutlineCircle: {
     ...theme.typography.outlineCircle,
     border: `2px solid ${theme.palette.secondary.main}`,
+
+    [theme.breakpoints.down("sm")]: {
+      width: 150,
+      height: 150,
+    },
   },
   blueOutlineCircle: {
     ...theme.typography.outlineCircle,
     border: `2px solid ${theme.palette.common.blue}`,
+
+    [theme.breakpoints.down("sm")]: {
+      width: 150,
+      height: 150,
+    },
   },
   pinkOutlineCircle: {
     ...theme.typography.outlineCircle,
     border: `2px solid ${theme.palette.primary.main}`,
+
+    [theme.breakpoints.down("sm")]: {
+      width: 150,
+      height: 150,
+    },
   },
   cardImg: {
     width: 100,
     position: "absolute",
-    top: "-3em",
+    top: "-5em",
     left: "50%",
     transform: "translateX(-50%)",
+
+    [theme.breakpoints.down("sm")]: {
+      width: 150,
+    },
   },
   cardTitle: {
     fontSize: ".75rem",
@@ -92,6 +125,7 @@ const useStyles = makeStyles((theme) => ({
     textTransform: "none",
     padding: ".25em 2em",
     fontFamily: "Gilroy-Thin",
+    fontWeight: "bold",
     color: "#fff",
     margin: "0 auto",
     fontSize: ".75rem",
@@ -149,12 +183,11 @@ const Distributors = () => {
           possible.
         </Typography>
       </Grid>
-      <Grid item className={classes.cardGrid}>
+      <Grid item>
         <Grid
           container
-          direction={matchesSM ? "column" : "row"}
-          justify={matchesSM ? "center" : "flex-start"}
-          spacing={matchesSM ? 10 : 3}
+          className={classes.cardSectionGrid}
+          spacing={matchesSM ? 0 : 3}
         >
           <Grid item>
             <Card className={classes.card}>
@@ -194,7 +227,7 @@ const Distributors = () => {
               </CardActions>
             </Card>
           </Grid>
-          <Grid item>
+          <Grid item style={{ margin: matchesSM ? "10em 0" : 0 }}>
             <Card className={classes.card}>
               <CardContent>
                 <div className={classes.blueOutlineCircle} />

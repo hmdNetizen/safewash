@@ -39,7 +39,7 @@ const useStyles = makeStyles((theme) => ({
   },
   aboutTextContent: {
     [theme.breakpoints.only("md")]: {
-      maxWidth: "30em",
+      maxWidth: "42em",
     },
   },
   pinkWire: {
@@ -147,7 +147,7 @@ const About = () => {
               align={matchesSM ? "center" : undefined}
               className={classes.aboutTextContent}
               style={{
-                maxWidth: matchesSM ? null : matchesMDX ? "34em" : undefined,
+                maxWidth: matchesSM ? null : matchesMDX ? "34em" : null,
                 textAlign: matchesXS
                   ? "center"
                   : matchesSM
