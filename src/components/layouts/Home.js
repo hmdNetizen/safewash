@@ -3,6 +3,7 @@ import About from "./About";
 import Distributors from "./Distributors";
 import Features from "./Features";
 import Slides from "./Slides";
+import Contact from "./Contact";
 
 const Home = () => {
   return (
@@ -18,6 +19,9 @@ const Home = () => {
       </Grid>
       <Grid item>
         <Distributors />
+      </Grid>
+      <Grid item>
+        <Contact />
       </Grid>
     </Grid>
   );

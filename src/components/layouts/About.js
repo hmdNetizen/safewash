@@ -107,6 +107,7 @@ const useStyles = makeStyles((theme) => ({
 const About = () => {
   const classes = useStyles();
   const theme = useTheme();
+
   const matchesXXS = useMediaQuery("(max-width: 450px)");
   const matchesXS = useMediaQuery(theme.breakpoints.down("xs"));
   const matchesSM = useMediaQuery(theme.breakpoints.down("sm"));
@@ -146,9 +147,9 @@ const About = () => {
               align={matchesSM ? "center" : undefined}
               className={classes.aboutTextContent}
               style={{
-                maxWidth: matchesSM ? null : matchesMDX ? "25em" : undefined,
+                maxWidth: matchesSM ? null : matchesMDX ? "34em" : undefined,
                 textAlign: matchesXS
-                  ? "justify"
+                  ? "center"
                   : matchesSM
                   ? "left"
                   : matchesMDX

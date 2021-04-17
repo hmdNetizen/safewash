@@ -91,23 +91,23 @@ const useStyles = makeStyles((theme) => ({
     borderRadius: 5,
     textTransform: "none",
     padding: ".25em 2em",
-    fontFamily: "Open Sans",
+    fontFamily: "Gilroy-Thin",
     color: "#fff",
     margin: "0 auto",
     fontSize: ".75rem",
     background: theme.palette.common.blue,
     "&:hover": {
-      background: theme.palette.secondary.light,
+      background: "#17b1d3",
     },
 
     "&:active": {
-      background: theme.palette.secondary.dark,
+      background: "#059bbc",
     },
   },
 
   btn: {
     ...theme.typography.btn,
-    marginTop: "1em",
+
     "&:hover": {
       background: theme.palette.secondary.light,
     },
@@ -121,6 +121,7 @@ const useStyles = makeStyles((theme) => ({
 const Distributors = () => {
   const classes = useStyles();
   const theme = useTheme();
+  const matchesXXXS = useMediaQuery("(max-width: 340px)");
   const matchesSM = useMediaQuery(theme.breakpoints.down("sm"));
   return (
     <Grid
@@ -143,7 +144,7 @@ const Distributors = () => {
           variant="body1"
           className={classes.distributorDescriptionText}
         >
-          We use our knowledge and expertise to providethe most effecient,
+          We use our knowledge and expertise to provide the most effecient,
           effective and environmentally {!matchesSM && <br />} friendly cleaning
           possible.
         </Typography>
@@ -277,14 +278,18 @@ const Distributors = () => {
           paragraph
           className={classes.distributorDescriptionText}
         >
-          We use our knowledge and expertise to providethe most effecient,
+          We use our knowledge and expertise to provide the most effecient,
           effective and environmentally {!matchesSM && <br />} friendly cleaning
           possible
         </Typography>
       </Grid>
-      <Grid item>
-        <Button variant="contained" className={classes.btn}>
-          Become a Distributor
+      <Grid item style={{ marginTop: "1em" }}>
+        <Button
+          variant="contained"
+          className={classes.btn}
+          style={{ padding: matchesXXXS ? ".75em 1em" : undefined }}
+        >
+          Find Distributors Around You?
         </Button>
       </Grid>
     </Grid>
