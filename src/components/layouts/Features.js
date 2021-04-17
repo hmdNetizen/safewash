@@ -10,13 +10,16 @@ import leaves from "../../assets/leaves.png";
 import special from "../../assets/special.png";
 import bubbles from "../../assets/bubbles.png";
 import babyImg from "../../assets/safewash-baby-trimmed.png";
+import babyImgBlurredOut from "../../assets/BQ-Safewash-baby-blurred-out.png";
 
 const useStyles = makeStyles((theme) => ({
   parentGrid: {
     padding: "5em 7em",
 
-    background:
-      "linear-gradient(180deg, #FFFFFF 0%, rgba(255, 255, 255, 0) 100%), linear-gradient(131.41deg, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.9) 15.33%, rgba(255, 210, 231, 0.9) 35.21%, rgba(254, 168, 208, 0.9) 51.11%, rgba(254, 166, 207, 0.9) 69.85%, rgba(255, 255, 255, 0.9) 98.24%, rgba(255, 255, 255, 0.9) 109.03%)",
+    background: `linear-gradient(180deg, #FFFFFF 0%, rgba(255, 255, 255, 0) 100%), linear-gradient(131.41deg, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.9) 15.33%, rgba(255, 210, 231, 0.9) 35.21%, rgba(254, 168, 208, 0.9) 51.11%, rgba(254, 166, 207, 0.9) 69.85%, rgba(255, 255, 255, 0.9) 98.24%, rgba(255, 255, 255, 0.9) 109.03%), url(${babyImgBlurredOut})`,
+    backgroundRepeat: "no-repeat",
+    backgroundPosition: "bottom",
+    backgroundSize: "cover",
 
     [theme.breakpoints.only("md")]: {
       paddingLeft: "5em",
@@ -60,6 +63,18 @@ const useStyles = makeStyles((theme) => ({
   },
   description: {
     fontWeight: 600,
+    color: theme.palette.common.magenta,
+  },
+  green: {
+    color: theme.palette.secondary.main,
+  },
+
+  purple: {
+    color: theme.palette.common.purple,
+  },
+
+  turquoise: {
+    color: theme.palette.common.turquoise,
   },
   greenWire: {
     ...theme.typography.wire,
@@ -205,7 +220,12 @@ const Features = () => {
         </Typography>
       </Grid>
       <Grid item>
-        <Typography variant="body1" paragraph align="center">
+        <Typography
+          variant="body1"
+          paragraph
+          align="center"
+          style={{ color: theme.palette.common.brown }}
+        >
           We are moved to create a premium, harmful chemical free, sparkling
           clean liquid laundry soap {!matchesSM && <br />} clinically safe for
           babies and children’s health.
@@ -295,7 +315,10 @@ const Features = () => {
                   />
                 </Grid>
                 <Grid item className={classes.textContentWrapper}>
-                  <Typography variant="h5" className={classes.secondaryHeading}>
+                  <Typography
+                    variant="h5"
+                    className={`${classes.secondaryHeading} ${classes.green}`}
+                  >
                     Eco-friendly
                   </Typography>
                 </Grid>
@@ -332,7 +355,10 @@ const Features = () => {
                 <img src={bubbles} alt="A bubble icon" />
               </Grid>
               <Grid item className={classes.textContentWrapper}>
-                <Typography variant="h5" className={classes.secondaryHeading}>
+                <Typography
+                  variant="h5"
+                  className={`${classes.secondaryHeading} ${classes.purple}`}
+                >
                   High Concentration
                 </Typography>
               </Grid>
@@ -367,7 +393,10 @@ const Features = () => {
                 />
               </Grid>
               <Grid item className={classes.textContentWrapper}>
-                <Typography variant="h5" className={classes.secondaryHeading}>
+                <Typography
+                  variant="h5"
+                  className={`${classes.secondaryHeading} ${classes.turquoise}`}
+                >
                   Unique
                 </Typography>
               </Grid>

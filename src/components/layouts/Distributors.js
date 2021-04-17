@@ -44,6 +44,7 @@ const useStyles = makeStyles((theme) => ({
 
   distributorDescriptionText: {
     textAlign: "center",
+    color: theme.palette.common.darkBrown,
   },
 
   cardSectionGrid: {

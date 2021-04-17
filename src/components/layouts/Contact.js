@@ -6,13 +6,17 @@ import useMediaQuery from "@material-ui/core/useMediaQuery";
 import pinkWire from "../../assets/Vector 16.png";
 import greenWire from "../../assets/Vector-14.png";
 import safewashLady from "../../assets/safewash-lady-3.png";
+import safewashGallon from "../../assets/bq-safewash-only-1.png";
 
 const useStyles = makeStyles((theme) => ({
   parentGrid: {
     padding: "10em 7em 5em",
     overflow: "hidden",
-    background:
-      "linear-gradient(180deg, #FFFFFF 0%, rgba(255, 255, 255, 0) 100%), linear-gradient(137.03deg, rgba(255, 255, 255, 0.95) 47.28%, rgba(254, 150, 198, 0.95) 152.37%)",
+    background: `linear-gradient(180deg, #FFFFFF 0%, rgba(255, 255, 255, 0) 100%), linear-gradient(137.03deg, rgba(255, 255, 255, 0.95) 47.28%, rgba(254, 150, 198, 0.95) 152.37%), url(${safewashGallon})`,
+    width: "100%",
+    backgroundRepeat: "no-repeat",
+    backgroundPosition: "bottom",
+    backgroundSize: "cover",
 
     [theme.breakpoints.only("md")]: {
       paddingLeft: "5em",
@@ -77,7 +81,7 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.down("sm")]: {
       maxWidth: "25em",
       left: "50%",
-      transform: "translateX(-50%)",
+      transform: "translateX(-50%) rotate(-20deg)",
     },
     [theme.breakpoints.down("xs")]: {
       maxWidth: "20em",
@@ -165,6 +169,7 @@ const Contact = () => {
               variant="body1"
               paragraph
               align={matchesSM ? "center" : undefined}
+              style={{ color: theme.palette.common.brown }}
             >
               We use our knowledge and expertise to provide the most effecient,
               effective and {!matchesMDX && <br />}

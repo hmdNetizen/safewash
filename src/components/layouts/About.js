@@ -38,6 +38,7 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   aboutTextContent: {
+    color: theme.palette.common.darkBrown,
     [theme.breakpoints.only("md")]: {
       maxWidth: "42em",
     },
