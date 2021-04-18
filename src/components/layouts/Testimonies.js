@@ -4,10 +4,14 @@ import Typography from "@material-ui/core/Typography";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
+import { VscQuote } from "react-icons/vsc";
+import { IoTriangle } from "react-icons/io5";
 import distributor1 from "../../assets/Mask Group.png";
 import distributor2 from "../../assets/Mask Group-1.png";
 import distributor3 from "../../assets/Mask Group-2.png";
-import { VscQuote } from "react-icons/vsc";
+import safewashLady from "../../assets/safewash-lady-rectangle.png";
+import safewashLadyMobile from "../../assets/safewash-lady-mobile.png";
+import playRectangle from "../../assets/Rectangle-40.png";
 
 const useStyles = makeStyles((theme) => ({
   parentGrid: {
@@ -141,11 +145,68 @@ const useStyles = makeStyles((theme) => ({
       left: ".65em",
     },
   },
+  greenRectangle: {
+    ...theme.typography.rectangle,
+    borderColor: theme.palette.secondary.main,
+    transform: "rotate(-2deg)",
+
+    [theme.breakpoints.down("md")]: {
+      maxWidth: "60em",
+    },
+
+    [theme.breakpoints.down("xs")]: {
+      maxWidth: 338,
+      maxHeight: 282,
+    },
+  },
+
+  pinkRectangle: {
+    ...theme.typography.rectangle,
+    borderColor: theme.palette.primary.main,
+    transform: "rotate(2deg)",
+
+    [theme.breakpoints.down("md")]: {
+      maxWidth: "60em",
+    },
+
+    [theme.breakpoints.down("xs")]: {
+      maxWidth: 338,
+      maxHeight: 282,
+    },
+  },
+  safewashLady: {
+    width: 879,
+    height: 396,
+    [theme.breakpoints.down("md")]: {
+      maxWidth: "60em",
+    },
+  },
+  safewashLadyMobile: {
+    maxWidth: 338,
+    maxHeight: 282,
+  },
+  opaqueRectangle: {
+    position: "absolute",
+    top: "50%",
+    left: "50%",
+    transform: "translate(-50%, -50%)",
+
+    [theme.breakpoints.down("xs")]: {
+      maxWidth: 101,
+    },
+  },
+  triangle: {
+    position: "absolute",
+    top: "50%",
+    left: "50%",
+    transform: "translate(-50%, -50%) rotate(90deg)",
+  },
 }));
 const Testimonies = () => {
   const classes = useStyles();
   const theme = useTheme();
 
+  const matchesXS = useMediaQuery(theme.breakpoints.down("xs"));
   const matchesSM = useMediaQuery(theme.breakpoints.down("sm"));
   const matchesMD = useMediaQuery(theme.breakpoints.down("md"));
   return (
@@ -287,7 +348,33 @@ const Testimonies = () => {
           </Grid>
         </Grid>
       </Grid>
-      <Grid item></Grid>
+      <Grid item style={{ marginTop: "5em", position: "relative" }}>
+        {!matchesXS ? (
+          <img
+            src={safewashLady}
+            alt="A poster of a safewash customer holding a laundry hand rail"
+            className={classes.safewashLady}
+          />
+        ) : (
+          <img
+            src={safewashLadyMobile}
+            alt="A poster of a safewash customer holding a laundry hand rail"
+            className={classes.safewashLadyMobile}
+          />
+        )}
+        <div className={classes.greenRectangle} />
+        <div className={classes.pinkRectangle} />
+        <img
+          src={playRectangle}
+          alt="An opaque rectangle wrapping around the triangle"
+          className={classes.opaqueRectangle}
+        />
+        <IoTriangle
+          color={theme.palette.primary.main}
+          size={30}
+          className={classes.triangle}
+        />
+      </Grid>
     </Grid>
   );
 };

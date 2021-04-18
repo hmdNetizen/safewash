@@ -111,6 +111,15 @@ const theme = createMuiTheme({
       top: "1em",
       zIndex: 1,
     },
+
+    rectangle: {
+      width: 879,
+      height: 396,
+      border: "2px solid",
+      borderRadius: 10,
+      position: "absolute",
+      top: 0,
+    },
   },
   overrides: {
     MuiListItemText: {
