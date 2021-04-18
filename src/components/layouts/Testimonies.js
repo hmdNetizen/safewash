@@ -155,8 +155,8 @@ const useStyles = makeStyles((theme) => ({
     },
 
     [theme.breakpoints.down("xs")]: {
-      maxWidth: 338,
-      maxHeight: 282,
+      maxWidth: 290,
+      maxHeight: 234,
     },
   },
 
@@ -170,8 +170,8 @@ const useStyles = makeStyles((theme) => ({
     },
 
     [theme.breakpoints.down("xs")]: {
-      maxWidth: 338,
-      maxHeight: 282,
+      maxWidth: 290,
+      maxHeight: 234,
     },
   },
   safewashLady: {
@@ -182,8 +182,8 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   safewashLadyMobile: {
-    maxWidth: 338,
-    maxHeight: 282,
+    maxWidth: 290,
+    maxHeight: 234,
   },
   opaqueRectangle: {
     position: "absolute",
@@ -373,6 +373,7 @@ const Testimonies = () => {
           color={theme.palette.primary.main}
           size={30}
           className={classes.triangle}
+          title="play"
         />
       </Grid>
     </Grid>
