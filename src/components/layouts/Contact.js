@@ -89,6 +89,14 @@ const useStyles = makeStyles((theme) => ({
   },
   primaryHeading: {
     color: theme.palette.common.brown,
+
+    [theme.breakpoints.down("sm")]: {
+      fontSize: "1.75rem",
+    },
+
+    [theme.breakpoints.down("xs")]: {
+      fontSize: "1.5rem",
+    },
   },
   btn: {
     ...theme.typography.btn,

@@ -7,6 +7,7 @@ import CardContent from "@material-ui/core/CardContent";
 import distributor1 from "../../assets/Mask Group.png";
 import distributor2 from "../../assets/Mask Group-1.png";
 import distributor3 from "../../assets/Mask Group-2.png";
+import { VscQuote } from "react-icons/vsc";
 
 const useStyles = makeStyles((theme) => ({
   parentGrid: {
@@ -28,6 +29,14 @@ const useStyles = makeStyles((theme) => ({
   },
   primaryHeading: {
     color: theme.palette.common.blue,
+
+    [theme.breakpoints.down("sm")]: {
+      fontSize: "1.75rem",
+    },
+
+    [theme.breakpoints.down("xs")]: {
+      fontSize: "1.5rem",
+    },
   },
 
   card: {
@@ -117,13 +126,20 @@ const useStyles = makeStyles((theme) => ({
     fontWeight: 600,
   },
 
-  apostrophe: {
+  quotationMark: {
     fontSize: "3rem",
-    color: theme.palette.primary.main,
-    transform: "rotate(180deg)",
     position: "absolute",
-    top: "1.5em",
-    left: ".5em",
+    top: "2.3em",
+    left: ".4em",
+
+    [theme.breakpoints.down("sm")]: {
+      top: "4em",
+      left: "1em",
+    },
+
+    [theme.breakpoints.down("xs")]: {
+      left: ".65em",
+    },
   },
 }));
 const Testimonies = () => {
@@ -182,7 +198,11 @@ const Testimonies = () => {
                 <Typography variant="body1" className={classes.cardDescription}>
                   Laundry Owner
                 </Typography>
-                <div className={classes.apostrophe}>ˮ</div>
+                <VscQuote
+                  color={theme.palette.primary.main}
+                  size={20}
+                  className={classes.quotationMark}
+                />
                 <Typography
                   variant="body1"
                   className={classes.cardText}
@@ -211,9 +231,13 @@ const Testimonies = () => {
                   Abdul Wasiu Modu
                 </Typography>
                 <Typography variant="body1" className={classes.cardDescription}>
-                  Laundry Owner
+                  A Nursing Mother
                 </Typography>
-                <div className={classes.apostrophe}>ˮ</div>
+                <VscQuote
+                  color={theme.palette.primary.main}
+                  size={20}
+                  className={classes.quotationMark}
+                />
                 <Typography
                   variant="body1"
                   className={classes.cardText}
@@ -245,7 +269,11 @@ const Testimonies = () => {
                 <Typography variant="body1" className={classes.cardDescription}>
                   Laundry Owner
                 </Typography>
-                <div className={classes.apostrophe}>ˮ</div>
+                <VscQuote
+                  color={theme.palette.primary.main}
+                  size={20}
+                  className={classes.quotationMark}
+                />
                 <Typography
                   variant="body1"
                   className={classes.cardText}
