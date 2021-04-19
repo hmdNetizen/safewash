@@ -118,7 +118,8 @@ const theme = createMuiTheme({
       border: "2px solid",
       borderRadius: 10,
       position: "absolute",
-      top: 0,
+      top: "50%",
+      left: "50%",
     },
   },
   overrides: {

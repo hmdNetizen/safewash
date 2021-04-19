@@ -22,8 +22,9 @@ const useStyles = makeStyles((theme) => ({
       paddingRight: "5em",
     },
 
-    [theme.breakpoints.down("sm")]: {
-      paddingTop: "5em",
+    [theme.breakpoints.only("sm")]: {
+      paddingLeft: "2em",
+      paddingRight: "2em",
     },
 
     [theme.breakpoints.down("xs")]: {
@@ -52,12 +53,11 @@ const useStyles = makeStyles((theme) => ({
     height: "20em",
 
     [theme.breakpoints.down("sm")]: {
-      padding: "8em 4em 2em",
-      height: "25em",
+      padding: "3em 4em 2em",
     },
 
     [theme.breakpoints.down("xs")]: {
-      padding: "8em 3em 2em",
+      padding: "3em 3em 2em",
     },
   },
 
@@ -137,7 +137,7 @@ const useStyles = makeStyles((theme) => ({
     left: ".4em",
 
     [theme.breakpoints.down("sm")]: {
-      top: "4em",
+      top: "2.55em",
       left: "1em",
     },
 
@@ -148,51 +148,72 @@ const useStyles = makeStyles((theme) => ({
   greenRectangle: {
     ...theme.typography.rectangle,
     borderColor: theme.palette.secondary.main,
-    transform: "rotate(-2deg)",
+    transform: "translate(-50%, -50%) rotate(-2deg)",
+    maxWidth: "100%",
 
-    [theme.breakpoints.down("md")]: {
-      maxWidth: "60em",
+    [theme.breakpoints.down("sm")]: {
+      width: 420,
+      height: 362,
     },
 
     [theme.breakpoints.down("xs")]: {
-      maxWidth: 290,
-      maxHeight: 234,
+      width: "100%",
     },
   },
 
   pinkRectangle: {
     ...theme.typography.rectangle,
     borderColor: theme.palette.primary.main,
-    transform: "rotate(2deg)",
+    transform: "translate(-50%, -50%) rotate(2deg)",
+    maxWidth: "100%",
 
-    [theme.breakpoints.down("md")]: {
-      maxWidth: "60em",
+    [theme.breakpoints.down("sm")]: {
+      width: 420,
+      height: 362,
     },
 
     [theme.breakpoints.down("xs")]: {
-      maxWidth: 290,
-      maxHeight: 234,
+      width: "100%",
     },
   },
   safewashLady: {
     width: 879,
     height: 396,
-    [theme.breakpoints.down("md")]: {
-      maxWidth: "60em",
-    },
+    maxWidth: "100%",
+    position: "absolute",
+    left: "50%",
+    top: "50%",
+    transform: "translate(-50%, -50%)",
+
+    // [theme.breakpoints.down("md")]: {
+    //   maxWidth: "60em",
+    // },
   },
   safewashLadyMobile: {
-    maxWidth: 290,
-    maxHeight: 234,
+    width: 450,
+    height: 392,
+    position: "absolute",
+    left: "50%",
+    top: "50%",
+    transform: "translate(-50%, -50%)",
+
+    [theme.breakpoints.down("sm")]: {
+      width: 420,
+      height: 362,
+    },
+
+    [theme.breakpoints.down("xs")]: {
+      width: "100%",
+    },
   },
   opaqueRectangle: {
     position: "absolute",
-    top: "50%",
     left: "50%",
+    top: "50%",
     transform: "translate(-50%, -50%)",
 
     [theme.breakpoints.down("xs")]: {
-      maxWidth: 101,
+      maxWidth: 80,
     },
   },
   triangle: {
@@ -206,6 +227,7 @@ const Testimonies = () => {
   const classes = useStyles();
   const theme = useTheme();
 
+  const matchesXXXS = useMediaQuery("(max-width: 340px)");
   const matchesXS = useMediaQuery(theme.breakpoints.down("xs"));
   const matchesSM = useMediaQuery(theme.breakpoints.down("sm"));
   const matchesMD = useMediaQuery(theme.breakpoints.down("md"));
@@ -215,6 +237,10 @@ const Testimonies = () => {
       direction="column"
       alignItems="center"
       className={classes.parentGrid}
+      style={{
+        paddingLeft: matchesXXXS ? "1em" : undefined,
+        paddingRight: matchesXXXS ? "1em" : undefined,
+      }}
     >
       <Grid item style={{ marginBottom: "1em" }}>
         <Typography variant="h2" className={classes.primaryHeading}>
@@ -348,8 +374,16 @@ const Testimonies = () => {
           </Grid>
         </Grid>
       </Grid>
-      <Grid item style={{ marginTop: "5em", position: "relative" }}>
-        {!matchesXS ? (
+      <Grid
+        item
+        style={{
+          position: "relative",
+          top: matchesXS ? "15em" : matchesMD ? "20em" : "5em",
+          marginBottom: "10em",
+          width: "100%",
+        }}
+      >
+        {!matchesSM ? (
           <img
             src={safewashLady}
             alt="A poster of a safewash customer holding a laundry hand rail"
@@ -360,10 +394,26 @@ const Testimonies = () => {
             src={safewashLadyMobile}
             alt="A poster of a safewash customer holding a laundry hand rail"
             className={classes.safewashLadyMobile}
+            style={{
+              maxWidth: matchesXXXS ? 250 : undefined,
+              maxHeight: matchesXXXS ? 194 : undefined,
+            }}
           />
         )}
-        <div className={classes.greenRectangle} />
-        <div className={classes.pinkRectangle} />
+        <div
+          className={classes.greenRectangle}
+          style={{
+            maxWidth: matchesXXXS ? 250 : undefined,
+            maxHeight: matchesXXXS ? 194 : undefined,
+          }}
+        />
+        <div
+          className={classes.pinkRectangle}
+          style={{
+            maxWidth: matchesXXXS ? 250 : undefined,
+            maxHeight: matchesXXXS ? 194 : undefined,
+          }}
+        />
         <img
           src={playRectangle}
           alt="An opaque rectangle wrapping around the triangle"
@@ -371,7 +421,7 @@ const Testimonies = () => {
         />
         <IoTriangle
           color={theme.palette.primary.main}
-          size={30}
+          size={matchesXS ? 20 : 30}
           className={classes.triangle}
           title="play"
         />
