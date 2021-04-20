@@ -318,13 +318,13 @@ const SlideThree = () => {
           alt="A blurry blue ring wire circling around the baby"
           className={classes.ringCircleBackground}
         />
-        {!matchesXXXS && (
-          <img
-            src={safeWashBaby3}
-            alt="A cute baby sitting down"
-            className={classes.slideImg}
-          />
-        )}
+
+        <img
+          src={safeWashBaby3}
+          alt="A cute baby sitting down"
+          className={classes.slideImg}
+        />
+
         <div className={classes.circle} />
         <div className={`${classes.squareSm}`} />
         <div className={`${classes.planetShapeSm}`} />

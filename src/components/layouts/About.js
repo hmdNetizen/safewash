@@ -113,7 +113,6 @@ const About = () => {
   const matchesXS = useMediaQuery(theme.breakpoints.down("xs"));
   const matchesSM = useMediaQuery(theme.breakpoints.down("sm"));
   const matchesMDX = useMediaQuery("(max-width: 1096px)");
-  // const matchesLG = useMediaQuery(theme.breakpoints.down("lg"));
 
   return (
     <Grid

@@ -22,11 +22,6 @@ const useStyles = makeStyles((theme) => ({
       paddingRight: "2em",
     },
 
-    [theme.breakpoints.only("sm")]: {
-      paddingLeft: "2em",
-      paddingRight: "2em",
-    },
-
     [theme.breakpoints.down("xs")]: {
       paddingLeft: "2em",
       paddingRight: "2em",
@@ -44,6 +39,14 @@ const useStyles = makeStyles((theme) => ({
     },
   },
 
+  cardGrid: {
+    "&:not(last-child)": {
+      [theme.breakpoints.down("xs")]: {
+        marginBottom: "5em",
+      },
+    },
+  },
+
   card: {
     padding: "2em",
     borderRadius: 5,
@@ -51,6 +54,8 @@ const useStyles = makeStyles((theme) => ({
     overflow: "visible",
     boxShadow: theme.shadows[5],
     height: "20em",
+    left: "50%",
+    transform: "translateX(-50%)",
 
     [theme.breakpoints.down("sm")]: {
       padding: "3em 4em 2em",
@@ -145,20 +150,28 @@ const useStyles = makeStyles((theme) => ({
       left: ".65em",
     },
   },
+
+  posterGrid: {
+    position: "relative",
+    width: 879,
+    height: 396,
+    top: "5em",
+
+    [theme.breakpoints.down("sm")]: {
+      width: 338,
+      height: 282,
+    },
+
+    [theme.breakpoints.down("xs")]: {
+      width: "80%",
+    },
+  },
   greenRectangle: {
     ...theme.typography.rectangle,
     borderColor: theme.palette.secondary.main,
     transform: "translate(-50%, -50%) rotate(-2deg)",
     width: "100%",
     height: "100%",
-
-    [theme.breakpoints.down("sm")]: {
-      width: 420,
-    },
-
-    [theme.breakpoints.down("xs")]: {
-      width: "80%",
-    },
   },
 
   pinkRectangle: {
@@ -167,35 +180,21 @@ const useStyles = makeStyles((theme) => ({
     transform: "translate(-50%, -50%) rotate(2deg)",
     width: "100%",
     height: "100%",
-
-    [theme.breakpoints.down("sm")]: {
-      width: 420,
-    },
-
-    [theme.breakpoints.down("xs")]: {
-      width: "80%",
-    },
   },
   safewashLady: {
     width: "100%",
-    height: "100%",
-    maxWidth: "100%",
     position: "absolute",
     left: "50%",
     top: "50%",
     transform: "translate(-50%, -50%)",
   },
   safewashLadyMobile: {
-    width: 420,
+    width: "100%",
     height: "100%",
     position: "absolute",
     left: "50%",
     top: "50%",
     transform: "translate(-50%, -50%)",
-
-    [theme.breakpoints.down("xs")]: {
-      width: "80%",
-    },
   },
   opaqueRectangle: {
     position: "absolute",
@@ -203,7 +202,7 @@ const useStyles = makeStyles((theme) => ({
     top: "50%",
     transform: "translate(-50%, -50%)",
 
-    [theme.breakpoints.down("xs")]: {
+    [theme.breakpoints.down("sm")]: {
       maxWidth: 80,
     },
   },
@@ -214,13 +213,41 @@ const useStyles = makeStyles((theme) => ({
     transform: "translate(-50%, -50%) rotate(90deg)",
   },
 }));
+
 const Testimonies = () => {
   const classes = useStyles();
   const theme = useTheme();
 
+  // const testimonies = [
+  //   {
+  //     name: "Abdul Wasiu Modu",
+  //     profession: "Laundry Owner",
+  //     outline: classes.purpleOutlineCircle,
+  //     image: distributor1,
+  //     feedback: "I have tried it oooo, the thickness and smell is everything.",
+  //   },
+  //   {
+  //     name: "Abdul Wasiu Modu",
+  //     profession: "A Nursing Mother",
+  //     outline: classes.pinkOutlineCircle,
+  //     image: distributor3,
+  //     feedback:
+  //       "Yeah I have bought after I gave birth because I feel my baby’s clothes deserve bqsafewash I and to protect his skin from rashes and allergies",
+  //   },
+  //   {
+  //     name: "Abdul Wasiu Modu",
+  //     profession: "Laundry Owner",
+  //     outline: classes.blueOutlineCircle,
+  //     image: distributor2,
+  //     feedback:
+  //       "I tried bqsafewash yesterday! It was the Bomb! My customers are happy and coming back for more",
+  //   },
+  // ];
+
   const matchesXXXS = useMediaQuery("(max-width: 340px)");
   const matchesXXS = useMediaQuery("(max-width: 450px)");
   const matchesXS = useMediaQuery(theme.breakpoints.down("xs"));
+  // const matchesSMX = useMediaQuery("(max-width: 760px)");
   const matchesSM = useMediaQuery(theme.breakpoints.down("sm"));
   const matchesMD = useMediaQuery(theme.breakpoints.down("md"));
   return (
@@ -235,11 +262,15 @@ const Testimonies = () => {
       }}
     >
       <Grid item style={{ marginBottom: "1em" }}>
-        <Typography variant="h2" className={classes.primaryHeading}>
+        <Typography
+          variant="h2"
+          className={classes.primaryHeading}
+          align="center"
+        >
           Read Our Testimonies
         </Typography>
       </Grid>
-      <Grid item>
+      <Grid item style={{ marginBottom: "5em" }}>
         <Typography
           variant="body1"
           paragraph
@@ -251,129 +282,175 @@ const Testimonies = () => {
           friendly cleaning possible
         </Typography>
       </Grid>
-      <Grid item>
-        <Grid
-          container
-          direction={matchesSM ? "column" : "row"}
-          spacing={matchesSM ? 10 : matchesMD ? 7 : 10}
-          style={{ paddingTop: "5em" }}
-        >
-          <Grid item>
-            <Card className={classes.card}>
-              <CardContent>
-                <div className={classes.purpleOutlineCircle} />
-                <img
-                  src={distributor1}
-                  alt="A snapshot of one of safewash's distributors"
-                  className={classes.cardImg}
-                />
-                <Typography
-                  variant="h6"
-                  gutterBottom
-                  className={classes.cardTitle}
-                >
-                  Abdul Wasiu Modu
-                </Typography>
-                <Typography variant="body1" className={classes.cardDescription}>
-                  Laundry Owner
-                </Typography>
-                <VscQuote
-                  color={theme.palette.primary.main}
-                  size={20}
-                  className={classes.quotationMark}
-                />
-                <Typography
-                  variant="body1"
-                  className={classes.cardText}
-                  style={{ marginBottom: "1em" }}
-                >
-                  I have tried it oooo, the <br /> thickness and smell is <br />{" "}
-                  everything.
-                </Typography>
-              </CardContent>
-            </Card>
-          </Grid>
-          <Grid item>
-            <Card className={classes.card}>
-              <CardContent>
-                <div className={classes.pinkOutlineCircle} />
-                <img
-                  src={distributor3}
-                  alt="A snapshot of one of safewash's distributors"
-                  className={classes.cardImg}
-                />
-                <Typography
-                  variant="h6"
-                  gutterBottom
-                  className={classes.cardTitle}
-                >
-                  Abdul Wasiu Modu
-                </Typography>
-                <Typography variant="body1" className={classes.cardDescription}>
-                  A Nursing Mother
-                </Typography>
-                <VscQuote
-                  color={theme.palette.primary.main}
-                  size={20}
-                  className={classes.quotationMark}
-                />
-                <Typography
-                  variant="body1"
-                  className={classes.cardText}
-                  style={{ marginBottom: "1em" }}
-                >
-                  Yeah I have bought after I <br /> gave birth because I feel{" "}
-                  <br /> my baby’s clothes <br /> deserve bqsafewash I and{" "}
-                  <br /> to protect his skin from <br /> rashes and allergies
-                </Typography>
-              </CardContent>
-            </Card>
-          </Grid>
-          <Grid item>
-            <Card className={classes.card}>
-              <CardContent>
-                <div className={classes.blueOutlineCircle} />
-                <img
-                  src={distributor2}
-                  alt="A snapshot of one of safewash's distributors"
-                  className={classes.cardImg}
-                />
-                <Typography
-                  variant="h6"
-                  gutterBottom
-                  className={classes.cardTitle}
-                >
-                  Abdul Wasiu Modu
-                </Typography>
-                <Typography variant="body1" className={classes.cardDescription}>
-                  Laundry Owner
-                </Typography>
-                <VscQuote
-                  color={theme.palette.primary.main}
-                  size={20}
-                  className={classes.quotationMark}
-                />
-                <Typography
-                  variant="body1"
-                  className={classes.cardText}
-                  style={{ marginBottom: "1em" }}
-                >
-                  I tried bqsafewash <br /> yesterday! It was the <br /> Bomb!
-                  My customers are <br /> happy and coming back <br /> for more
-                </Typography>
-              </CardContent>
-            </Card>
-          </Grid>
+      <Grid
+        item
+        container
+        direction={matchesSM ? "column" : "row"}
+        justify="center"
+        alignItems="center"
+        spacing={matchesXS ? 0 : matchesSM ? 10 : matchesMD ? 7 : 10}
+      >
+        <Grid item className={classes.cardGrid}>
+          <Card
+            className={classes.card}
+            style={{
+              paddingLeft: matchesXXXS ? "2em" : undefined,
+              paddingRight: matchesXXXS ? ".5em" : undefined,
+              // maxWidth: matchesXXXS ? "15em" : undefined,
+              // height: matchesXXXS ? "22em" : undefined,
+            }}
+          >
+            <div
+              className={classes.purpleOutlineCircle}
+              style={{
+                width: matchesXXXS ? 70 : undefined,
+                height: matchesXXXS ? 70 : undefined,
+                left: matchesXXXS ? "13%" : undefined,
+              }}
+            />
+            <img
+              src={distributor1}
+              alt="A snapshot of one of safewash's distributors"
+              className={classes.cardImg}
+              style={{
+                width: matchesXXXS ? 70 : undefined,
+                left: matchesXXXS ? 0 : undefined,
+              }}
+            />
+            <CardContent>
+              <Typography
+                variant="h6"
+                gutterBottom
+                className={classes.cardTitle}
+              >
+                Abdul Wasiu Modu
+              </Typography>
+              <Typography variant="body1" className={classes.cardDescription}>
+                Laundry Owner
+              </Typography>
+              <VscQuote
+                color={theme.palette.primary.main}
+                size={20}
+                className={classes.quotationMark}
+              />
+              <Typography variant="body1" className={classes.cardText}>
+                I have tried it oooo, the {!matchesXXXS && <br />} thickness and
+                smell is {!matchesXXXS && <br />} everything.
+              </Typography>
+            </CardContent>
+          </Card>
+        </Grid>
+        <Grid item className={classes.cardGrid}>
+          <Card
+            className={classes.card}
+            style={{
+              paddingLeft: matchesXXXS ? "2em" : undefined,
+              paddingRight: matchesXXXS ? ".5em" : undefined,
+              // maxWidth: matchesXXXS ? "15em" : undefined,
+              // height: matchesXXXS ? "22em" : undefined,
+            }}
+          >
+            <div
+              className={classes.pinkOutlineCircle}
+              style={{
+                width: matchesXXXS ? 70 : undefined,
+                height: matchesXXXS ? 70 : undefined,
+                left: matchesXXXS ? "13%" : undefined,
+              }}
+            />
+            <img
+              src={distributor3}
+              alt="A snapshot of one of safewash's distributors"
+              className={classes.cardImg}
+              style={{
+                width: matchesXXXS ? 70 : undefined,
+                left: matchesXXXS ? 0 : undefined,
+              }}
+            />
+            <CardContent>
+              <Typography
+                variant="h6"
+                gutterBottom
+                className={classes.cardTitle}
+              >
+                Abdul Wasiu Modu
+              </Typography>
+              <Typography variant="body1" className={classes.cardDescription}>
+                A Nursing Mother
+              </Typography>
+              <VscQuote
+                color={theme.palette.primary.main}
+                size={20}
+                className={classes.quotationMark}
+              />
+              <Typography variant="body1" className={classes.cardText}>
+                Yeah I have bought after I {!matchesXXXS && <br />} gave birth
+                because I feel
+                {!matchesXXXS && <br />} my baby’s clothes{" "}
+                {!matchesXXXS && <br />} deserve bqsafewash I and
+                {!matchesXXXS && <br />} to protect his skin from{" "}
+                {!matchesXXXS && <br />} rashes and allergies
+              </Typography>
+            </CardContent>
+          </Card>
+        </Grid>
+        <Grid item>
+          <Card
+            className={classes.card}
+            style={{
+              // maxWidth: matchesXXXS ? "15em" : undefined,
+              paddingLeft: matchesXXXS ? "2em" : undefined,
+              paddingRight: matchesXXXS ? ".5em" : undefined,
+            }}
+          >
+            <div
+              className={classes.blueOutlineCircle}
+              style={{
+                width: matchesXXXS ? 70 : undefined,
+                height: matchesXXXS ? 70 : undefined,
+                left: matchesXXXS ? "13%" : undefined,
+              }}
+            />
+            <img
+              src={distributor2}
+              alt="A snapshot of one of safewash's distributors"
+              className={classes.cardImg}
+              style={{
+                width: matchesXXXS ? 70 : undefined,
+                left: matchesXXXS ? 0 : undefined,
+              }}
+            />
+            <CardContent>
+              <Typography
+                variant="h6"
+                gutterBottom
+                className={classes.cardTitle}
+              >
+                Abdul Wasiu Modu
+              </Typography>
+              <Typography variant="body1" className={classes.cardDescription}>
+                Laundry Owner
+              </Typography>
+              <VscQuote
+                color={theme.palette.primary.main}
+                size={20}
+                className={classes.quotationMark}
+              />
+              <Typography variant="body1" className={classes.cardText}>
+                I tried bqsafewash {!matchesXXXS && <br />} yesterday! It was
+                the {!matchesXXXS && <br />} Bomb! My customers are{" "}
+                {!matchesXXXS && <br />} happy and coming back{" "}
+                {!matchesXXXS && <br />} for more
+              </Typography>
+            </CardContent>
+          </Card>
         </Grid>
       </Grid>
       <Grid
         item
+        className={classes.posterGrid}
         style={{
-          position: "relative",
-          marginBottom: "5em",
-          top: "5em",
-          width: matchesSM ? "100%" : 879,
-          height: matchesSM ? 282 : 396,
+          width: matchesXXS ? "100%" : undefined,
         }}
       >
         {!matchesSM ? (
@@ -392,18 +469,8 @@ const Testimonies = () => {
             }}
           />
         )}
-        <div
-          className={classes.greenRectangle}
-          style={{
-            width: matchesXXS ? "100%" : undefined,
-          }}
-        />
-        <div
-          className={classes.pinkRectangle}
-          style={{
-            width: matchesXXS ? "100%" : undefined,
-          }}
-        />
+        <div className={classes.greenRectangle} />
+        <div className={classes.pinkRectangle} />
         <img
           src={playRectangle}
           alt="An opaque rectangle wrapping around the triangle"
@@ -411,7 +478,7 @@ const Testimonies = () => {
         />
         <IoTriangle
           color={theme.palette.primary.main}
-          size={matchesXS ? 20 : 30}
+          size={matchesSM ? 20 : 30}
           className={classes.triangle}
           title="play"
         />

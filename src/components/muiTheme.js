@@ -115,7 +115,7 @@ const theme = createMuiTheme({
     rectangle: {
       width: 879,
       height: 396,
-      border: "2px solid",
+      border: "3px solid",
       borderRadius: 10,
       position: "absolute",
       top: "50%",
