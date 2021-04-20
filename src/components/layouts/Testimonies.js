@@ -18,8 +18,8 @@ const useStyles = makeStyles((theme) => ({
     padding: "10em 7em 5em",
 
     [theme.breakpoints.only("md")]: {
-      paddingLeft: "5em",
-      paddingRight: "5em",
+      paddingLeft: "2em",
+      paddingRight: "2em",
     },
 
     [theme.breakpoints.only("sm")]: {
@@ -157,7 +157,8 @@ const useStyles = makeStyles((theme) => ({
     },
 
     [theme.breakpoints.down("xs")]: {
-      width: "100%",
+      width: "80%",
+      height: 292,
     },
   },
 
@@ -173,7 +174,8 @@ const useStyles = makeStyles((theme) => ({
     },
 
     [theme.breakpoints.down("xs")]: {
-      width: "100%",
+      width: "80%",
+      height: 292,
     },
   },
   safewashLady: {
@@ -203,7 +205,8 @@ const useStyles = makeStyles((theme) => ({
     },
 
     [theme.breakpoints.down("xs")]: {
-      width: "100%",
+      width: "80%",
+      height: 292,
     },
   },
   opaqueRectangle: {
@@ -228,6 +231,7 @@ const Testimonies = () => {
   const theme = useTheme();
 
   const matchesXXXS = useMediaQuery("(max-width: 340px)");
+  const matchesXXS = useMediaQuery("(max-width: 450px)");
   const matchesXS = useMediaQuery(theme.breakpoints.down("xs"));
   const matchesSM = useMediaQuery(theme.breakpoints.down("sm"));
   const matchesMD = useMediaQuery(theme.breakpoints.down("md"));
@@ -378,8 +382,8 @@ const Testimonies = () => {
         item
         style={{
           position: "relative",
-          top: matchesXS ? "15em" : matchesMD ? "20em" : "5em",
-          marginBottom: "10em",
+          top: matchesSM ? "15em" : "20em",
+
           width: "100%",
         }}
       >
@@ -388,6 +392,7 @@ const Testimonies = () => {
             src={safewashLady}
             alt="A poster of a safewash customer holding a laundry hand rail"
             className={classes.safewashLady}
+            style={{ width: matchesXXS ? "100%" : undefined }}
           />
         ) : (
           <img
@@ -403,15 +408,13 @@ const Testimonies = () => {
         <div
           className={classes.greenRectangle}
           style={{
-            maxWidth: matchesXXXS ? 250 : undefined,
-            maxHeight: matchesXXXS ? 194 : undefined,
+            width: matchesXXS ? "100%" : undefined,
           }}
         />
         <div
           className={classes.pinkRectangle}
           style={{
-            maxWidth: matchesXXXS ? 250 : undefined,
-            maxHeight: matchesXXXS ? 194 : undefined,
+            width: matchesXXS ? "100%" : undefined,
           }}
         />
         <img
