@@ -149,16 +149,15 @@ const useStyles = makeStyles((theme) => ({
     ...theme.typography.rectangle,
     borderColor: theme.palette.secondary.main,
     transform: "translate(-50%, -50%) rotate(-2deg)",
-    maxWidth: "100%",
+    width: "100%",
+    height: "100%",
 
     [theme.breakpoints.down("sm")]: {
       width: 420,
-      height: 362,
     },
 
     [theme.breakpoints.down("xs")]: {
       width: "80%",
-      height: 292,
     },
   },
 
@@ -166,47 +165,36 @@ const useStyles = makeStyles((theme) => ({
     ...theme.typography.rectangle,
     borderColor: theme.palette.primary.main,
     transform: "translate(-50%, -50%) rotate(2deg)",
-    maxWidth: "100%",
+    width: "100%",
+    height: "100%",
 
     [theme.breakpoints.down("sm")]: {
       width: 420,
-      height: 362,
     },
 
     [theme.breakpoints.down("xs")]: {
       width: "80%",
-      height: 292,
     },
   },
   safewashLady: {
-    width: 879,
-    height: 396,
+    width: "100%",
+    height: "100%",
     maxWidth: "100%",
     position: "absolute",
     left: "50%",
     top: "50%",
     transform: "translate(-50%, -50%)",
-
-    // [theme.breakpoints.down("md")]: {
-    //   maxWidth: "60em",
-    // },
   },
   safewashLadyMobile: {
-    width: 450,
-    height: 392,
+    width: 420,
+    height: "100%",
     position: "absolute",
     left: "50%",
     top: "50%",
     transform: "translate(-50%, -50%)",
 
-    [theme.breakpoints.down("sm")]: {
-      width: 420,
-      height: 362,
-    },
-
     [theme.breakpoints.down("xs")]: {
       width: "80%",
-      height: 292,
     },
   },
   opaqueRectangle: {
@@ -382,9 +370,10 @@ const Testimonies = () => {
         item
         style={{
           position: "relative",
-          top: matchesSM ? "15em" : "20em",
-
-          width: "100%",
+          marginBottom: "5em",
+          top: "5em",
+          width: matchesSM ? "100%" : 879,
+          height: matchesSM ? 282 : 396,
         }}
       >
         {!matchesSM ? (
@@ -392,7 +381,6 @@ const Testimonies = () => {
             src={safewashLady}
             alt="A poster of a safewash customer holding a laundry hand rail"
             className={classes.safewashLady}
-            style={{ width: matchesXXS ? "100%" : undefined }}
           />
         ) : (
           <img
@@ -400,8 +388,7 @@ const Testimonies = () => {
             alt="A poster of a safewash customer holding a laundry hand rail"
             className={classes.safewashLadyMobile}
             style={{
-              maxWidth: matchesXXXS ? 250 : undefined,
-              maxHeight: matchesXXXS ? 194 : undefined,
+              width: matchesXXS ? "100%" : undefined,
             }}
           />
         )}
