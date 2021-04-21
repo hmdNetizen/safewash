@@ -46,6 +46,13 @@ const useStyles = makeStyles((theme) => ({
       marginBottom: "1em",
     },
   },
+  customListItem: {
+    cursor: "pointer",
+
+    "&:hover": {
+      color: theme.palette.common.blue,
+    },
+  },
   listLink: {
     color: theme.palette.common.dark,
 
@@ -70,7 +77,6 @@ const customerServiceList = [
   { id: 1, title: "Ordering and Payment", path: "/order" },
   { id: 2, title: "Returns", path: "/returns" },
   { id: 3, title: "FAQs", path: "/faq" },
-  { id: 4, title: "Go to Top", path: "/#top" },
 ];
 
 const informationList = [
@@ -86,10 +92,30 @@ const contactList = [
 ];
 
 const socialIcons = [
-  { src: instagram, alt: "Instagram Icon" },
-  { src: twitter, alt: "Twitter Icon" },
-  { src: facebook, alt: "Facebook Icon" },
-  { src: linkedIn, alt: "LinkedIn Icon" },
+  {
+    id: 0,
+    src: instagram,
+    alt: "Instagram Icon",
+    link: "https://www.instagram.com",
+  },
+  {
+    id: 1,
+    src: twitter,
+    alt: "Twitter Icon",
+    link: "https://www.twitter.com",
+  },
+  {
+    id: 2,
+    src: facebook,
+    alt: "Facebook Icon",
+    link: "https://www.facebook.com",
+  },
+  {
+    id: 3,
+    src: linkedIn,
+    alt: "LinkedIn Icon",
+    link: "https://www.linkedin.com",
+  },
 ];
 
 const Footer = () => {
@@ -99,242 +125,302 @@ const Footer = () => {
   const matchesXS = useMediaQuery(theme.breakpoints.down("xs"));
   const matchesSM = useMediaQuery(theme.breakpoints.down("sm"));
 
+  const handleScrollToTop = () => {
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
+  };
+
   return (
-    <Grid container direction="column" className={classes.parentGrid}>
-      <Grid item>
-        <Grid
-          container
-          direction={matchesSM ? "column" : "row"}
-          justify={matchesSM ? "flex-start" : "space-between"}
-          className={classes.wrapperContainer}
-        >
-          {/* ONLY DISPLAYS ON MEDIUM TO LARGE SCREEN SIZES */}
-          <Hidden smDown>
-            <Grid item>
-              <img
-                src={bqGlobalLogo}
-                alt="The logo of BQ Global solution limited"
-              />
-            </Grid>
-            <Grid item>
-              <Grid container direction="column">
-                <Grid item>
-                  <Typography
-                    variant="h6"
-                    className={classes.primaryHeading}
-                    gutterBottom
-                  >
-                    Customer Service
-                  </Typography>
-                </Grid>
-                <Grid item>
-                  <ul className={classes.list}>
-                    {customerServiceList.map((list) => (
-                      <li key={list.id} className={classes.listItem}>
-                        <FooterLink list={list} className={classes.listLink} />
-                      </li>
-                    ))}
-                  </ul>
-                </Grid>
+    <footer>
+      <Grid container direction="column" className={classes.parentGrid}>
+        <Grid item>
+          <Grid
+            container
+            direction={matchesSM ? "column" : "row"}
+            justify={matchesSM ? "flex-start" : "space-between"}
+            className={classes.wrapperContainer}
+          >
+            {/* ONLY DISPLAYS ON MEDIUM TO LARGE SCREEN SIZES */}
+            <Hidden smDown>
+              <Grid item>
+                <img
+                  src={bqGlobalLogo}
+                  alt="The logo of BQ Global solution limited"
+                />
               </Grid>
-            </Grid>
-            <Grid item>
-              <Grid container direction="column">
-                <Grid item>
-                  <Typography
-                    variant="h6"
-                    className={classes.primaryHeading}
-                    gutterBottom
-                  >
-                    Information
-                  </Typography>
-                </Grid>
-                <Grid item>
-                  <ul className={classes.list}>
-                    {informationList.map((list) => (
-                      <li key={list.id} className={classes.listItem}>
-                        <FooterLink list={list} className={classes.listLink} />
+              <Grid item>
+                <Grid container direction="column">
+                  {/* CUSTOMER MENU */}
+                  <Grid item>
+                    <Typography
+                      variant="h6"
+                      className={classes.primaryHeading}
+                      gutterBottom
+                    >
+                      Customer Service
+                    </Typography>
+                  </Grid>
+                  <Grid item>
+                    <ul className={classes.list}>
+                      {customerServiceList.map((list) => (
+                        <li key={list.id} className={classes.listItem}>
+                          <FooterLink
+                            list={list}
+                            className={classes.listLink}
+                          />
+                        </li>
+                      ))}
+                      <li
+                        className={`${classes.listItem} ${classes.customListItem}`}
+                        style={{
+                          fontSize: matchesXXS ? ".7rem" : undefined,
+                        }}
+                        onClick={handleScrollToTop}
+                      >
+                        Go to Top
                       </li>
-                    ))}
-                  </ul>
-                </Grid>
-              </Grid>
-            </Grid>
-            <Grid item>
-              <Grid container direction="column">
-                <Grid item>
-                  <Typography
-                    variant="h6"
-                    className={classes.primaryHeading}
-                    gutterBottom
-                  >
-                    Contact Us
-                  </Typography>
-                </Grid>
-                <Grid item>
-                  <ul className={classes.list}>
-                    {contactList.map((list) => (
-                      <li className={classes.listItem} key={list.id}>
-                        {list.title}
-                      </li>
-                    ))}
-                  </ul>
-                </Grid>
-                <Grid item>
-                  <Grid container justify="space-between">
-                    {socialIcons.map((icon, index) => (
-                      <Grid item key={index}>
-                        <img src={icon.src} alt={icon.alt} />
-                      </Grid>
-                    ))}
+                    </ul>
                   </Grid>
                 </Grid>
               </Grid>
-            </Grid>
-          </Hidden>
-          {/* ONLY DISPLAYS ON SMALL TO EXTRA SMALL SCREEN SIZES */}
-          <Hidden mdUp>
-            <Grid item>
-              <Grid
-                container
-                justify={matchesXS ? "space-between" : "space-around"}
-                style={{ marginBottom: "3em" }}
-              >
-                <Grid item>
-                  <Grid container direction="column">
-                    <Grid item>
-                      <Typography
-                        variant="h6"
-                        className={classes.primaryHeading}
-                        gutterBottom
-                      >
-                        Customer Service
-                      </Typography>
-                    </Grid>
-                    <Grid item>
-                      <ul className={classes.list}>
-                        {customerServiceList.map((list) => (
-                          <li
-                            key={list.id}
-                            className={classes.listItem}
-                            style={{
-                              fontSize: matchesXXS ? ".7rem" : undefined,
-                            }}
-                          >
-                            <FooterLink
-                              list={list}
-                              className={classes.listLink}
-                            />
-                          </li>
-                        ))}
-                      </ul>
-                    </Grid>
+              <Grid item>
+                <Grid container direction="column">
+                  <Grid item>
+                    <Typography
+                      variant="h6"
+                      className={classes.primaryHeading}
+                      gutterBottom
+                    >
+                      Information
+                    </Typography>
                   </Grid>
-                </Grid>
-                {/* INFORMATION MENU */}
-                <Grid item>
-                  <Grid container direction="column">
-                    <Grid item>
-                      <Typography
-                        variant="h6"
-                        className={classes.primaryHeading}
-                        gutterBottom
-                      >
-                        Information
-                      </Typography>
-                    </Grid>
-                    <Grid item>
-                      <ul className={classes.list}>
-                        {informationList.map((list) => (
-                          <li
-                            key={list.id}
-                            className={classes.listItem}
-                            style={{
-                              fontSize: matchesXXS ? ".7rem" : undefined,
-                            }}
-                          >
-                            <FooterLink
-                              list={list}
-                              className={classes.listLink}
-                            />
-                          </li>
-                        ))}
-                      </ul>
-                    </Grid>
+                  <Grid item>
+                    <ul className={classes.list}>
+                      {informationList.map((list) => (
+                        <li key={list.id} className={classes.listItem}>
+                          <FooterLink
+                            list={list}
+                            className={classes.listLink}
+                          />
+                        </li>
+                      ))}
+                    </ul>
                   </Grid>
                 </Grid>
               </Grid>
-            </Grid>
-            <Grid item>
-              {/* CONTACT US */}
-              <Grid
-                container
-                justify={matchesXS ? "space-between" : "space-around"}
-                alignItems={matchesXXS ? "center" : "flex-start"}
-              >
-                <Grid item>
-                  <Grid container direction="column">
-                    <Grid item>
-                      <Typography
-                        variant="h6"
-                        className={classes.primaryHeading}
-                        gutterBottom
-                      >
-                        Contact Us
-                      </Typography>
-                    </Grid>
-                    <Grid item>
-                      <ul className={classes.list}>
-                        {contactList.map((list) => (
-                          <li
-                            className={classes.listItem}
-                            key={list.id}
-                            style={{
-                              fontSize: matchesXXS ? ".7rem" : undefined,
-                            }}
+              <Grid item>
+                <Grid container direction="column">
+                  <Grid item>
+                    <Typography
+                      variant="h6"
+                      className={classes.primaryHeading}
+                      gutterBottom
+                    >
+                      Contact Us
+                    </Typography>
+                  </Grid>
+                  <Grid item>
+                    <ul className={classes.list}>
+                      {contactList.map((list) => (
+                        <li className={classes.listItem} key={list.id}>
+                          <a
+                            href={
+                              list.id === 0
+                                ? "tel:+23456778889996"
+                                : "mailto:safewash@gmail.com"
+                            }
+                            className={classes.listLink}
                           >
                             {list.title}
-                          </li>
-                        ))}
-                      </ul>
-                    </Grid>
-                    <Grid item>
-                      <Grid container justify="space-between">
-                        {socialIcons.map((icon, index) => (
-                          <Grid item key={index}>
+                          </a>
+                        </li>
+                      ))}
+                    </ul>
+                  </Grid>
+                  <Grid item>
+                    <Grid container justify="space-between">
+                      {socialIcons.map((icon) => (
+                        <Grid item key={icon.id}>
+                          <a href={icon.link}>
                             <img src={icon.src} alt={icon.alt} />
-                          </Grid>
-                        ))}
+                          </a>
+                        </Grid>
+                      ))}
+                    </Grid>
+                  </Grid>
+                </Grid>
+              </Grid>
+            </Hidden>
+            {/* ONLY DISPLAYS ON SMALL TO EXTRA SMALL SCREEN SIZES */}
+            <Hidden mdUp>
+              <Grid item>
+                <Grid
+                  container
+                  justify={matchesXS ? "space-between" : "space-around"}
+                  style={{ marginBottom: "3em" }}
+                >
+                  <Grid item>
+                    <Grid container direction="column">
+                      <Grid item>
+                        <Typography
+                          variant="h6"
+                          className={classes.primaryHeading}
+                          gutterBottom
+                        >
+                          Customer Service
+                        </Typography>
+                      </Grid>
+                      <Grid item>
+                        <ul className={classes.list}>
+                          {customerServiceList.map((list) => (
+                            <li
+                              key={list.id}
+                              className={classes.listItem}
+                              style={{
+                                fontSize: matchesXXS ? ".7rem" : undefined,
+                              }}
+                            >
+                              <FooterLink
+                                list={list}
+                                className={classes.listLink}
+                              />
+                            </li>
+                          ))}
+                          <li
+                            className={`${classes.listItem} ${classes.customListItem}`}
+                            style={{
+                              fontSize: matchesXXS ? ".7rem" : undefined,
+                            }}
+                            onClick={handleScrollToTop}
+                          >
+                            Go to Top
+                          </li>
+                        </ul>
+                      </Grid>
+                    </Grid>
+                  </Grid>
+                  {/* INFORMATION MENU */}
+                  <Grid item>
+                    <Grid container direction="column">
+                      <Grid item>
+                        <Typography
+                          variant="h6"
+                          className={classes.primaryHeading}
+                          gutterBottom
+                        >
+                          Information
+                        </Typography>
+                      </Grid>
+                      <Grid item>
+                        <ul className={classes.list}>
+                          {informationList.map((list) => (
+                            <li
+                              key={list.id}
+                              className={classes.listItem}
+                              style={{
+                                fontSize: matchesXXS ? ".7rem" : undefined,
+                              }}
+                            >
+                              <FooterLink
+                                list={list}
+                                className={classes.listLink}
+                              />
+                            </li>
+                          ))}
+                        </ul>
                       </Grid>
                     </Grid>
                   </Grid>
                 </Grid>
-                {/* BQ LOGO GRID */}
-                <Grid item>
-                  <img
-                    src={bqGlobalLogo}
-                    alt="The logo of BQ Global solution limited"
-                    style={{ width: matchesXXS ? 100 : undefined }}
-                  />
+              </Grid>
+              <Grid item>
+                {/* CONTACT US */}
+                <Grid
+                  container
+                  justify={matchesXS ? "space-between" : "space-around"}
+                  alignItems={matchesXS ? "center" : "flex-start"}
+                >
+                  <Grid item>
+                    <Grid container direction="column">
+                      <Grid item>
+                        <Typography
+                          variant="h6"
+                          className={classes.primaryHeading}
+                          gutterBottom
+                        >
+                          Contact Us
+                        </Typography>
+                      </Grid>
+                      <Grid item>
+                        <ul className={classes.list}>
+                          {contactList.map((list) => (
+                            <li
+                              className={classes.listItem}
+                              key={list.id}
+                              style={{
+                                fontSize: matchesXXS ? ".7rem" : undefined,
+                              }}
+                            >
+                              <a
+                                href={
+                                  list.id === 0
+                                    ? "tel:+23456778889996"
+                                    : "mailto:safewash@gmail.com"
+                                }
+                                className={classes.listLink}
+                              >
+                                {list.title}
+                              </a>
+                            </li>
+                          ))}
+                        </ul>
+                      </Grid>
+                      <Grid item>
+                        <Grid container justify="space-between">
+                          {socialIcons.map((icon) => (
+                            <Grid item key={icon.id}>
+                              <a href={icon.link}>
+                                <img
+                                  src={icon.src}
+                                  alt={icon.alt}
+                                  style={{
+                                    maxWidth: matchesXXS ? 18 : undefined,
+                                  }}
+                                />
+                              </a>
+                            </Grid>
+                          ))}
+                        </Grid>
+                      </Grid>
+                    </Grid>
+                  </Grid>
+                  {/* BQ LOGO GRID */}
+                  <Grid item>
+                    <img
+                      src={bqGlobalLogo}
+                      alt="The logo of BQ Global solution limited"
+                      style={{ width: matchesXXS ? 100 : undefined }}
+                    />
+                  </Grid>
                 </Grid>
               </Grid>
-            </Grid>
-          </Hidden>
+            </Hidden>
+          </Grid>
+        </Grid>
+        <Grid item>
+          {/* COPYRIGHT SECTION */}
+          <Grid item className={classes.copyrightGrid}>
+            <Typography
+              variant="body1"
+              align="center"
+              className={classes.copyrightText}
+            >
+              &copy; Hamed Jimoh 2021
+            </Typography>
+          </Grid>
         </Grid>
       </Grid>
-      <Grid item>
-        {/* COPYRIGHT SECTION */}
-        <Grid item className={classes.copyrightGrid}>
-          <Typography
-            variant="body1"
-            align="center"
-            className={classes.copyrightText}
-          >
-            &copy; Hamed Jimoh 2021
-          </Typography>
-        </Grid>
-      </Grid>
-    </Grid>
+    </footer>
   );
 };
 

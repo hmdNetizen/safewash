@@ -89,7 +89,6 @@ const Navigation = () => {
         value={value}
         onChange={handleChange}
         classes={{ indicator: classes.tabIndicator }}
-        id="top"
       >
         {tabOptions.map((tab) => (
           <Tab

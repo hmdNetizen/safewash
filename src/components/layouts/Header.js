@@ -1,4 +1,5 @@
 import { Fragment } from "react";
+import { Link } from "react-router-dom";
 import logo from "../../assets/logo.png";
 import AppBar from "@material-ui/core/AppBar";
 import Button from "@material-ui/core/Button";
@@ -43,7 +44,7 @@ const Header = (props) => {
           <Toolbar classes={{ root: classes.toolbar }}>
             <Button
               disableRipple
-              component="a"
+              component={Link}
               to="/"
               className={classes.logoButton}
             >

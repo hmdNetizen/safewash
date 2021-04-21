@@ -6,6 +6,7 @@ import { ThemeProvider } from "@material-ui/core/styles";
 import Home from "./components/layouts/Home";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import "./App.css";
+import Footer from "./components/layouts/Footer";
 
 const App = () => {
   return (
@@ -17,6 +18,7 @@ const App = () => {
           <Switch>
             <Route exact path="/" component={Home} />
           </Switch>
+          <Footer />
         </ThemeProvider>
       </Fragment>
     </Router>

@@ -5,7 +5,6 @@ import Features from "./Features";
 import Slides from "./Slides";
 import Contact from "./Contact";
 import Testimonies from "./Testimonies";
-import Footer from "./Footer";
 
 const Home = () => {
   return (
@@ -27,9 +26,6 @@ const Home = () => {
       </Grid>
       <Grid item>
         <Testimonies />
-      </Grid>
-      <Grid item>
-        <Footer />
       </Grid>
     </Grid>
   );
