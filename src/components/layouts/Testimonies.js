@@ -15,7 +15,8 @@ import playRectangle from "../../assets/Rectangle-40.png";
 
 const useStyles = makeStyles((theme) => ({
   parentGrid: {
-    padding: "10em 7em 5em",
+    padding: "10em 10em 5em",
+    marginBottom: "10em",
 
     [theme.breakpoints.only("md")]: {
       paddingLeft: "2em",
@@ -218,36 +219,9 @@ const Testimonies = () => {
   const classes = useStyles();
   const theme = useTheme();
 
-  // const testimonies = [
-  //   {
-  //     name: "Abdul Wasiu Modu",
-  //     profession: "Laundry Owner",
-  //     outline: classes.purpleOutlineCircle,
-  //     image: distributor1,
-  //     feedback: "I have tried it oooo, the thickness and smell is everything.",
-  //   },
-  //   {
-  //     name: "Abdul Wasiu Modu",
-  //     profession: "A Nursing Mother",
-  //     outline: classes.pinkOutlineCircle,
-  //     image: distributor3,
-  //     feedback:
-  //       "Yeah I have bought after I gave birth because I feel my baby’s clothes deserve bqsafewash I and to protect his skin from rashes and allergies",
-  //   },
-  //   {
-  //     name: "Abdul Wasiu Modu",
-  //     profession: "Laundry Owner",
-  //     outline: classes.blueOutlineCircle,
-  //     image: distributor2,
-  //     feedback:
-  //       "I tried bqsafewash yesterday! It was the Bomb! My customers are happy and coming back for more",
-  //   },
-  // ];
-
   const matchesXXXS = useMediaQuery("(max-width: 340px)");
   const matchesXXS = useMediaQuery("(max-width: 450px)");
   const matchesXS = useMediaQuery(theme.breakpoints.down("xs"));
-  // const matchesSMX = useMediaQuery("(max-width: 760px)");
   const matchesSM = useMediaQuery(theme.breakpoints.down("sm"));
   const matchesMD = useMediaQuery(theme.breakpoints.down("md"));
   return (
@@ -332,6 +306,7 @@ const Testimonies = () => {
                 color={theme.palette.primary.main}
                 size={20}
                 className={classes.quotationMark}
+                style={{ left: matchesXXXS ? ".3em" : undefined }}
               />
               <Typography variant="body1" className={classes.cardText}>
                 I have tried it oooo, the {!matchesXXXS && <br />} thickness and
@@ -382,6 +357,7 @@ const Testimonies = () => {
                 color={theme.palette.primary.main}
                 size={20}
                 className={classes.quotationMark}
+                style={{ left: matchesXXXS ? ".3em" : undefined }}
               />
               <Typography variant="body1" className={classes.cardText}>
                 Yeah I have bought after I {!matchesXXXS && <br />} gave birth
@@ -435,6 +411,7 @@ const Testimonies = () => {
                 color={theme.palette.primary.main}
                 size={20}
                 className={classes.quotationMark}
+                style={{ left: matchesXXXS ? ".3em" : undefined }}
               />
               <Typography variant="body1" className={classes.cardText}>
                 I tried bqsafewash {!matchesXXXS && <br />} yesterday! It was

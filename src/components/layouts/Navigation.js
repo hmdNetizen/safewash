@@ -1,4 +1,5 @@
 import { useState, Fragment } from "react";
+import { Link } from "react-router-dom";
 import { makeStyles, useTheme } from "@material-ui/core/styles";
 import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
@@ -61,10 +62,10 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const tabOptions = [
-  { id: 0, title: "Home" },
-  { id: 1, title: "About Us" },
-  { id: 2, title: "Become a Distributor" },
-  { id: 3, title: "Contact Us" },
+  { id: 0, title: "Home", link: "/" },
+  { id: 1, title: "About Us", link: "/about" },
+  { id: 2, title: "Become a Distributor", link: "/signup" },
+  { id: 3, title: "Contact Us", link: "/contact" },
 ];
 
 const Navigation = () => {
@@ -94,7 +95,8 @@ const Navigation = () => {
             label={tab.title}
             key={tab.id}
             className={classes.tab}
-            component="a"
+            component={Link}
+            to={tab.link}
             disableRipple
             onClick={() => setValue(tab.id)}
             classes={{
@@ -129,7 +131,7 @@ const Navigation = () => {
           {tabOptions.map((tab) => (
             <ListItem
               key={tab.id}
-              component="a"
+              component={Link}
               button
               className={classes.listItem}
             >

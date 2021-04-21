@@ -123,6 +123,12 @@ const theme = createMuiTheme({
     },
   },
   overrides: {
+    MuiListItem: {
+      gutters: {
+        paddingLeft: 0,
+        paddingRight: 0,
+      },
+    },
     MuiListItemText: {
       primary: {
         fontSize: "1.2rem",
