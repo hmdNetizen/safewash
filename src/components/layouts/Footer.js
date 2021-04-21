@@ -1,13 +1,9 @@
 import Grid from "@material-ui/core/Grid";
 import { makeStyles, useTheme } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
-import List from "@material-ui/core/List";
-import ListItem from "@material-ui/core/ListItem";
-import ListItemText from "@material-ui/core/ListItemText";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 import Hidden from "@material-ui/core/Hidden";
-import { Link } from "react-router-dom";
-import bqGlobalLogo from "../../assets/BQ Dark Big 2.png";
+import bqGlobalLogo from "../../assets/BQ-Dark-Big-2.png";
 import instagram from "../../assets/Vector.png";
 import twitter from "../../assets/Vector-1.png";
 import facebook from "../../assets/Vector-2.png";
@@ -18,6 +14,21 @@ const useStyles = makeStyles((theme) => ({
   parentGrid: {
     paddingTop: "10em",
     background: "rgba(184, 219, 217, 0.2)",
+  },
+  wrapperContainer: {
+    paddingLeft: "10em",
+    paddingRight: "10em",
+    paddingBottom: "5em",
+
+    [theme.breakpoints.down("md")]: {
+      paddingLeft: "5em",
+      paddingRight: "5em",
+    },
+
+    [theme.breakpoints.down("sm")]: {
+      paddingLeft: "2em",
+      paddingRight: "2em",
+    },
   },
   primaryHeading: {
     fontSize: ".85rem",
@@ -43,7 +54,6 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   copyrightGrid: {
-    marginTop: "5em",
     padding: "2em",
     background: theme.palette.common.blue,
   },
@@ -60,7 +70,7 @@ const customerServiceList = [
   { id: 1, title: "Ordering and Payment", path: "/order" },
   { id: 2, title: "Returns", path: "/returns" },
   { id: 3, title: "FAQs", path: "/faq" },
-  { id: 4, title: "Go to Top", path: "/#home" },
+  { id: 4, title: "Go to Top", path: "/#top" },
 ];
 
 const informationList = [
@@ -85,6 +95,8 @@ const socialIcons = [
 const Footer = () => {
   const classes = useStyles();
   const theme = useTheme();
+  const matchesXXS = useMediaQuery("(max-width: 450px)");
+  const matchesXS = useMediaQuery(theme.breakpoints.down("xs"));
   const matchesSM = useMediaQuery(theme.breakpoints.down("sm"));
 
   return (
@@ -93,7 +105,8 @@ const Footer = () => {
         <Grid
           container
           direction={matchesSM ? "column" : "row"}
-          justify={matchesSM ? "flex-start" : "space-around"}
+          justify={matchesSM ? "flex-start" : "space-between"}
+          className={classes.wrapperContainer}
         >
           {/* ONLY DISPLAYS ON MEDIUM TO LARGE SCREEN SIZES */}
           <Hidden smDown>
@@ -140,9 +153,7 @@ const Footer = () => {
                   <ul className={classes.list}>
                     {informationList.map((list) => (
                       <li key={list.id} className={classes.listItem}>
-                        <Link to={list.path} className={classes.listLink}>
-                          {list.title}
-                        </Link>
+                        <FooterLink list={list} className={classes.listLink} />
                       </li>
                     ))}
                   </ul>
@@ -163,14 +174,16 @@ const Footer = () => {
                 <Grid item>
                   <ul className={classes.list}>
                     {contactList.map((list) => (
-                      <li className={classes.listItem}>{list.title}</li>
+                      <li className={classes.listItem} key={list.id}>
+                        {list.title}
+                      </li>
                     ))}
                   </ul>
                 </Grid>
                 <Grid item>
                   <Grid container justify="space-between">
-                    {socialIcons.map((icon) => (
-                      <Grid item>
+                    {socialIcons.map((icon, index) => (
+                      <Grid item key={index}>
                         <img src={icon.src} alt={icon.alt} />
                       </Grid>
                     ))}
@@ -182,7 +195,11 @@ const Footer = () => {
           {/* ONLY DISPLAYS ON SMALL TO EXTRA SMALL SCREEN SIZES */}
           <Hidden mdUp>
             <Grid item>
-              <Grid container justify="space-between">
+              <Grid
+                container
+                justify={matchesXS ? "space-between" : "space-around"}
+                style={{ marginBottom: "3em" }}
+              >
                 <Grid item>
                   <Grid container direction="column">
                     <Grid item>
@@ -195,18 +212,22 @@ const Footer = () => {
                       </Typography>
                     </Grid>
                     <Grid item>
-                      <List disablePadding>
+                      <ul className={classes.list}>
                         {customerServiceList.map((list) => (
-                          <ListItem key={list.id}>
-                            <ListItemText
-                              component={"a"}
-                              href="#"
-                              primary={list.title}
-                              classes={{ primary: classes.listItemText }}
+                          <li
+                            key={list.id}
+                            className={classes.listItem}
+                            style={{
+                              fontSize: matchesXXS ? ".7rem" : undefined,
+                            }}
+                          >
+                            <FooterLink
+                              list={list}
+                              className={classes.listLink}
                             />
-                          </ListItem>
+                          </li>
                         ))}
-                      </List>
+                      </ul>
                     </Grid>
                   </Grid>
                 </Grid>
@@ -223,16 +244,22 @@ const Footer = () => {
                       </Typography>
                     </Grid>
                     <Grid item>
-                      <List disablePadding>
+                      <ul className={classes.list}>
                         {informationList.map((list) => (
-                          <ListItem key={list.id}>
-                            <ListItemText
-                              primary={list.title}
-                              classes={{ primary: classes.listItemText }}
+                          <li
+                            key={list.id}
+                            className={classes.listItem}
+                            style={{
+                              fontSize: matchesXXS ? ".7rem" : undefined,
+                            }}
+                          >
+                            <FooterLink
+                              list={list}
+                              className={classes.listLink}
                             />
-                          </ListItem>
+                          </li>
                         ))}
-                      </List>
+                      </ul>
                     </Grid>
                   </Grid>
                 </Grid>
@@ -240,7 +267,11 @@ const Footer = () => {
             </Grid>
             <Grid item>
               {/* CONTACT US */}
-              <Grid container justify="space-between">
+              <Grid
+                container
+                justify={matchesXS ? "space-between" : "space-around"}
+                alignItems={matchesXXS ? "center" : "flex-start"}
+              >
                 <Grid item>
                   <Grid container direction="column">
                     <Grid item>
@@ -253,21 +284,24 @@ const Footer = () => {
                       </Typography>
                     </Grid>
                     <Grid item>
-                      <List disablePadding>
+                      <ul className={classes.list}>
                         {contactList.map((list) => (
-                          <ListItem key={list.id}>
-                            <ListItemText
-                              primary={list.title}
-                              classes={{ primary: classes.listItemText }}
-                            />
-                          </ListItem>
+                          <li
+                            className={classes.listItem}
+                            key={list.id}
+                            style={{
+                              fontSize: matchesXXS ? ".7rem" : undefined,
+                            }}
+                          >
+                            {list.title}
+                          </li>
                         ))}
-                      </List>
+                      </ul>
                     </Grid>
                     <Grid item>
                       <Grid container justify="space-between">
-                        {socialIcons.map((icon) => (
-                          <Grid item>
+                        {socialIcons.map((icon, index) => (
+                          <Grid item key={index}>
                             <img src={icon.src} alt={icon.alt} />
                           </Grid>
                         ))}
@@ -280,6 +314,7 @@ const Footer = () => {
                   <img
                     src={bqGlobalLogo}
                     alt="The logo of BQ Global solution limited"
+                    style={{ width: matchesXXS ? 100 : undefined }}
                   />
                 </Grid>
               </Grid>

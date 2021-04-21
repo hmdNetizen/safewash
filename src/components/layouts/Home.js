@@ -9,7 +9,7 @@ import Footer from "./Footer";
 
 const Home = () => {
   return (
-    <Grid container direction="column" id="home">
+    <Grid container direction="column">
       <Grid item>
         <Slides />
       </Grid>
