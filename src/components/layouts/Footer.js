@@ -284,6 +284,7 @@ const Footer = ({ value, setValue }) => {
                               <Link
                                 to={list.path}
                                 onClick={() => setValue(list.tabIndex)}
+                                className={classes.listLink}
                               >
                                 {list.title}
                               </Link>
@@ -327,6 +328,7 @@ const Footer = ({ value, setValue }) => {
                               <Link
                                 to={list.path}
                                 onClick={() => setValue(list.tabIndex)}
+                                className={classes.listLink}
                               >
                                 {list.title}
                               </Link>
