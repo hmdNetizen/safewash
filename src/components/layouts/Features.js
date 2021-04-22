@@ -29,6 +29,7 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.down("xs")]: {
       paddingLeft: "2em",
       paddingRight: "2em",
+      backgroundPosition: "bottom center",
     },
   },
   textContentWrapper: {

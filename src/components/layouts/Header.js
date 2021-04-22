@@ -29,6 +29,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const Header = (props) => {
+  const { value, setValue } = props;
   const classes = useStyles();
   // const theme = useTheme();
   const trigger = useScrollTrigger();
@@ -50,7 +51,7 @@ const Header = (props) => {
             >
               <img src={logo} alt="Safewash brand logo" />
             </Button>
-            <Navigation />
+            <Navigation value={value} setValue={setValue} />
           </Toolbar>
         </AppBar>
       </HideOnScroll>

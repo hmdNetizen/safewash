@@ -1,4 +1,4 @@
-import { Fragment } from "react";
+import { Fragment, useState } from "react";
 import Header from "./components/layouts/Header";
 import muiTheme from "./components/muiTheme";
 import CssBaseline from "@material-ui/core/CssBaseline";
@@ -9,16 +9,17 @@ import "./App.css";
 import Footer from "./components/layouts/Footer";
 
 const App = () => {
+  const [value, setValue] = useState(0);
   return (
     <Router>
       <Fragment>
         <CssBaseline />
         <ThemeProvider theme={muiTheme}>
-          <Header />
+          <Header value={value} setValue={setValue} />
           <Switch>
             <Route exact path="/" component={Home} />
           </Switch>
-          <Footer />
+          <Footer value={value} setValue={setValue} />
         </ThemeProvider>
       </Fragment>
     </Router>

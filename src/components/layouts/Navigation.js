@@ -1,4 +1,4 @@
-import { useState, Fragment } from "react";
+import { useState, Fragment, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { makeStyles, useTheme } from "@material-ui/core/styles";
 import Tabs from "@material-ui/core/Tabs";
@@ -68,8 +68,7 @@ const tabOptions = [
   { id: 3, title: "Contact Us", link: "/contact" },
 ];
 
-const Navigation = () => {
-  const [value, setValue] = useState(0);
+const Navigation = ({ value, setValue }) => {
   const [openDrawer, setOpenDrawer] = useState(false);
   const classes = useStyles();
   const theme = useTheme();
@@ -108,6 +107,30 @@ const Navigation = () => {
     </Fragment>
   );
 
+  useEffect(() => {
+    [...tabOptions].forEach((tab) => {
+      switch (window.location.pathname) {
+        case tab.link:
+          if (value !== tab.id) {
+            setValue(tab.id);
+          }
+          break;
+        case "/order":
+        case "/returns":
+        case "/faq":
+        case "/careers":
+        case "/policy":
+        case "/terms":
+          if (value !== false) {
+            setValue(false);
+          }
+          break;
+        default:
+          break;
+      }
+    });
+  });
+
   const drawer = (
     <Fragment>
       <SwipeableDrawer
@@ -132,8 +155,14 @@ const Navigation = () => {
             <ListItem
               key={tab.id}
               component={Link}
+              to={tab.link}
               button
               className={classes.listItem}
+              onClick={() => {
+                setValue(tab.id);
+                setOpenDrawer(false);
+              }}
+              selected={value === tab.id}
             >
               <ListItemText>{tab.title}</ListItemText>
             </ListItem>

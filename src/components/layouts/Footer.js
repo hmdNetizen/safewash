@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import Grid from "@material-ui/core/Grid";
 import { makeStyles, useTheme } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
@@ -8,7 +9,6 @@ import instagram from "../../assets/Vector.png";
 import twitter from "../../assets/Vector-1.png";
 import facebook from "../../assets/Vector-2.png";
 import linkedIn from "../../assets/Vector-3.png";
-import FooterLink from "./FooterLink";
 
 const useStyles = makeStyles((theme) => ({
   parentGrid: {
@@ -72,23 +72,25 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+// The tabIndex property is meant to route the footer navigation with the header navigation. So I am assigning the id available in the header nav to the footer nav that has a corresponding tab name and route.
+
 const customerServiceList = [
-  { id: 0, title: "Become a Distributor", path: "/distributor/signup" },
-  { id: 1, title: "Ordering and Payment", path: "/order" },
-  { id: 2, title: "Returns", path: "/returns" },
-  { id: 3, title: "FAQs", path: "/faq" },
+  { id: 0, title: "Become a Distributor", path: "/signup", tabIndex: 2 },
+  { id: 1, title: "Ordering and Payment", path: "/order", tabIndex: false },
+  { id: 2, title: "Returns", path: "/returns", tabIndex: false },
+  { id: 3, title: "FAQs", path: "/faq", tabIndex: false },
 ];
 
 const informationList = [
-  { id: 0, title: "About Safewash", path: "/about" },
-  { id: 1, title: "Work with Us", path: "/careers" },
-  { id: 2, title: "Policy", path: "/policy" },
-  { id: 3, title: "Terms and Condition", path: "/terms" },
+  { id: 0, title: "About Safewash", path: "/about", tabIndex: 1 },
+  { id: 1, title: "Work with Us", path: "/careers", tabIndex: false },
+  { id: 2, title: "Policy", path: "/policy", tabIndex: false },
+  { id: 3, title: "Terms and Condition", path: "/terms", tabIndex: false },
 ];
 
-const contactList = [
-  { id: 0, title: "+23456778889996" },
-  { id: 1, title: "safewash@gmail.com" },
+const contacts = [
+  { id: 0, title: "+23456778889996", link: "tel:+23456778889996" },
+  { id: 1, title: "safewash@gmail.com", link: "mailto:safewash@gmail.com" },
 ];
 
 const socialIcons = [
@@ -118,7 +120,7 @@ const socialIcons = [
   },
 ];
 
-const Footer = () => {
+const Footer = ({ value, setValue }) => {
   const classes = useStyles();
   const theme = useTheme();
   const matchesXXS = useMediaQuery("(max-width: 450px)");
@@ -164,10 +166,13 @@ const Footer = () => {
                     <ul className={classes.list}>
                       {customerServiceList.map((list) => (
                         <li key={list.id} className={classes.listItem}>
-                          <FooterLink
-                            list={list}
+                          <Link
+                            to={list.path}
+                            onClick={() => setValue(list.tabIndex)}
                             className={classes.listLink}
-                          />
+                          >
+                            {list.title}
+                          </Link>
                         </li>
                       ))}
                       <li
@@ -198,10 +203,13 @@ const Footer = () => {
                     <ul className={classes.list}>
                       {informationList.map((list) => (
                         <li key={list.id} className={classes.listItem}>
-                          <FooterLink
-                            list={list}
+                          <Link
+                            to={list.path}
+                            onClick={() => setValue(list.tabIndex)}
                             className={classes.listLink}
-                          />
+                          >
+                            {list.title}
+                          </Link>
                         </li>
                       ))}
                     </ul>
@@ -221,17 +229,10 @@ const Footer = () => {
                   </Grid>
                   <Grid item>
                     <ul className={classes.list}>
-                      {contactList.map((list) => (
-                        <li className={classes.listItem} key={list.id}>
-                          <a
-                            href={
-                              list.id === 0
-                                ? "tel:+23456778889996"
-                                : "mailto:safewash@gmail.com"
-                            }
-                            className={classes.listLink}
-                          >
-                            {list.title}
+                      {contacts.map((contact) => (
+                        <li className={classes.listItem} key={contact.id}>
+                          <a href={contact.link} className={classes.listLink}>
+                            {contact.title}
                           </a>
                         </li>
                       ))}
@@ -280,10 +281,12 @@ const Footer = () => {
                                 fontSize: matchesXXS ? ".7rem" : undefined,
                               }}
                             >
-                              <FooterLink
-                                list={list}
-                                className={classes.listLink}
-                              />
+                              <Link
+                                to={list.path}
+                                onClick={() => setValue(list.tabIndex)}
+                              >
+                                {list.title}
+                              </Link>
                             </li>
                           ))}
                           <li
@@ -321,10 +324,12 @@ const Footer = () => {
                                 fontSize: matchesXXS ? ".7rem" : undefined,
                               }}
                             >
-                              <FooterLink
-                                list={list}
-                                className={classes.listLink}
-                              />
+                              <Link
+                                to={list.path}
+                                onClick={() => setValue(list.tabIndex)}
+                              >
+                                {list.title}
+                              </Link>
                             </li>
                           ))}
                         </ul>
@@ -353,23 +358,19 @@ const Footer = () => {
                       </Grid>
                       <Grid item>
                         <ul className={classes.list}>
-                          {contactList.map((list) => (
+                          {contacts.map((contact) => (
                             <li
                               className={classes.listItem}
-                              key={list.id}
+                              key={contact.id}
                               style={{
                                 fontSize: matchesXXS ? ".7rem" : undefined,
                               }}
                             >
                               <a
-                                href={
-                                  list.id === 0
-                                    ? "tel:+23456778889996"
-                                    : "mailto:safewash@gmail.com"
-                                }
+                                href={contact.link}
                                 className={classes.listLink}
                               >
-                                {list.title}
+                                {contact.title}
                               </a>
                             </li>
                           ))}
