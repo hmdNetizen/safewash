@@ -92,7 +92,7 @@ const theme = createMuiTheme({
       height: 100,
       borderRadius: "50%",
       position: "absolute",
-      top: "-5em",
+      top: "-3em",
       left: "50%",
       transform: "translateX(-60%)",
     },

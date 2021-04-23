@@ -103,7 +103,7 @@ const useStyles = makeStyles((theme) => ({
   cardImg: {
     width: 100,
     position: "absolute",
-    top: "-5em",
+    top: "-3em",
     left: "50%",
     transform: "translateX(-50%)",
 
@@ -193,11 +193,15 @@ const Distributors = () => {
           <Grid item>
             <Card className={classes.card}>
               <CardContent>
-                <div className={classes.greenOutlineCircle} />
+                <div
+                  className={classes.greenOutlineCircle}
+                  style={{ top: matchesSM ? "-5em" : undefined }}
+                />
                 <img
                   src={distributor1}
                   alt="A snapshot of one of safewash's distributors"
                   className={classes.cardImg}
+                  style={{ top: matchesSM ? "-5em" : undefined }}
                 />
                 <Typography
                   variant="h6"
@@ -231,11 +235,15 @@ const Distributors = () => {
           <Grid item style={{ margin: matchesSM ? "10em 0" : 0 }}>
             <Card className={classes.card}>
               <CardContent>
-                <div className={classes.blueOutlineCircle} />
+                <div
+                  className={classes.blueOutlineCircle}
+                  style={{ top: matchesSM ? "-5em" : undefined }}
+                />
                 <img
                   src={distributor2}
                   alt="A snapshot of one of safewash's distributors"
                   className={classes.cardImg}
+                  style={{ top: matchesSM ? "-5em" : undefined }}
                 />
                 <Typography
                   variant="h6"
@@ -269,11 +277,15 @@ const Distributors = () => {
           <Grid item>
             <Card className={classes.card}>
               <CardContent>
-                <div className={classes.pinkOutlineCircle} />
+                <div
+                  className={classes.pinkOutlineCircle}
+                  style={{ top: matchesSM ? "-5em" : undefined }}
+                />
                 <img
                   src={distributor3}
                   alt="A snapshot of one of safewash's distributors"
                   className={classes.cardImg}
+                  style={{ top: matchesSM ? "-5em" : undefined }}
                 />
                 <Typography
                   variant="h6"

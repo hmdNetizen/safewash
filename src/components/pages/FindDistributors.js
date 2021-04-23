@@ -8,6 +8,13 @@ import InputLabel from "@material-ui/core/InputLabel";
 import Select from "@material-ui/core/Select";
 import MenuItem from "@material-ui/core/MenuItem";
 import Button from "@material-ui/core/Button";
+import Card from "@material-ui/core/Card";
+import CardActions from "@material-ui/core/CardActions";
+import CardContent from "@material-ui/core/CardContent";
+import { FiArrowRight } from "react-icons/fi";
+import distributor1 from "../../assets/Mask Group.png";
+import distributor2 from "../../assets/Mask Group-1.png";
+import distributor3 from "../../assets/Mask Group-2.png";
 import laundryBasket from "../../assets/laundary_basket.png";
 
 const useStyles = makeStyles((theme) => ({
@@ -16,7 +23,6 @@ const useStyles = makeStyles((theme) => ({
       "linear-gradient(153deg, rgba(33,164,196,0.23012955182072825) 1%, rgba(255,255,255,0.3561799719887955) 25%, rgba(253,254,255,0) 57%, rgba(239,249,251,0.14609593837535018) 64%, rgba(33,164,196,0.04805672268907568) 87%)",
     backgroundPosition: "10%",
     position: "relative",
-    height: "100vh",
     paddingTop: "10em",
     paddingLeft: "15em",
     paddingRight: "15em",
@@ -36,11 +42,25 @@ const useStyles = makeStyles((theme) => ({
     right: 0,
     top: "-5em",
     maxWidth: "30em",
+
+    [theme.breakpoints.down("xs")]: {
+      maxWidth: "20em",
+    },
   },
   primaryHeading: {
     fontSize: "1.5rem",
     fontWeight: 600,
     color: theme.palette.common.brown,
+
+    [theme.breakpoints.down("xs")]: {
+      fontSize: "1rem",
+    },
+  },
+
+  stateSelectGrid: {
+    [theme.breakpoints.down("xs")]: {
+      width: "100%",
+    },
   },
 
   townSelectGrid: {
@@ -50,18 +70,31 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.down("sm")]: {
       marginLeft: 0,
       marginRight: 0,
+      marginTop: "2em",
+      marginBottom: "2em",
+    },
+
+    [theme.breakpoints.down("xs")]: {
+      width: "100%",
     },
   },
 
   formControl: {
-    minWidth: 250,
+    // minWidth: 250,
+    width: 250,
+
+    [theme.breakpoints.down("sm")]: {
+      //   minWidth: 450,
+      width: 450,
+    },
 
     [theme.breakpoints.down("xs")]: {
-      minWidth: "100%",
+      //   minWidth: "auto",
+      width: "100%",
     },
   },
   sortFormControl: {
-    minWidth: 80,
+    minWidth: 70,
 
     "& .MuiOutlinedInput-notchedOutline": {
       borderColor: "#C4C4C4 !important",
@@ -73,16 +106,20 @@ const useStyles = makeStyles((theme) => ({
     },
 
     "& .MuiInputLabel-outlined": {
-      transform: "translate(14px, 5px) scale(1)",
+      transform: "translate(14px, 8px) scale(1)",
+      fontSize: ".65rem",
+      color: "#C4C4C4",
     },
 
     "& .MuiInputLabel-shrink": {
       transform: "translate(14px, -6px) scale(0.75)",
+      width: 15,
     },
-  },
-  sortInput: {
-    "& .MuiOutlinedInput-notchedOutline": {
-      borderColor: "red !important",
+
+    "& .MuiSelect-iconOutlined": {
+      fontSize: "1.2rem",
+      transform: "translateY(2px)",
+      color: "#C4C4C4",
     },
   },
   menuItem: {
@@ -103,9 +140,121 @@ const useStyles = makeStyles((theme) => ({
       background: theme.palette.secondary.dark,
     },
 
+    [theme.breakpoints.down("sm")]: {
+      width: 450,
+    },
+
     [theme.breakpoints.down("xs")]: {
+      width: "auto",
+      borderBottomLeftRadius: 0,
+    },
+  },
+  resultsText: {
+    fontFamily: "BR Firma Light Italic",
+    fontSize: "1rem",
+  },
+  cardSectionGrid: {
+    paddingTop: "10em",
+    flexDirection: "row",
+
+    [theme.breakpoints.down("sm")]: {
+      paddingTop: "7em",
+      flexDirection: "column",
+    },
+  },
+
+  card: {
+    padding: "5em 2em 2em",
+    borderRadius: 5,
+    position: "relative",
+    textAlign: "center",
+    overflow: "visible",
+    boxShadow: theme.shadows[5],
+
+    [theme.breakpoints.down("sm")]: {
+      padding: "8em 4em 2em",
+      width: 350,
+
+      "&:not(last-child)": {
+        marginBottom: "7em",
+      },
+    },
+
+    [theme.breakpoints.down("xs")]: {
+      padding: "8em 3em 2em",
       width: "100%",
     },
+  },
+  greenOutlineCircle: {
+    ...theme.typography.outlineCircle,
+    border: `2px solid ${theme.palette.secondary.main}`,
+
+    [theme.breakpoints.down("sm")]: {
+      width: 150,
+      height: 150,
+    },
+  },
+  blueOutlineCircle: {
+    ...theme.typography.outlineCircle,
+    border: `2px solid ${theme.palette.common.blue}`,
+
+    [theme.breakpoints.down("sm")]: {
+      width: 150,
+      height: 150,
+    },
+  },
+  pinkOutlineCircle: {
+    ...theme.typography.outlineCircle,
+    border: `2px solid ${theme.palette.primary.main}`,
+
+    [theme.breakpoints.down("sm")]: {
+      width: 150,
+      height: 150,
+    },
+  },
+  cardImg: {
+    width: 100,
+    position: "absolute",
+    top: "-3em",
+    left: "50%",
+    transform: "translateX(-50%)",
+
+    [theme.breakpoints.down("sm")]: {
+      width: 150,
+    },
+  },
+  cardTitle: {
+    fontSize: ".75rem",
+    fontWeight: 700,
+    marginBottom: "1em",
+    color: theme.palette.secondary.main,
+  },
+  cardText: {
+    fontSize: ".75rem",
+    fontWeight: 600,
+  },
+  cardBtn: {
+    borderRadius: 5,
+    textTransform: "none",
+    padding: ".25em 2em",
+    fontFamily: "Gilroy-Thin",
+    fontWeight: "bold",
+    color: "#fff",
+    margin: "0 auto",
+    fontSize: ".75rem",
+    background: theme.palette.common.blue,
+    "&:hover": {
+      background: "#17b1d3",
+    },
+
+    "&:active": {
+      background: "#059bbc",
+    },
+  },
+  searchResultsText: {
+    color: theme.palette.common.blue,
+    fontSize: ".75rem",
+    fontFamily: "BR Firma SemiBold",
   },
 }));
 
@@ -138,7 +287,10 @@ const sortOptions = [
 const FindDistributors = () => {
   const classes = useStyles();
   const theme = useTheme();
+
+  const matchesXS = useMediaQuery(theme.breakpoints.down("xs"));
   const matchesSM = useMediaQuery(theme.breakpoints.down("sm"));
+
   const [state, setState] = useState("");
   const [town, setTown] = useState("");
   const [sort, setSort] = useState("");
@@ -152,10 +304,15 @@ const FindDistributors = () => {
           className={classes.laundryBasket}
         />
       </Grid>
-      <Grid item container alignItems="center">
+      <Grid
+        item
+        container
+        alignItems="center"
+        justify={matchesXS ? "flex-start" : matchesSM ? "center" : "flex-start"}
+      >
         <Grid item style={{ marginRight: "2em" }}>
           <Typography variant="h3" className={classes.primaryHeading}>
-            Find Distributors Around You
+            Find Distributors Around {matchesXS && <br />} You
           </Typography>
         </Grid>
         <Grid item>
@@ -191,10 +348,16 @@ const FindDistributors = () => {
         <Grid
           container
           direction={matchesSM ? "column" : "row"}
+          alignItems={
+            matchesXS ? "flex-start" : matchesSM ? "center" : "flex-start"
+          }
           style={{ marginTop: "3em" }}
         >
-          <Grid item>
-            <FormControl variant="outlined" className={classes.formControl}>
+          <Grid item className={classes.stateSelectGrid}>
+            <FormControl
+              variant="outlined"
+              classes={{ root: classes.formControl }}
+            >
               <InputLabel id="select-state">Select State</InputLabel>
               <Select
                 labelId="select-state"
@@ -218,7 +381,10 @@ const FindDistributors = () => {
             </FormControl>
           </Grid>
           <Grid item className={classes.townSelectGrid}>
-            <FormControl variant="outlined" className={classes.formControl}>
+            <FormControl
+              variant="outlined"
+              classes={{ root: classes.formControl }}
+            >
               <InputLabel id="select-town">Select Town</InputLabel>
               <Select
                 labelId="select-town"
@@ -246,6 +412,167 @@ const FindDistributors = () => {
               Search
             </Button>
           </Grid>
+        </Grid>
+      </Grid>
+      <Grid item>
+        <Grid container alignItems="center" style={{ marginTop: "5em" }}>
+          <Grid item>
+            <Typography variant="body1" className={classes.resultsText}>
+              Search Results &nbsp;
+            </Typography>
+          </Grid>
+          <Grid item>
+            <Typography variant="body1">
+              <FiArrowRight />
+            </Typography>
+          </Grid>
+        </Grid>
+      </Grid>
+      <Grid item style={{ marginTop: "7em", marginBottom: "5em" }}>
+        <Grid
+          container
+          spacing={matchesSM ? 0 : 5}
+          direction={matchesSM ? "column" : "row"}
+          alignItems={matchesSM ? "center" : "flex-start"}
+        >
+          <Grid item>
+            <Card className={classes.card}>
+              <CardContent>
+                <div
+                  className={classes.greenOutlineCircle}
+                  style={{ top: matchesSM ? "-5em" : undefined }}
+                />
+                <img
+                  src={distributor1}
+                  alt="A snapshot of one of safewash's distributors"
+                  className={classes.cardImg}
+                  style={{ top: matchesSM ? "-5em" : undefined }}
+                />
+                <Typography
+                  variant="h6"
+                  gutterBottom
+                  className={classes.cardTitle}
+                >
+                  Kudirat Bakare
+                </Typography>
+                <Typography variant="body1" className={classes.cardText}>
+                  Surulere, Lagos State.
+                </Typography>
+                <Typography
+                  variant="body1"
+                  className={classes.cardText}
+                  style={{ marginBottom: "1em" }}
+                >
+                  09030267295
+                </Typography>
+              </CardContent>
+              <CardActions>
+                <Button
+                  variant="contained"
+                  size="small"
+                  className={classes.cardBtn}
+                >
+                  Contact
+                </Button>
+              </CardActions>
+            </Card>
+          </Grid>
+          <Grid item>
+            <Card className={classes.card}>
+              <CardContent>
+                <div
+                  className={classes.blueOutlineCircle}
+                  style={{ top: matchesSM ? "-5em" : undefined }}
+                />
+                <img
+                  src={distributor3}
+                  alt="A snapshot of one of safewash's distributors"
+                  className={classes.cardImg}
+                  style={{ top: matchesSM ? "-5em" : undefined }}
+                />
+                <Typography
+                  variant="h6"
+                  gutterBottom
+                  className={classes.cardTitle}
+                >
+                  Ibikunle Ventures
+                </Typography>
+                <Typography variant="body1" className={classes.cardText}>
+                  Surulere, Lagos State.
+                </Typography>
+                <Typography
+                  variant="body1"
+                  className={classes.cardText}
+                  style={{ marginBottom: "1em" }}
+                >
+                  09030267295
+                </Typography>
+              </CardContent>
+              <CardActions>
+                <Button
+                  variant="contained"
+                  size="small"
+                  className={classes.cardBtn}
+                >
+                  Contact
+                </Button>
+              </CardActions>
+            </Card>
+          </Grid>
+          <Grid item>
+            <Card className={classes.card}>
+              <CardContent>
+                <div
+                  className={classes.pinkOutlineCircle}
+                  style={{ top: matchesSM ? "-5em" : undefined }}
+                />
+                <img
+                  src={distributor2}
+                  alt="A snapshot of one of safewash's distributors"
+                  className={classes.cardImg}
+                  style={{ top: matchesSM ? "-5em" : undefined }}
+                />
+                <Typography
+                  variant="h6"
+                  gutterBottom
+                  className={classes.cardTitle}
+                >
+                  Mallam Bashir Limited
+                </Typography>
+                <Typography variant="body1" className={classes.cardText}>
+                  Surulere, Lagos State.
+                </Typography>
+                <Typography
+                  variant="body1"
+                  className={classes.cardText}
+                  style={{ marginBottom: "1em" }}
+                >
+                  09030267295
+                </Typography>
+              </CardContent>
+              <CardActions>
+                <Button
+                  variant="contained"
+                  size="small"
+                  className={classes.cardBtn}
+                >
+                  Contact
+                </Button>
+              </CardActions>
+            </Card>
+          </Grid>
+        </Grid>
+      </Grid>
+      <Grid item container style={{ marginBottom: "15em" }}>
+        <Grid item>
+          <Typography variant="body1" className={classes.searchResultsText}>
+            View More Distributors &nbsp;
+          </Typography>
+        </Grid>
+        <Grid item>
+          <Typography variant="body1">
+            <FiArrowRight color={theme.palette.common.blue} />
+          </Typography>
         </Grid>
       </Grid>
     </Grid>

@@ -27,7 +27,8 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
-/*add self host font */
+
+/*ADD SELF HOST FONTS */
 @font-face {
   font-family: "Cocon";
   font-style: normal;
@@ -50,6 +51,22 @@ code {
   font-display: swap;
   src: url("./assets/fonts/Gilroy-Thin.woff2") format("woff2");
 }
+
+@font-face {
+  font-family: "BR Firma Light Italic";
+  font-style: normal;
+  font-display: swap;
+  src: url("./assets/fonts/BR-Firma-Light-Italic.woff") format("woff");
+}
+
+@font-face {
+  font-family: "BR Firma SemiBold";
+  font-style: 500;
+  font-display: swap;
+  src: url("./assets/fonts/BR-Firma-SemiBold.woff") format("woff");
+}
+
+/* Slide Navigation DOTS */
 
 .dots__container {
   position: absolute;
