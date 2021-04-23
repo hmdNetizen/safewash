@@ -1,4 +1,5 @@
 import { useState, Fragment, useEffect } from "react";
+import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import { makeStyles, useTheme } from "@material-ui/core/styles";
 import Tabs from "@material-ui/core/Tabs";
@@ -180,6 +181,10 @@ const Navigation = ({ value, setValue }) => {
   );
 
   return <Fragment>{matchesMD ? drawer : tabs}</Fragment>;
+};
+
+Navigation.propTypes = {
+  setValue: PropTypes.func.isRequired,
 };
 
 export default Navigation;

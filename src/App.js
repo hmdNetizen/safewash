@@ -7,6 +7,7 @@ import Home from "./components/layouts/Home";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import "./App.css";
 import Footer from "./components/layouts/Footer";
+import FindDistributors from "./components/pages/FindDistributors";
 
 const App = () => {
   const [value, setValue] = useState(0);
@@ -18,6 +19,11 @@ const App = () => {
           <Header value={value} setValue={setValue} />
           <Switch>
             <Route exact path="/" component={Home} />
+            <Route
+              exact
+              path="/find_distributor"
+              component={FindDistributors}
+            />
           </Switch>
           <Footer value={value} setValue={setValue} />
         </ThemeProvider>

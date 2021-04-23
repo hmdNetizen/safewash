@@ -145,6 +145,47 @@ const theme = createMuiTheme({
         borderRadius: "none",
       },
     },
+    MuiInputLabel: {
+      root: {
+        color: dark,
+      },
+      shrink: {
+        background: "#F9FFF5",
+        width: 80,
+      },
+    },
+    MuiFormLabel: {
+      root: {
+        "&$focused": {
+          color: green,
+        },
+      },
+    },
+
+    MuiSelect: {
+      select: {
+        "&:focus": {
+          background: "#F9FFF5 !important",
+        },
+      },
+    },
+    MuiOutlinedInput: {
+      root: {
+        borderRadius: 10,
+        background: "#F9FFF5",
+
+        "& .MuiSelect-root ~ $notchedOutline": {
+          borderColor: green,
+        },
+        "&$focused .MuiSelect-root ~ $notchedOutline": {
+          borderColor: green,
+        },
+        "& .MuiSelect-root": {
+          color: dark,
+          fontWeight: 700,
+        },
+      },
+    },
   },
 });
 
