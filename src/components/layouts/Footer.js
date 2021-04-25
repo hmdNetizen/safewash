@@ -49,6 +49,7 @@ const useStyles = makeStyles((theme) => ({
   },
   customListItem: {
     cursor: "pointer",
+    display: "inline",
 
     "&:hover": {
       color: theme.palette.common.blue,

@@ -35,6 +35,9 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.down("xs")]: {
       paddingLeft: "2em",
       paddingRight: "2em",
+      background:
+        "radial-gradient(circle, rgba(254,150,198,0.3701855742296919) 0%, rgba(255,255,255,1) 26%);",
+      backgroundPosition: "left",
     },
   },
   laundryBasket: {
@@ -47,6 +50,43 @@ const useStyles = makeStyles((theme) => ({
       maxWidth: "20em",
     },
   },
+  circleTop: {
+    ...theme.typography.circle,
+    top: "2em",
+    left: "50%",
+    transform: "translateX(-50%)",
+  },
+  circleBottom: {
+    ...theme.typography.circle,
+    bottom: "5em",
+    left: "50%",
+    transform: "translateX(-50%)",
+  },
+  squareTop: {
+    ...theme.typography.square,
+    ...theme.typography.squareSm,
+    left: "2em",
+    top: "7em",
+  },
+  squareMiddle: {
+    ...theme.typography.square,
+    ...theme.typography.squareSm,
+    top: "15.5em",
+    left: "78%",
+    filter: "blur(1px)",
+  },
+  squareMiddleBg: {
+    ...theme.typography.square,
+    ...theme.typography.squareBg,
+    top: "19.5em",
+    left: "30%",
+  },
+  squareBottom: {
+    ...theme.typography.square,
+    ...theme.typography.squareSm,
+    bottom: "2em",
+    left: "2em",
+  },
   primaryHeading: {
     fontSize: "1.5rem",
     fontWeight: 600,
@@ -54,6 +94,7 @@ const useStyles = makeStyles((theme) => ({
 
     [theme.breakpoints.down("xs")]: {
       fontSize: "1rem",
+      lineHeight: 1.5,
     },
   },
 
@@ -80,16 +121,15 @@ const useStyles = makeStyles((theme) => ({
   },
 
   formControl: {
-    // minWidth: 250,
+    position: "relative",
+    zIndex: 9,
     width: 250,
 
     [theme.breakpoints.down("sm")]: {
-      //   minWidth: 450,
       width: 450,
     },
 
     [theme.breakpoints.down("xs")]: {
-      //   minWidth: "auto",
       width: "100%",
     },
   },
@@ -174,10 +214,6 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.down("sm")]: {
       padding: "8em 4em 2em",
       width: 350,
-
-      "&:not(last-child)": {
-        marginBottom: "7em",
-      },
     },
 
     [theme.breakpoints.down("xs")]: {
@@ -288,6 +324,8 @@ const FindDistributors = () => {
   const classes = useStyles();
   const theme = useTheme();
 
+  const matchesXXS = useMediaQuery("(max-width: 349px)");
+  const matchesXXXS = useMediaQuery("(max-width: 279px)");
   const matchesXS = useMediaQuery(theme.breakpoints.down("xs"));
   const matchesSM = useMediaQuery(theme.breakpoints.down("sm"));
 
@@ -296,7 +334,17 @@ const FindDistributors = () => {
   const [sort, setSort] = useState("");
 
   return (
-    <Grid container direction="column" className={classes.parentGrid}>
+    <Grid
+      container
+      direction="column"
+      className={classes.parentGrid}
+      style={{
+        paddingRight: matchesXXXS ? "1em" : undefined,
+        paddingLeft: matchesXXXS ? "1em" : undefined,
+      }}
+    >
+      {matchesSM && <div className={classes.circleTop} />}
+      {matchesSM && <div className={classes.squareTop} />}
       <Grid item>
         <img
           src={laundryBasket}
@@ -312,10 +360,22 @@ const FindDistributors = () => {
       >
         <Grid item style={{ marginRight: "2em" }}>
           <Typography variant="h3" className={classes.primaryHeading}>
-            Find Distributors Around {matchesXS && <br />} You
+            Find Distributors Around {!matchesXXXS && matchesXS && <br />} You
           </Typography>
         </Grid>
         <Grid item>
+          {matchesSM && (
+            <div
+              className={classes.squareMiddle}
+              style={{ top: matchesXXS ? "17.25em" : undefined }}
+            />
+          )}
+          {matchesSM && (
+            <div
+              className={classes.squareMiddleBg}
+              style={{ top: matchesXXS ? "21em" : undefined }}
+            />
+          )}
           <FormControl
             variant="outlined"
             classes={{ root: classes.sortFormControl }}
@@ -477,7 +537,13 @@ const FindDistributors = () => {
               </CardActions>
             </Card>
           </Grid>
-          <Grid item>
+          <Grid
+            item
+            style={{
+              marginTop: matchesSM ? "7em" : 0,
+              marginBottom: matchesSM ? "7em" : 0,
+            }}
+          >
             <Card className={classes.card}>
               <CardContent>
                 <div
@@ -575,6 +641,8 @@ const FindDistributors = () => {
           </Typography>
         </Grid>
       </Grid>
+      {matchesSM && <div className={classes.circleBottom} />}
+      {matchesSM && <div className={classes.squareBottom} />}
     </Grid>
   );
 };
