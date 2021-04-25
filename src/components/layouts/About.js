@@ -10,6 +10,7 @@ const useStyles = makeStyles((theme) => ({
   parentGrid: {
     padding: "10em 7em",
     overflow: "hidden",
+    position: "relative",
 
     [theme.breakpoints.only("md")]: {
       paddingLeft: "5em",
@@ -103,6 +104,19 @@ const useStyles = makeStyles((theme) => ({
       background: theme.palette.secondary.dark,
     },
   },
+  squareSmOne: {
+    ...theme.typography.square,
+    ...theme.typography.squareSm,
+    left: "2em",
+    bottom: "5em",
+    filter: "blur(1.65px)",
+  },
+  circleBottom: {
+    ...theme.typography.circle,
+    bottom: "1em",
+    left: "50%",
+    transform: "translateX(-50%)",
+  },
 }));
 
 const About = () => {
@@ -186,6 +200,8 @@ const About = () => {
           style={{ maxWidth: matchesXXS ? "20em" : undefined }}
         />
       </Grid>
+      {matchesSM && <div className={classes.squareSmOne} />}
+      {matchesSM && <div className={classes.circleBottom} />}
     </Grid>
   );
 };

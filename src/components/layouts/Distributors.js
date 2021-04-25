@@ -13,6 +13,9 @@ import distributor3 from "../../assets/Mask Group-2.png";
 const useStyles = makeStyles((theme) => ({
   parentGrid: {
     padding: "5em 7em",
+    position: "relative",
+    // background:
+    //   "radial-gradient(circle, rgba(254,150,198,0.3701855742296919) 0%, rgba(255,255,255,1) 26%)",
     overflow: "hidden",
 
     [theme.breakpoints.only("md")]: {
@@ -28,6 +31,28 @@ const useStyles = makeStyles((theme) => ({
       paddingLeft: "2em",
       paddingRight: "2em",
     },
+
+    "&::after": {
+      display: "block",
+      content: '""',
+      width: "100%",
+      height: "100%",
+      position: "absolute",
+      zIndex: -1,
+      left: "-20em",
+      transform: "translateY(-15em)",
+      background:
+        "radial-gradient(circle, rgba(254,150,198,0.3701855742296919) 0%, rgba(255,255,255,1) 26%)",
+
+      [theme.breakpoints.only("sm")]: {
+        display: "none",
+      },
+
+      [theme.breakpoints.down("xs")]: {
+        left: 0,
+        transform: "translateY(-45em)",
+      },
+    },
   },
   primaryHeading: {
     color: theme.palette.common.blue,
@@ -42,18 +67,109 @@ const useStyles = makeStyles((theme) => ({
     },
   },
 
+  planetShapeOne: {
+    ...theme.typography.planetShape,
+    width: 35,
+    height: 35,
+    left: "-25em",
+    top: "5em",
+
+    "&::after": {
+      content: '""',
+      display: "block",
+      width: 25,
+      height: 25,
+      borderRadius: "50%",
+      background:
+        "radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(255,228,241,1) 100%)",
+      position: "absolute",
+      left: "50%",
+      transform: "translate(-50%, 10%)",
+      // transform: "translate(-40%, -40%")
+    },
+  },
+  planetShapeTwo: {
+    ...theme.typography.planetShape,
+    width: 35,
+    height: 35,
+    left: "-24.5em",
+    top: "6em",
+
+    "&::after": {
+      content: '""',
+      display: "block",
+      width: 25,
+      height: 25,
+      borderRadius: "50%",
+      background:
+        "radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(255,228,241,1) 100%)",
+      position: "absolute",
+      left: "50%",
+      // The parent grid pseudo element positioning affects the planetshape pseudo-element. Hence the tweak around the y-axis of the transform property.
+      transform: "translate(-50%, 10%)",
+    },
+  },
+
+  planetShapeSm: {
+    ...theme.typography.planetShape,
+    width: 25,
+    height: 25,
+    left: "-28em",
+    top: ".5em",
+
+    "&::after": {
+      content: '""',
+      display: "block",
+      width: 15,
+      height: 15,
+      borderRadius: "50%",
+      background:
+        "radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(255,228,241,1) 100%)",
+      position: "absolute",
+      left: "50%",
+      transform: "translate(-50%, 10%)",
+    },
+  },
+
+  squareSmOne: {
+    ...theme.typography.square,
+    ...theme.typography.squareSm,
+    top: "2em",
+    right: "-2em",
+  },
+  squareSmTwo: {
+    ...theme.typography.square,
+    ...theme.typography.squareSm,
+    top: "-4.5em",
+    right: "-3em",
+  },
+
+  squareBgOne: {
+    ...theme.typography.square,
+    ...theme.typography.squareBg,
+    top: "-8em",
+    left: 0,
+  },
+  squareBgTwo: {
+    ...theme.typography.square,
+    ...theme.typography.squareBg,
+    top: "-7em",
+    right: 0,
+  },
+
   distributorDescriptionText: {
     textAlign: "center",
     color: theme.palette.common.darkBrown,
   },
 
   cardSectionGrid: {
-    paddingTop: "10em",
+    paddingTop: "5em",
     flexDirection: "row",
 
     [theme.breakpoints.down("sm")]: {
       paddingTop: "7em",
       flexDirection: "column",
+      position: "relative",
     },
   },
 
@@ -184,12 +300,16 @@ const Distributors = () => {
           possible.
         </Typography>
       </Grid>
+      {!matchesSM && <div className={classes.planetShapeOne} />}
+      {!matchesSM && <div className={classes.planetShapeTwo} />}
+      {!matchesSM && <div className={classes.planetShapeSm} />}
       <Grid item>
         <Grid
           container
           className={classes.cardSectionGrid}
           spacing={matchesSM ? 0 : 3}
         >
+          {matchesSM && <div className={classes.squareSmOne} />}
           <Grid item>
             <Card className={classes.card}>
               <CardContent>
@@ -232,7 +352,14 @@ const Distributors = () => {
               </CardActions>
             </Card>
           </Grid>
-          <Grid item style={{ margin: matchesSM ? "10em 0" : 0 }}>
+          <Grid
+            item
+            style={{
+              margin: matchesSM ? "12em 0" : 0,
+              position: matchesSM ? "relative" : undefined,
+            }}
+          >
+            {matchesSM && <div className={classes.squareBgOne} />}
             <Card className={classes.card}>
               <CardContent>
                 <div
@@ -240,7 +367,7 @@ const Distributors = () => {
                   style={{ top: matchesSM ? "-5em" : undefined }}
                 />
                 <img
-                  src={distributor2}
+                  src={distributor3}
                   alt="A snapshot of one of safewash's distributors"
                   className={classes.cardImg}
                   style={{ top: matchesSM ? "-5em" : undefined }}
@@ -274,7 +401,9 @@ const Distributors = () => {
               </CardActions>
             </Card>
           </Grid>
-          <Grid item>
+          <Grid item style={{ position: matchesSM ? "relative" : undefined }}>
+            {matchesSM && <div className={classes.squareBgTwo} />}
+            {matchesSM && <div className={classes.squareSmTwo} />}
             <Card className={classes.card}>
               <CardContent>
                 <div
@@ -282,7 +411,7 @@ const Distributors = () => {
                   style={{ top: matchesSM ? "-5em" : undefined }}
                 />
                 <img
-                  src={distributor3}
+                  src={distributor2}
                   alt="A snapshot of one of safewash's distributors"
                   className={classes.cardImg}
                   style={{ top: matchesSM ? "-5em" : undefined }}

@@ -58,7 +58,7 @@ const theme = createMuiTheme({
       border: `1px solid ${blue}`,
       transform: "rotate(106deg)",
       position: "absolute",
-      filter: "blur(2px)",
+      filter: "blur(1.65px)",
       zIndex: 1,
     },
     squareSm: {

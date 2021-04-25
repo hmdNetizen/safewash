@@ -146,8 +146,8 @@ const useStyles = makeStyles((theme) => ({
     ...theme.typography.planetShape,
     width: 90,
     height: 90,
-    bottom: 0,
-    right: 0,
+    top: "85%",
+    left: "25em",
     "&::after": {
       content: '""',
       display: "block",
@@ -155,11 +155,11 @@ const useStyles = makeStyles((theme) => ({
       height: 75,
       borderRadius: "50%",
       background:
-        "radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(222,239,243,.8) 100%)",
+        "radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(253,189,213,1) 100%)",
       position: "absolute",
       left: "50%",
       top: "50%",
-      transform: "translate(-60%, -50%)",
+      transform: "translate(-50%, -60%)",
     },
   },
 }));
@@ -262,7 +262,7 @@ const Features = () => {
                 alt="A beautiful baby girl sitting comfortably in a basket"
                 className={classes.babyImg}
               />
-              {/* <div className={classes.planetShapeXL} /> */}
+              <div className={classes.planetShapeXL} />
             </Grid>
           </Hidden>
           <Grid
