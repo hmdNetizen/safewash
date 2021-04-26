@@ -80,8 +80,8 @@ const theme = createMuiTheme({
       padding: ".75em 2em",
     },
     circle: {
-      width: 50,
-      height: 50,
+      width: 60,
+      height: 60,
       borderRadius: "50%",
       border: `1px solid ${pink}`,
       filter: "blur(1.65px)",
