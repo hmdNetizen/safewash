@@ -27,6 +27,7 @@ const useStyles = makeStyles((theme) => ({
     background: "transparent",
   },
   drawer: {
+    position: "relative",
     background:
       "linear-gradient(180deg, rgba(254, 150, 198, 0.3) 0%, rgba(255, 255, 255, 0) 100%), #FFFFFF",
 
@@ -59,6 +60,30 @@ const useStyles = makeStyles((theme) => ({
     "&:not(:last-child)": {
       marginBottom: "3em",
     },
+  },
+  squareSmOne: {
+    ...theme.typography.square,
+    ...theme.typography.squareSm,
+    top: "20%",
+    left: "2em",
+  },
+  squareSmTwo: {
+    ...theme.typography.square,
+    ...theme.typography.squareSm,
+    top: "50%",
+    right: "2em",
+  },
+  circle: {
+    ...theme.typography.circle,
+    top: "35%",
+    left: "50%",
+    transform: "translateX(-80%)",
+  },
+  squareBgLeft: {
+    ...theme.typography.square,
+    ...theme.typography.squareBg,
+    top: "50%",
+    left: "2em",
   },
 }));
 
@@ -143,6 +168,10 @@ const Navigation = ({ value, setValue }) => {
         onClose={() => setOpenDrawer(false)}
         classes={{ paper: classes.drawer }}
       >
+        <div className={classes.squareSmOne} />
+        <div className={classes.circle} />
+        <div className={classes.squareBgLeft} />
+        <div className={classes.squareSmTwo} />
         {openDrawer && (
           <IconButton
             disableRipple
