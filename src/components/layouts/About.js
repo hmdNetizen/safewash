@@ -18,7 +18,7 @@ const useStyles = makeStyles((theme) => ({
     },
 
     [theme.breakpoints.down("sm")]: {
-      paddingTop: "5em",
+      paddingTop: "10em",
     },
 
     [theme.breakpoints.down("xs")]: {
@@ -47,6 +47,7 @@ const useStyles = makeStyles((theme) => ({
   pinkWire: {
     ...theme.typography.wire,
     top: "5em",
+    zIndex: 2,
 
     [theme.breakpoints.down("lg")]: {
       maxWidth: "25em",
@@ -59,12 +60,12 @@ const useStyles = makeStyles((theme) => ({
 
     [theme.breakpoints.down("sm")]: {
       maxWidth: "25em",
+      left: "50%",
+      transform: "translateX(-50%)",
     },
 
     [theme.breakpoints.down("xs")]: {
       maxWidth: "20em",
-      left: "50%",
-      transform: "translateX(-50%)",
     },
   },
   ladyImg: {
@@ -72,7 +73,7 @@ const useStyles = makeStyles((theme) => ({
     position: "relative",
     top: 0,
     left: "-3em",
-    zIndex: 2,
+    zIndex: 3,
 
     [theme.breakpoints.down("lg")]: {
       maxWidth: "30em",
@@ -104,12 +105,45 @@ const useStyles = makeStyles((theme) => ({
       background: theme.palette.secondary.dark,
     },
   },
-  squareSmOne: {
+  squareSmBottom: {
     ...theme.typography.square,
     ...theme.typography.squareSm,
     left: "2em",
     bottom: "5em",
     filter: "blur(1.65px)",
+  },
+  squareSmOne: {
+    ...theme.typography.square,
+    ...theme.typography.squareSm,
+    right: "-5em",
+    top: "-2em",
+
+    [theme.breakpoints.down("xs")]: {
+      right: 0,
+    },
+  },
+  squareSmTwo: {
+    ...theme.typography.square,
+    ...theme.typography.squareSm,
+    left: "2.25em",
+    top: "15em",
+    zIndex: 1,
+  },
+  squareSmThree: {
+    ...theme.typography.square,
+    ...theme.typography.squareSm,
+    right: "-15em",
+    top: "1.5em",
+
+    [theme.breakpoints.down("xs")]: {
+      right: "-95%",
+    },
+  },
+  squareBg: {
+    ...theme.typography.square,
+    ...theme.typography.squareBg,
+    left: 0,
+    top: "-5em",
   },
   circleBottom: {
     ...theme.typography.circle,
@@ -149,7 +183,8 @@ const About = () => {
           direction="column"
           alignItems={matchesSM ? "center" : "flex-start"}
         >
-          <Grid item>
+          <Grid item style={{ position: matchesSM ? "relative" : undefined }}>
+            {matchesSM && <div className={classes.squareSmThree} />}
             <Typography variant="h2" className={classes.primaryHeading}>
               About Us
             </Typography>
@@ -187,6 +222,17 @@ const About = () => {
         </Grid>
       </Grid>
       <Grid item style={{ position: "relative" }}>
+        {matchesSM && <div className={classes.squareSmOne} />}
+        {matchesSM && <div className={classes.squareBg} />}
+        {matchesSM && (
+          <div
+            className={classes.squareSmTwo}
+            style={{
+              top: matchesXXS ? "10em" : undefined,
+              left: matchesXXS ? "2em" : undefined,
+            }}
+          />
+        )}
         <img
           src={pinkWire}
           alt="A pink wireframe wrapping around the lady"
@@ -200,7 +246,7 @@ const About = () => {
           style={{ maxWidth: matchesXXS ? "20em" : undefined }}
         />
       </Grid>
-      {matchesSM && <div className={classes.squareSmOne} />}
+      {matchesSM && <div className={classes.squareSmBottom} />}
       {matchesSM && <div className={classes.circleBottom} />}
     </Grid>
   );

@@ -30,6 +30,7 @@ const useStyles = makeStyles((theme) => ({
       paddingLeft: "2em",
       paddingRight: "2em",
       backgroundPosition: "bottom center",
+      backgroundSize: "70%",
     },
   },
   textContentWrapper: {
