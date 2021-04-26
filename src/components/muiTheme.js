@@ -84,7 +84,7 @@ const theme = createMuiTheme({
       height: 50,
       borderRadius: "50%",
       border: `1px solid ${pink}`,
-      filter: "blur(2px)",
+      filter: "blur(1.65px)",
       position: "absolute",
     },
     outlineCircle: {

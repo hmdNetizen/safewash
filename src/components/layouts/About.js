@@ -9,8 +9,8 @@ import safeWashLady from "../../assets/safewash-lady-2.png";
 const useStyles = makeStyles((theme) => ({
   parentGrid: {
     padding: "10em 7em",
-    overflow: "hidden",
     position: "relative",
+    overflow: "hidden",
 
     [theme.breakpoints.only("md")]: {
       paddingLeft: "5em",
@@ -157,6 +157,7 @@ const About = () => {
   const classes = useStyles();
   const theme = useTheme();
 
+  const matchesXXXS = useMediaQuery("(max-width: 340px)");
   const matchesXXS = useMediaQuery("(max-width: 450px)");
   const matchesXS = useMediaQuery(theme.breakpoints.down("xs"));
   const matchesSM = useMediaQuery(theme.breakpoints.down("sm"));
@@ -183,8 +184,18 @@ const About = () => {
           direction="column"
           alignItems={matchesSM ? "center" : "flex-start"}
         >
-          <Grid item style={{ position: matchesSM ? "relative" : undefined }}>
-            {matchesSM && <div className={classes.squareSmThree} />}
+          <Grid
+            item
+            style={{
+              position: matchesSM ? "relative" : undefined,
+            }}
+          >
+            {matchesSM && (
+              <div
+                className={classes.squareSmThree}
+                style={{ right: matchesXXXS ? "-5em" : undefined }}
+              />
+            )}
             <Typography variant="h2" className={classes.primaryHeading}>
               About Us
             </Typography>
@@ -237,13 +248,17 @@ const About = () => {
           src={pinkWire}
           alt="A pink wireframe wrapping around the lady"
           className={classes.pinkWire}
-          style={{ maxWidth: matchesXXS ? "15em" : undefined }}
+          style={{
+            maxWidth: matchesXXXS ? "10em" : matchesXXS ? "15em" : undefined,
+          }}
         />
         <img
           src={safeWashLady}
           alt="A lady representing the safewash brand"
           className={classes.ladyImg}
-          style={{ maxWidth: matchesXXS ? "20em" : undefined }}
+          style={{
+            maxWidth: matchesXXXS ? "15em" : matchesXXS ? "20em" : undefined,
+          }}
         />
       </Grid>
       {matchesSM && <div className={classes.squareSmBottom} />}

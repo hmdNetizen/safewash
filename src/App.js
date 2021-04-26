@@ -22,7 +22,7 @@ const App = () => {
             <Route
               exact
               path="/find_distributor"
-              component={FindDistributors}
+              render={() => <FindDistributors setValue={setValue} />}
             />
           </Switch>
           <Footer value={value} setValue={setValue} />

@@ -17,6 +17,8 @@ const useStyles = makeStyles((theme) => ({
   parentGrid: {
     padding: "10em 10em 5em",
     marginBottom: "10em",
+    position: "relative",
+    overflow: "hidden",
 
     [theme.breakpoints.only("md")]: {
       paddingLeft: "2em",
@@ -41,6 +43,7 @@ const useStyles = makeStyles((theme) => ({
   },
 
   cardGrid: {
+    position: "relative",
     "&:not(last-child)": {
       [theme.breakpoints.down("xs")]: {
         marginBottom: "5em",
@@ -50,10 +53,11 @@ const useStyles = makeStyles((theme) => ({
 
   card: {
     padding: "2em",
-    borderRadius: 5,
+    borderRadius: 10,
     position: "relative",
     overflow: "visible",
     boxShadow: theme.shadows[5],
+    zIndex: 9,
     height: "20em",
     left: "50%",
     transform: "translateX(-50%)",
@@ -107,6 +111,48 @@ const useStyles = makeStyles((theme) => ({
 
     [theme.breakpoints.down("xs")]: {
       left: "2.5em",
+    },
+  },
+  blurryCircleTop: {
+    ...theme.typography.circle,
+    bottom: "5em",
+    left: "50%",
+    transform: "translateX(-50%)",
+    top: "18.5em",
+  },
+  blurryCircleMiddle: {
+    ...theme.typography.circle,
+    left: "75%",
+    top: "0.5em",
+    [theme.breakpoints.down("xs")]: {
+      left: "85%",
+      top: "-2.25em",
+    },
+  },
+  squareSmOne: {
+    ...theme.typography.square,
+    ...theme.typography.squareSm,
+    right: "-2em",
+    top: "50%",
+  },
+  squareBgOne: {
+    ...theme.typography.square,
+    ...theme.typography.squareBg,
+    top: "15em",
+    left: 0,
+
+    [theme.breakpoints.down("xs")]: {
+      left: "-3em",
+    },
+  },
+  squareBgTwo: {
+    ...theme.typography.square,
+    ...theme.typography.squareBg,
+    right: "5em",
+    bottom: 0,
+
+    [theme.breakpoints.down("xs")]: {
+      bottom: "-3em",
     },
   },
   cardImg: {
@@ -230,10 +276,10 @@ const Testimonies = () => {
       direction="column"
       alignItems="center"
       className={classes.parentGrid}
-      style={{
-        paddingLeft: matchesXXXS ? "1em" : undefined,
-        paddingRight: matchesXXXS ? "1em" : undefined,
-      }}
+      // style={{
+      //   paddingLeft: matchesXXXS ? "1em" : undefined,
+      //   paddingRight: matchesXXXS ? "1em" : undefined,
+      // }}
     >
       <Grid item style={{ marginBottom: "1em" }}>
         <Typography
@@ -264,14 +310,14 @@ const Testimonies = () => {
         alignItems="center"
         spacing={matchesXS ? 0 : matchesSM ? 10 : matchesMD ? 7 : 10}
       >
+        <div className={classes.blurryCircleTop} />
         <Grid item className={classes.cardGrid}>
+          <div className={classes.squareSmOne} />
           <Card
             className={classes.card}
             style={{
               paddingLeft: matchesXXXS ? "2em" : undefined,
               paddingRight: matchesXXXS ? ".5em" : undefined,
-              // maxWidth: matchesXXXS ? "15em" : undefined,
-              // height: matchesXXXS ? "22em" : undefined,
             }}
           >
             <div
@@ -316,13 +362,18 @@ const Testimonies = () => {
           </Card>
         </Grid>
         <Grid item className={classes.cardGrid}>
+          {matchesSM && <div className={classes.blurryCircleMiddle} />}
+          {matchesSM && (
+            <div
+              className={classes.squareBgOne}
+              style={{ left: matchesXXXS ? "-1.5em" : undefined }}
+            />
+          )}
           <Card
             className={classes.card}
             style={{
               paddingLeft: matchesXXXS ? "2em" : undefined,
               paddingRight: matchesXXXS ? ".5em" : undefined,
-              // maxWidth: matchesXXXS ? "15em" : undefined,
-              // height: matchesXXXS ? "22em" : undefined,
             }}
           >
             <div
@@ -370,11 +421,13 @@ const Testimonies = () => {
             </CardContent>
           </Card>
         </Grid>
-        <Grid item>
+        <Grid
+          item
+          style={{ position: matchesSM ? "relative" : undefined, zIndex: 9 }}
+        >
           <Card
             className={classes.card}
             style={{
-              // maxWidth: matchesXXXS ? "15em" : undefined,
               paddingLeft: matchesXXXS ? "2em" : undefined,
               paddingRight: matchesXXXS ? ".5em" : undefined,
             }}
@@ -421,6 +474,7 @@ const Testimonies = () => {
               </Typography>
             </CardContent>
           </Card>
+          <div className={classes.squareBgTwo} />
         </Grid>
       </Grid>
       <Grid

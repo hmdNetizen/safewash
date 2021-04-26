@@ -204,6 +204,7 @@ const useStyles = makeStyles((theme) => ({
 const Features = () => {
   const classes = useStyles();
   const theme = useTheme();
+  const matchesXXXXS = useMediaQuery("(max-width: 290px)");
   const matchesXXXS = useMediaQuery("(max-width: 340px)");
   const matchesXXS = useMediaQuery("(max-width: 450px)");
   const matchesSM = useMediaQuery(theme.breakpoints.down("sm"));
@@ -247,7 +248,13 @@ const Features = () => {
           <div
             className={classes.PlanetShapeXL}
             style={{
-              top: matchesXXXS ? "72em" : matchesXXS ? "71.5em" : undefined,
+              top: matchesXXXXS
+                ? "78em"
+                : matchesXXXS
+                ? "72em"
+                : matchesXXS
+                ? "71.5em"
+                : undefined,
             }}
           />
         </Grid>

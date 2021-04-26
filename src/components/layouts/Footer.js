@@ -14,6 +14,7 @@ import linkedIn from "../../assets/Vector-3.png";
 const useStyles = makeStyles((theme) => ({
   parentGrid: {
     paddingTop: "10em",
+    width: "100%",
     background: "rgba(184, 219, 217, 0.2)",
   },
   wrapperContainer: {
