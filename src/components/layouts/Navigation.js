@@ -61,6 +61,11 @@ const useStyles = makeStyles((theme) => ({
       marginBottom: "3em",
     },
   },
+  listItemSelected: {
+    "& .MuiListItemText-primary": {
+      fontWeight: 700,
+    },
+  },
   squareSmOne: {
     ...theme.typography.square,
     ...theme.typography.squareSm,
@@ -188,7 +193,10 @@ const Navigation = ({ value, setValue }) => {
               component={Link}
               to={tab.link}
               button
-              className={classes.listItem}
+              classes={{
+                root: classes.listItem,
+                selected: classes.listItemSelected,
+              }}
               onClick={() => {
                 setValue(tab.id);
                 setOpenDrawer(false);
