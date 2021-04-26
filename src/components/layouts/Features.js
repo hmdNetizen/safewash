@@ -403,8 +403,8 @@ const Features = () => {
               direction="column"
               alignItems={matchesSM ? "center" : "flex-start"}
             >
-              <div className={classes.squareSm} />
-              <div className={classes.circle} />
+              {matchesSM && <div className={classes.squareSm} />}
+              {matchesSM && <div className={classes.circle} />}
               <Grid item>
                 <img src={bubbles} alt="A bubble icon" />
               </Grid>

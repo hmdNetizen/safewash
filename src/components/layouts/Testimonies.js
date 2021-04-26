@@ -310,9 +310,9 @@ const Testimonies = () => {
         alignItems="center"
         spacing={matchesXS ? 0 : matchesSM ? 10 : matchesMD ? 7 : 10}
       >
-        <div className={classes.blurryCircleTop} />
+        {matchesSM && <div className={classes.blurryCircleTop} />}
         <Grid item className={classes.cardGrid}>
-          <div className={classes.squareSmOne} />
+          {matchesSM && <div className={classes.squareSmOne} />}
           <Card
             className={classes.card}
             style={{
@@ -474,7 +474,7 @@ const Testimonies = () => {
               </Typography>
             </CardContent>
           </Card>
-          <div className={classes.squareBgTwo} />
+          {matchesSM && <div className={classes.squareBgTwo} />}
         </Grid>
       </Grid>
       <Grid

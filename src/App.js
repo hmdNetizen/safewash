@@ -8,6 +8,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import "./App.css";
 import Footer from "./components/layouts/Footer";
 import FindDistributors from "./components/pages/FindDistributors";
+import ScrollToView from "./components/utils/ScrollToView";
 
 const App = () => {
   const [value, setValue] = useState(0);
@@ -16,16 +17,18 @@ const App = () => {
       <Fragment>
         <CssBaseline />
         <ThemeProvider theme={muiTheme}>
-          <Header value={value} setValue={setValue} />
-          <Switch>
-            <Route exact path="/" component={Home} />
-            <Route
-              exact
-              path="/find_distributor"
-              render={() => <FindDistributors setValue={setValue} />}
-            />
-          </Switch>
-          <Footer value={value} setValue={setValue} />
+          <ScrollToView>
+            <Header value={value} setValue={setValue} />
+            <Switch>
+              <Route exact path="/" component={Home} />
+              <Route
+                exact
+                path="/find_distributor"
+                component={FindDistributors}
+              />
+            </Switch>
+            <Footer value={value} setValue={setValue} />
+          </ScrollToView>
         </ThemeProvider>
       </Fragment>
     </Router>

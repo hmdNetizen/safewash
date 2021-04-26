@@ -122,6 +122,7 @@ const Navigation = ({ value, setValue }) => {
         case "/careers":
         case "/policy":
         case "/terms":
+        case "/find_distributor":
           if (value !== false) {
             setValue(false);
           }
