@@ -29,8 +29,8 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.down("xs")]: {
       paddingLeft: "2em",
       paddingRight: "2em",
-      backgroundPosition: "bottom center",
-      backgroundSize: "70%",
+      backgroundPosition: "center top",
+      backgroundSize: "cover",
     },
   },
   textContentWrapper: {
@@ -143,7 +143,7 @@ const useStyles = makeStyles((theme) => ({
     },
   },
 
-  planetShapeXL: {
+  PlanetShapeXL: {
     ...theme.typography.planetShape,
     width: 90,
     height: 90,
@@ -162,17 +162,52 @@ const useStyles = makeStyles((theme) => ({
       top: "50%",
       transform: "translate(-50%, -60%)",
     },
+    [theme.breakpoints.down("sm")]: {
+      background:
+        "radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(253,189,213,0.5) 100%)",
+      width: 60,
+      height: 60,
+      top: "75em",
+      left: 0,
+
+      "&::after": {
+        width: 45,
+        height: 45,
+      },
+
+      [theme.breakpoints.down("xs")]: {
+        top: "68em",
+        width: 40,
+        height: 40,
+
+        "&::after": {
+          width: 30,
+          height: 30,
+        },
+      },
+    },
+  },
+  squareSm: {
+    ...theme.typography.square,
+    ...theme.typography.squareSm,
+    left: 0,
+  },
+  circle: {
+    ...theme.typography.circle,
+    bottom: "5em",
+    left: "53%",
+    top: 0,
+    filter: "blur(1.65px)",
   },
 }));
 
 const Features = () => {
   const classes = useStyles();
   const theme = useTheme();
-  // const matchesXS = useMediaQuery(theme.breakpoints.down("xs"));
   const matchesXXXS = useMediaQuery("(max-width: 340px)");
+  const matchesXXS = useMediaQuery("(max-width: 450px)");
   const matchesSM = useMediaQuery(theme.breakpoints.down("sm"));
   const matchesMDX = useMediaQuery("(max-width: 1096px)");
-  // const matchesMD = useMediaQuery(theme.breakpoints.down("md"));
   const matchesMdOnly = useMediaQuery(theme.breakpoints.only("md"));
 
   return (
@@ -209,7 +244,12 @@ const Features = () => {
             style={{ maxWidth: matchesXXXS ? "15em" : undefined }}
           />
 
-          {/* <div className={classes.planetShapeXL} /> */}
+          <div
+            className={classes.PlanetShapeXL}
+            style={{
+              top: matchesXXXS ? "72em" : matchesXXS ? "71.5em" : undefined,
+            }}
+          />
         </Grid>
       </Hidden>
       <Grid item className={classes.primaryHeadingWrapper}>
@@ -263,7 +303,7 @@ const Features = () => {
                 alt="A beautiful baby girl sitting comfortably in a basket"
                 className={classes.babyImg}
               />
-              <div className={classes.planetShapeXL} />
+              <div className={classes.PlanetShapeXL} />
             </Grid>
           </Hidden>
           <Grid
@@ -347,12 +387,17 @@ const Features = () => {
           justify={matchesSM ? "flex-start" : "space-between"}
           alignItems={matchesSM ? "center" : undefined}
         >
-          <Grid item style={{ order: 2 }}>
+          <Grid
+            item
+            style={{ order: 2, position: matchesSM ? "relative" : undefined }}
+          >
             <Grid
               container
               direction="column"
               alignItems={matchesSM ? "center" : "flex-start"}
             >
+              <div className={classes.squareSm} />
+              <div className={classes.circle} />
               <Grid item>
                 <img src={bubbles} alt="A bubble icon" />
               </Grid>
