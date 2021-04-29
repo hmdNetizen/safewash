@@ -273,6 +273,7 @@ const useStyles = makeStyles((theme) => ({
 const Distributors = () => {
   const classes = useStyles();
   const theme = useTheme();
+  const matchesXXXXS = useMediaQuery("(max-width: 280px)");
   const matchesXXXS = useMediaQuery("(max-width: 350px)");
   const matchesSM = useMediaQuery(theme.breakpoints.down("sm"));
   return (
@@ -281,6 +282,10 @@ const Distributors = () => {
       direction="column"
       alignItems="center"
       className={classes.parentGrid}
+      style={{
+        paddingLeft: matchesXXXXS ? "1em" : undefined,
+        paddingRight: matchesXXXXS ? "1em" : undefined,
+      }}
     >
       <Grid item>
         <Typography

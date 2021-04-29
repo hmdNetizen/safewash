@@ -116,6 +116,7 @@ const useStyles = makeStyles((theme) => ({
 const Contact = () => {
   const classes = useStyles();
   const theme = useTheme();
+  const matchesXXXXS = useMediaQuery("(max-width: 280px)");
   const matchesXXXS = useMediaQuery("(max-width: 340px)");
   const matchesSM = useMediaQuery(theme.breakpoints.down("sm"));
   const matchesMDX = useMediaQuery("(max-width: 1096px)");
@@ -127,6 +128,10 @@ const Contact = () => {
       className={classes.parentGrid}
       alignItems="center"
       justify={matchesSM ? "center" : "space-around"}
+      style={{
+        paddingLeft: matchesXXXXS ? "1em" : undefined,
+        paddingRight: matchesXXXXS ? "1em" : undefined,
+      }}
     >
       <Grid
         item

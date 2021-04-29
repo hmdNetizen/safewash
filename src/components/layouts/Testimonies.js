@@ -203,6 +203,7 @@ const useStyles = makeStyles((theme) => ({
     width: 879,
     height: 396,
     top: "5em",
+    marginBottom: "5em",
 
     [theme.breakpoints.down("sm")]: {
       width: 338,
@@ -265,6 +266,7 @@ const Testimonies = () => {
   const classes = useStyles();
   const theme = useTheme();
 
+  const matchesXXXXS = useMediaQuery("(max-width: 280px)");
   const matchesXXXS = useMediaQuery("(max-width: 340px)");
   const matchesXXS = useMediaQuery("(max-width: 450px)");
   const matchesXS = useMediaQuery(theme.breakpoints.down("xs"));
@@ -276,10 +278,10 @@ const Testimonies = () => {
       direction="column"
       alignItems="center"
       className={classes.parentGrid}
-      // style={{
-      //   paddingLeft: matchesXXXS ? "1em" : undefined,
-      //   paddingRight: matchesXXXS ? "1em" : undefined,
-      // }}
+      style={{
+        paddingLeft: matchesXXXXS ? "1em" : undefined,
+        paddingRight: matchesXXXXS ? "1em" : undefined,
+      }}
     >
       <Grid item style={{ marginBottom: "1em" }}>
         <Typography

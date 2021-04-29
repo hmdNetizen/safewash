@@ -8,7 +8,7 @@ import safeWashLady from "../../assets/safewash-lady-2.png";
 
 const useStyles = makeStyles((theme) => ({
   parentGrid: {
-    padding: "10em 7em",
+    padding: "10em 0 10em 7em",
     position: "relative",
     overflow: "hidden",
 
@@ -18,12 +18,22 @@ const useStyles = makeStyles((theme) => ({
     },
 
     [theme.breakpoints.down("sm")]: {
-      paddingTop: "10em",
+      paddingLeft: "5em",
+      paddingRight: "5em",
     },
 
     [theme.breakpoints.down("xs")]: {
       paddingLeft: "2em",
       paddingRight: "2em",
+    },
+  },
+
+  textContentParentGrid: {
+    [theme.breakpoints.down("sm")]: {
+      marginTop: "35em",
+    },
+    [theme.breakpoints.down("xs")]: {
+      marginTop: "27em",
     },
   },
   primaryHeading: {
@@ -38,61 +48,16 @@ const useStyles = makeStyles((theme) => ({
       fontSize: "1.5rem",
     },
   },
-  aboutTextContent: {
+  aboutTextContentGrid: {
+    [theme.breakpoints.down("md")]: {
+      maxWidth: "35em",
+    },
+    [theme.breakpoints.down("sm")]: {
+      maxWidth: "none",
+    },
+  },
+  textContent: {
     color: theme.palette.common.darkBrown,
-    [theme.breakpoints.only("md")]: {
-      maxWidth: "42em",
-    },
-  },
-  pinkWire: {
-    ...theme.typography.wire,
-    top: "5em",
-    zIndex: 2,
-
-    [theme.breakpoints.down("lg")]: {
-      maxWidth: "25em",
-    },
-
-    [theme.breakpoints.down("md")]: {
-      maxWidth: "20em",
-      left: "7em",
-    },
-
-    [theme.breakpoints.down("sm")]: {
-      maxWidth: "25em",
-      left: "50%",
-      transform: "translateX(-50%)",
-    },
-
-    [theme.breakpoints.down("xs")]: {
-      maxWidth: "20em",
-    },
-  },
-  ladyImg: {
-    maxWidth: "35em",
-    position: "relative",
-    top: 0,
-    left: "-3em",
-    zIndex: 3,
-
-    [theme.breakpoints.down("lg")]: {
-      maxWidth: "30em",
-    },
-
-    [theme.breakpoints.down("md")]: {
-      maxWidth: "25em",
-      left: "5em",
-    },
-
-    [theme.breakpoints.down("sm")]: {
-      maxWidth: "30em",
-      left: 0,
-    },
-
-    [theme.breakpoints.down("xs")]: {
-      maxWidth: "25em",
-      left: 0,
-    },
   },
   btn: {
     ...theme.typography.btn,
@@ -105,45 +70,110 @@ const useStyles = makeStyles((theme) => ({
       background: theme.palette.secondary.dark,
     },
   },
+  imagesGrid: {
+    position: "absolute",
+    right: 0,
+    top: "50%",
+    transform: "translateY(-50%)",
+
+    [theme.breakpoints.down("md")]: {
+      right: "4em",
+    },
+
+    [theme.breakpoints.down("sm")]: {
+      top: "10em",
+      left: "50%",
+      transform: "translate(-50%, 0)",
+    },
+  },
+  pinkWire: {
+    ...theme.typography.wire,
+    right: "2em",
+    top: "50%",
+    transform: "translateY(-35%)",
+    zIndex: 2,
+    maxWidth: "27em",
+
+    [theme.breakpoints.down("md")]: {
+      maxWidth: "20em",
+    },
+
+    [theme.breakpoints.down("sm")]: {
+      maxWidth: "25em",
+      left: "50%",
+      transform: "translateX(-50%)",
+      top: "5em",
+    },
+
+    [theme.breakpoints.down("xs")]: {
+      maxWidth: "20em",
+    },
+  },
+  ladyImg: {
+    position: "absolute",
+    top: "50%",
+    transform: "translateY(-50%)",
+    right: "-2em",
+    maxWidth: "35em",
+    zIndex: 3,
+
+    [theme.breakpoints.down("md")]: {
+      maxWidth: "25em",
+      right: "-1em",
+    },
+
+    [theme.breakpoints.down("sm")]: {
+      maxWidth: "30em",
+      left: "50%",
+      right: 0,
+      top: 0,
+      transform: "translate(-50%, 0)",
+    },
+
+    [theme.breakpoints.down("xs")]: {
+      maxWidth: "25em",
+    },
+  },
+  squareSmTop: {
+    ...theme.typography.square,
+    ...theme.typography.squareSm,
+    top: "8em",
+    right: "20%",
+
+    [theme.breakpoints.down("xs")]: {
+      right: "5%",
+    },
+  },
+  squareSmMiddleTop: {
+    ...theme.typography.square,
+    ...theme.typography.squareSm,
+    left: "-2.5em",
+    top: "14em",
+  },
+  squareSmMiddleBottom: {
+    ...theme.typography.square,
+    ...theme.typography.squareSm,
+    right: "25%",
+    top: "-3em",
+
+    [theme.breakpoints.down("xs")]: {
+      right: "-1em",
+      top: "-2.5em",
+    },
+  },
   squareSmBottom: {
     ...theme.typography.square,
     ...theme.typography.squareSm,
-    left: "2em",
+    // left: "10%",
+    // top: "20em",
     bottom: "5em",
-    filter: "blur(1.65px)",
+    left: "10%",
   },
-  squareSmOne: {
-    ...theme.typography.square,
-    ...theme.typography.squareSm,
-    right: "-5em",
-    top: "-2em",
-
-    [theme.breakpoints.down("xs")]: {
-      right: 0,
-    },
-  },
-  squareSmTwo: {
-    ...theme.typography.square,
-    ...theme.typography.squareSm,
-    left: "2.25em",
-    top: "15em",
-    zIndex: 1,
-  },
-  squareSmThree: {
-    ...theme.typography.square,
-    ...theme.typography.squareSm,
-    right: "-15em",
-    top: "1.5em",
-
-    [theme.breakpoints.down("xs")]: {
-      right: "-95%",
-    },
-  },
-  squareBg: {
+  squareBgTop: {
     ...theme.typography.square,
     ...theme.typography.squareBg,
-    left: 0,
-    top: "-5em",
+    left: "20%",
+    top: "5em",
   },
   circleBottom: {
     ...theme.typography.circle,
@@ -157,99 +187,80 @@ const About = () => {
   const classes = useStyles();
   const theme = useTheme();
 
+  const matchesXXXXS = useMediaQuery("(max-width: 280px)");
   const matchesXXXS = useMediaQuery("(max-width: 340px)");
-  const matchesXXS = useMediaQuery("(max-width: 450px)");
-  const matchesXS = useMediaQuery(theme.breakpoints.down("xs"));
   const matchesSM = useMediaQuery(theme.breakpoints.down("sm"));
-  const matchesMDX = useMediaQuery("(max-width: 1096px)");
+  const matchesMD = useMediaQuery(theme.breakpoints.down("md"));
 
   return (
     <Grid
       container
       className={classes.parentGrid}
       alignItems="center"
-      justify={matchesSM ? "center" : "space-between"}
-      direction={matchesSM ? "column" : undefined}
+      direction={matchesSM ? "column" : "row"}
+      style={{
+        paddingLeft: matchesXXXXS ? "1em" : undefined,
+        paddingRight: matchesXXXXS ? "1em" : undefined,
+      }}
     >
       <Grid
         item
-        style={{
-          maxWidth: "45em",
-          order: matchesSM ? 2 : undefined,
-          marginTop: matchesSM ? "5em" : 0,
-        }}
+        className={classes.textContentParentGrid}
+        style={{ marginTop: matchesXXXS ? "22em" : undefined }}
       >
+        {matchesSM && <div className={classes.squareBgTop} />}
+        {matchesSM && <div className={classes.squareBgTop} />}
+        {matchesSM && <div className={classes.squareSmTop} />}
         <Grid
           container
           direction="column"
           alignItems={matchesSM ? "center" : "flex-start"}
         >
-          <Grid
-            item
-            style={{
-              position: matchesSM ? "relative" : undefined,
-            }}
-          >
-            {matchesSM && (
-              <div
-                className={classes.squareSmThree}
-                style={{ right: matchesXXXS ? "-5em" : undefined }}
-              />
-            )}
+          <Grid item>
             <Typography variant="h2" className={classes.primaryHeading}>
               About Us
             </Typography>
           </Grid>
-          <Grid item>
+          <Grid
+            item
+            className={classes.aboutTextContentGrid}
+            style={{ position: "relative" }}
+          >
+            {matchesSM && <div className={classes.squareSmMiddleBottom} />}
             <Typography
               variant="body1"
               paragraph
+              className={classes.textContent}
               align={matchesSM ? "center" : undefined}
-              className={classes.aboutTextContent}
-              style={{
-                maxWidth: matchesSM ? null : matchesMDX ? "34em" : null,
-                textAlign: matchesXS
-                  ? "center"
-                  : matchesSM
-                  ? "left"
-                  : matchesMDX
-                  ? "justify"
-                  : "left",
-              }}
             >
               We use our knowledge and expertise to provide the most effecient,
-              effective and environmentally friendly cleaning possible. Having
-              in mind the daily increase in percentage of children cancer
-              patients world wide, skin reactions caused by harmful chemicals,
-              high priced soaps leading to parents using products not ideal for
-              children.
+              effective and {!matchesMD && <br />} environmentally friendly
+              cleaning possible. Having in mind the daily increase in percentage
+              of {!matchesMD && <br />} children cancer patients world wide,
+              skin reactions caused by harmful chemicals, high priced{" "}
+              {!matchesMD && <br />} soaps leading to parents using products not
+              ideal for children.
             </Typography>
           </Grid>
           <Grid item>
-            <Button variant="contained" className={classes.btn}>
+            <Button
+              variant="contained"
+              className={classes.btn}
+              style={{ padding: matchesXXXXS ? ".75em 1em" : undefined }}
+            >
               Become a Distributor
             </Button>
           </Grid>
         </Grid>
       </Grid>
-      <Grid item style={{ position: "relative" }}>
-        {matchesSM && <div className={classes.squareSmOne} />}
-        {matchesSM && <div className={classes.squareBg} />}
-        {matchesSM && (
-          <div
-            className={classes.squareSmTwo}
-            style={{
-              top: matchesXXS ? "10em" : undefined,
-              left: matchesXXS ? "2em" : undefined,
-            }}
-          />
-        )}
+      <Grid item className={classes.imagesGrid}>
+        {matchesSM && <div className={classes.squareSmMiddleTop} />}
         <img
           src={pinkWire}
-          alt="A pink wireframe wrapping around the lady"
+          alt="A pink wireframe wrapping around the safewash lady"
           className={classes.pinkWire}
           style={{
-            maxWidth: matchesXXXS ? "10em" : matchesXXS ? "15em" : undefined,
+            maxWidth: matchesXXXS ? "15em" : undefined,
           }}
         />
         <img
@@ -257,7 +268,7 @@ const About = () => {
           alt="A lady representing the safewash brand"
           className={classes.ladyImg}
           style={{
-            maxWidth: matchesXXXS ? "15em" : matchesXXS ? "20em" : undefined,
+            maxWidth: matchesXXXS ? "20em" : undefined,
           }}
         />
       </Grid>

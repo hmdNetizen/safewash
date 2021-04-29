@@ -71,6 +71,7 @@ const theme = createMuiTheme({
     },
     btn: {
       background: green,
+      textAlign: "center",
       borderRadius: 10,
       borderBottomLeftRadius: 0,
       color: "#fff",

@@ -217,6 +217,10 @@ const Features = () => {
       direction="column"
       justify="center"
       className={classes.parentGrid}
+      style={{
+        paddingLeft: matchesXXXXS ? "1em" : undefined,
+        paddingRight: matchesXXXXS ? "1em" : undefined,
+      }}
     >
       <Hidden mdUp>
         <Grid item style={{ position: "relative", height: "22em" }}>

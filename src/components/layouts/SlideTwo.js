@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import Typography from "@material-ui/core/Typography";
 import Grid from "@material-ui/core/Grid";
 import Button from "@material-ui/core/Button";
@@ -9,6 +10,7 @@ import laundryBasket from "../../assets/laundary_basket.png";
 const useStyles = makeStyles((theme) => ({
   parentGrid: {
     height: "50em",
+    width: "100%",
     background:
       "linear-gradient(212.16deg, rgba(254, 150, 198, 0.2) 10.33%, rgba(254, 150, 198, 0.3) 31.35%, rgba(255, 255, 255, 0.5) 83.91%), linear-gradient(180deg, #FFFFFF 0%, rgba(255, 255, 255, 0) 100%), linear-gradient(213.01deg, #FFFFFF 4.13%, rgba(254, 150, 198, 0.5) 80.31%)",
     position: "relative",
@@ -245,16 +247,11 @@ const SlideTwo = () => {
           >
             <Button
               variant="contained"
+              component={Link}
+              to="/signup"
               className={classes.btn}
-              style={{
-                padding: matchesXXXS
-                  ? ".75em"
-                  : matchesXXS
-                  ? ".75em 1.5em"
-                  : undefined,
-              }}
             >
-              Find Distributors Around You?
+              Become A Distributor
             </Button>
           </Grid>
           <Grid item className={classes.laundryBasketGrid}>
