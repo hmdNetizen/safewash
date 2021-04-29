@@ -116,14 +116,15 @@ const useStyles = makeStyles((theme) => ({
   btnWrapperGrid: {
     position: "absolute",
     top: "30em",
-    right: "28.8em",
+    right: "32.8em",
+    zIndex: 2,
 
     [theme.breakpoints.down("md")]: {
-      right: "20.8em",
+      right: "24.8em",
     },
 
     [theme.breakpoints.down("sm")]: {
-      right: "5.2em",
+      right: "9.2em",
       top: "28em",
     },
     [theme.breakpoints.down("xs")]: {
