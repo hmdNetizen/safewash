@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import "keen-slider/keen-slider.min.css";
-// import SlideOne from "./SlideOne";
-// import SlideTwo from "./SlideTwo";
+import SlideOne from "./SlideOne";
+import SlideTwo from "./SlideTwo";
 import SlideThree from "./SlideThree";
 // import SlideFour from "./SlideFour";
 import { useKeenSlider } from "keen-slider/react";
@@ -51,12 +51,12 @@ const Slides = () => {
       style={{ position: "relative", overflow: "hidden" }}
     >
       <div ref={sliderRef} className="keen-slider">
-        {/* <div className="keen-slider__slide number-slide1">
+        <div className="keen-slider__slide number-slide1">
           <SlideOne />
-        </div> */}
-        {/* <div className="keen-slider__slide number-slide2">
+        </div>
+        <div className="keen-slider__slide number-slide2">
           <SlideTwo />
-        </div> */}
+        </div>
         <div className="keen-slider__slide number-slide3">
           <SlideThree />
         </div>

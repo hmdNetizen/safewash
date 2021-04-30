@@ -259,7 +259,7 @@ const SlideThree = () => {
                   : matchesXXS
                   ? "1.75rem"
                   : undefined,
-                top: matchesXXS ? "9em" : undefined,
+                top: matchesXXS ? "7.5em" : undefined,
               }}
             >
               Keeps your baby {matchesXS && <br />} smiling
