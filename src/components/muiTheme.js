@@ -99,7 +99,7 @@ const theme = createMuiTheme({
     },
     planetShape: {
       borderRadius: "50%",
-      background: "rgba(255, 255, 255, .8)",
+      background: "rgba(255, 255, 255, .7)",
       position: "relative",
     },
     wire: {
