@@ -8,28 +8,30 @@ import ringWire from "../../assets/Vector 22.png";
 
 const useStyles = makeStyles((theme) => ({
   parentGrid: {
-    height: "45em",
-
-    width: "100%",
-    textTranform: "capitalize",
+    height: "50em",
+    padding: "0 10em",
+    position: "relative",
     background:
       "linear-gradient(180deg, #FFFFFF 0%, rgba(255, 255, 255, 0) 100%), linear-gradient(180deg, #FFFFFF 0%, rgba(255, 255, 255, 0) 100%), linear-gradient(146.99deg, rgba(255, 255, 255, 0.5) 4.13%, rgba(254, 150, 198, 0.5) 80.31%)",
 
-    [theme.breakpoints.down("xs")]: {
-      background: "none",
-    },
-  },
-  textContentWrapper: {
-    marginLeft: "10em",
-
     [theme.breakpoints.down("md")]: {
-      marginLeft: "5em",
+      padding: "0 5em",
     },
 
     [theme.breakpoints.down("sm")]: {
-      marginLeft: "2em",
+      padding: "0 3em",
+    },
+    [theme.breakpoints.down("xs")]: {
+      background: "none",
+      padding: "0 2em",
     },
   },
+
+  secondaryHeadingWrapper: {
+    marginTop: "2em",
+    marginBottom: "7em",
+  },
+
   primaryHeading: {
     position: "relative",
     zIndex: 9,
@@ -39,18 +41,10 @@ const useStyles = makeStyles((theme) => ({
 
     [theme.breakpoints.down("xs")]: {
       position: "absolute",
-      top: "5em",
+      top: "7em",
     },
   },
-  secondaryHeadingWrapper: {
-    marginTop: "2em",
-    marginBottom: "4em",
 
-    [theme.breakpoints.down("xs")]: {
-      marginTop: 0,
-      marginBottom: 0,
-    },
-  },
   secondaryHeading: {
     fontSize: "2.5rem",
     lineHeight: 1.6,
@@ -66,10 +60,9 @@ const useStyles = makeStyles((theme) => ({
 
     [theme.breakpoints.down("xs")]: {
       position: "absolute",
-      top: "9em",
+      top: "11em",
     },
   },
-
   btn: {
     ...theme.typography.btn,
     "&:hover": {
@@ -83,16 +76,16 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.down("xs")]: {
       position: "absolute",
       zIndex: 5,
-      top: "25em",
+      top: "32em",
     },
   },
   slideImg: {
     maxWidth: "25em",
     position: "absolute",
-    top: "6em",
+    top: "4em",
     right: "10em",
-    transform: "scale(1.2)",
-    filter: `drop-shadow(0px 4px 30px ${theme.palette.primary.main})`,
+    transform: "scale(1.25)",
+    filter: `drop-shadow(0px 4px 20px ${theme.palette.primary.main})`,
 
     [theme.breakpoints.down("md")]: {
       right: "5em",
@@ -105,7 +98,8 @@ const useStyles = makeStyles((theme) => ({
     },
     [theme.breakpoints.down("xs")]: {
       maxWidth: "15em",
-      top: "8em",
+      top: "40%",
+      transform: "translateY(-50%) scale(1.25)",
     },
   },
   ringCircleBackground: {
@@ -126,113 +120,103 @@ const useStyles = makeStyles((theme) => ({
 
     [theme.breakpoints.down("xs")]: {
       maxWidth: "25em",
-      top: "6em",
+      top: "40%",
+      transform: "translateY(-50%)",
     },
   },
-  squareSm: {
+  squareBgTop: {
     ...theme.typography.square,
-    ...theme.typography.squareSm,
-    top: "12em",
-    right: "5em",
+    ...theme.typography.squareBg,
+    top: "1.5em",
+    left: "65em",
+    filter: "blur(2px)",
 
-    [theme.breakpoints.down("sm")]: {
-      right: "2em",
-    },
-
-    [theme.breakpoints.down("xs")]: {
-      visibility: "hidden",
+    [theme.breakpoints.down("md")]: {
+      left: "15em",
+      top: "60%",
     },
   },
   squareSmOne: {
     ...theme.typography.square,
     ...theme.typography.squareSm,
-    left: "50%",
-    transform: "translateX(-50%) rotate(106deg)",
-    top: "20em",
-
-    [theme.breakpoints.down("xs")]: {
-      visibility: "hidden",
-    },
+    top: "40%",
+    left: "40%",
+    transform: "translateX(-50%)",
   },
-  squareBgOne: {
+  squareSmTwo: {
     ...theme.typography.square,
-    ...theme.typography.squareBg,
-    top: "1em",
-    right: "27em",
-    filter: "blur(2px)",
-
-    [theme.breakpoints.down("md")]: {
-      visibility: "hidden",
-    },
+    ...theme.typography.squareSm,
+    right: "10em",
+    top: "20%",
   },
-  circle: {
+  squareSmThree: {
+    ...theme.typography.square,
+    ...theme.typography.squareSm,
+    left: "30%",
+    bottom: "5em",
+  },
+  circleCenter: {
     ...theme.typography.circle,
+    top: "65%",
     left: "50%",
-    top: "27em",
     transform: "translateX(-50%)",
 
-    [theme.breakpoints.down("xs")]: {
-      visibility: "hidden",
+    [theme.breakpoints.down("sm")]: {
+      display: "none",
     },
   },
-  circleOne: {
+  circleBottom: {
     ...theme.typography.circle,
-    right: "3em",
-    top: "90%",
-    transform: "translateY(-45%)",
-
-    [theme.breakpoints.down("xs")]: {
-      visibility: "hidden",
-    },
+    bottom: "2em",
+    right: "2em",
   },
-  planetShapeSm: {
+  circleSm: {
+    ...theme.typography.circle,
+    right: "13em",
+    top: "22em",
     width: 30,
     height: 30,
-    top: "17em",
-    right: "-35em",
-    ...theme.typography.planetShape,
-
-    "&::after": {
-      content: '""',
-      display: "block",
-      width: 20,
-      height: 20,
-      borderRadius: "50%",
-      background:
-        "radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(255,228,241,1) 100%)",
-      position: "absolute",
-      left: "50%",
-      top: "50%",
-      transform: "translate(-60%, -60%)",
-    },
-
-    [theme.breakpoints.down("xs")]: {
-      visibility: "hidden",
-    },
   },
   planetShapeSmOne: {
     ...theme.typography.planetShape,
-    width: 30,
-    height: 30,
-    top: "15em",
-    right: "-15em",
+    width: 20,
+    height: 20,
+    top: "20em",
+    left: "60%",
 
     "&::after": {
       content: '""',
       display: "block",
-      width: 20,
-      height: 20,
+      width: 12,
+      height: 12,
       borderRadius: "50%",
       background:
         "radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(255,228,241,1) 100%)",
       position: "absolute",
       left: "50%",
       top: "50%",
-      transform: "translate(-60%, -60%)",
+      transform: "translate(-50%, -50%)",
     },
+  },
+  planetShapeSmTwo: {
+    ...theme.typography.planetShape,
+    width: 20,
+    height: 20,
+    top: "20em",
+    left: "70%",
 
-    [theme.breakpoints.down("xs")]: {
-      visibility: "hidden",
+    "&::after": {
+      content: '""',
+      display: "block",
+      width: 12,
+      height: 12,
+      borderRadius: "50%",
+      background:
+        "radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(255,228,241,1) 100%)",
+      position: "absolute",
+      left: "50%",
+      top: "50%",
+      transform: "translate(-50%, -50%)",
     },
   },
 }));
@@ -245,50 +229,54 @@ const SlideThree = () => {
   const matchesXS = useMediaQuery(theme.breakpoints.down("xs"));
   return (
     <Grid container className={classes.parentGrid} alignItems="center">
+      {/* The big square beside the navigation menu */}
+      {!matchesXS && <div className={classes.squareBgTop} />}
+      {/* The small square above the secondary heading */}
+      {!matchesXS && <div className={classes.squareSmOne} />}
+      {/* The small square at the right side of the slide */}
+      {!matchesXS && <div className={classes.squareSmTwo} />}
+      {/* The small square at the bottom of the slide */}
+      {!matchesXS && <div className={classes.squareSmThree} />}
+      {/* The small circle at the center-right of the slide */}
+      {!matchesXS && <div className={classes.circleSm} />}
+      {/* The circle at the center of the slide */}
+      {!matchesXS && <div className={classes.circleCenter} />}
+      {/* The circle at the bottom right of the slide */}
+      {!matchesXS && <div className={classes.circleBottom} />}
+      {/* The small planet-like circle shape on the left */}
+      {!matchesXS && <div className={classes.planetShapeSmOne} />}
+      {/* The small planet-like circle shape on the right */}
+      {!matchesXS && <div className={classes.planetShapeSmTwo} />}
       <Grid item>
-        <Grid
-          container
-          direction="column"
-          className={classes.textContentWrapper}
-          style={{ marginLeft: matchesXXXXS ? 0 : undefined }}
-        >
+        <Grid container direction="column">
           <Grid item>
             <Typography
               variant="h1"
               className={classes.primaryHeading}
               style={{
-                fontSize: matchesXXXXS
-                  ? "1.4rem"
-                  : matchesXXXS
+                fontSize: matchesXXXS
                   ? "1.5rem"
                   : matchesXXS
-                  ? "1.85rem"
+                  ? "1.75rem"
                   : undefined,
-                top: matchesXXXS ? "5em" : undefined,
-                left: matchesXXXXS ? "1em" : undefined,
-                right: matchesXXXXS ? "1em" : undefined,
+                top: matchesXXS ? "9em" : undefined,
               }}
             >
-              Keeps your baby {!matchesXXXXS && matchesXS && <br />} smiling{" "}
+              Keeps your baby {matchesXS && <br />} smiling
               {!matchesXS && <br />} all day
             </Typography>
-            <div className={classes.squareSmOne} />
           </Grid>
           <Grid item className={classes.secondaryHeadingWrapper}>
             <Typography
               variant="h2"
               className={classes.secondaryHeading}
               style={{
-                fontSize: matchesXXXXS
-                  ? "1.4rem"
-                  : matchesXXXS
+                fontSize: matchesXXXS
                   ? "1.5rem"
                   : matchesXXS
-                  ? "1.85rem"
+                  ? "1.75rem"
                   : undefined,
-                top: matchesXXXS ? "10em" : undefined,
-                left: matchesXXXXS ? "1em" : undefined,
-                right: matchesXXXXS ? "1em" : undefined,
+                top: matchesXXS ? "13em" : undefined,
               }}
             >
               Zero Skin Irritations
@@ -300,36 +288,30 @@ const SlideThree = () => {
               classes={{ root: classes.btn }}
               style={{
                 padding: !matchesXXXS ? ".75em 2em" : ".75em",
-                top: matchesXXXXS ? "27em" : matchesXXXS ? "22em" : undefined,
+                top: matchesXXXXS ? "35em" : undefined,
                 left: matchesXXXXS ? "1em" : undefined,
                 right: matchesXXXXS ? "1em" : undefined,
                 fontSize: matchesXXXXS ? "0.75rem" : undefined,
               }}
             >
-              Become A Distributor
+              {matchesXS
+                ? "Find Distributors Around You"
+                : "Become A Distributor"}
             </Button>
           </Grid>
         </Grid>
       </Grid>
       <Grid item>
-        <div className={`${classes.squareBgOne}`} />
         <img
           src={ringWire}
           alt="A blurry blue ring wire circling around the baby"
           className={classes.ringCircleBackground}
         />
-
         <img
           src={safeWashBaby3}
           alt="A cute baby sitting down"
           className={classes.slideImg}
         />
-
-        <div className={classes.circle} />
-        <div className={`${classes.squareSm}`} />
-        <div className={`${classes.planetShapeSm}`} />
-        <div className={`${classes.planetShapeSmOne}`} />
-        <div className={classes.circleOne} />
       </Grid>
     </Grid>
   );
