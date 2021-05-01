@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import Grid from "@material-ui/core/Grid";
@@ -6,6 +7,10 @@ import Typography from "@material-ui/core/Typography";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 import Button from "@material-ui/core/Button";
 import Card from "@material-ui/core/Card";
+import Dialog from "@material-ui/core/Dialog";
+import DialogTitle from "@material-ui/core/DialogTitle";
+import DialogContent from "@material-ui/core/DialogContent";
+import DialogContentText from "@material-ui/core/DialogContentText";
 import CardActions from "@material-ui/core/CardActions";
 import CardContent from "@material-ui/core/CardContent";
 import distributor1 from "../../assets/Mask Group.png";
@@ -274,9 +279,20 @@ const useStyles = makeStyles((theme) => ({
 const Distributors = ({ setValue }) => {
   const classes = useStyles();
   const theme = useTheme();
+  const [openDialogOne, setOpenDialogOne] = useState(false);
+  const [openDialogTwo, setOpenDialogTwo] = useState(false);
+  const [openDialogThree, setOpenDialogThree] = useState(false);
   const matchesXXXXS = useMediaQuery("(max-width: 280px)");
   const matchesXXXS = useMediaQuery("(max-width: 350px)");
+  // const matchesXS = useMediaQuery(theme.breakpoints.down("xs"));
   const matchesSM = useMediaQuery(theme.breakpoints.down("sm"));
+
+  // const handleDialogClose = () => {
+  //   setOpenDialogOne(false);
+  //   setOpenDialogTwo(false);
+  //   setOpenDialogThree(false);
+  // };
+
   return (
     <Grid
       container
@@ -353,11 +369,25 @@ const Distributors = ({ setValue }) => {
                   variant="contained"
                   size="small"
                   className={classes.cardBtn}
+                  onClick={() => setOpenDialogOne(true)}
                 >
                   Contact
                 </Button>
               </CardActions>
             </Card>
+            <Dialog
+              open={openDialogOne}
+              onClose={() => setOpenDialogOne(false)}
+              // fullScreen={matchesXS}
+              aria-labelledby="responsive-dialog-title"
+            >
+              <DialogTitle id="responsive-dialog-title">
+                Leave a message for Kudirat Abiola
+              </DialogTitle>
+              <DialogContent>
+                <DialogContentText>Not Available</DialogContentText>
+              </DialogContent>
+            </Dialog>
           </Grid>
           <Grid
             item
@@ -402,11 +432,25 @@ const Distributors = ({ setValue }) => {
                   variant="contained"
                   size="small"
                   className={classes.cardBtn}
+                  onClick={() => setOpenDialogTwo(true)}
                 >
                   Contact
                 </Button>
               </CardActions>
             </Card>
+            <Dialog
+              open={openDialogTwo}
+              onClose={() => setOpenDialogTwo(false)}
+              // fullScreen={matchesXS}
+              aria-labelledby="responsive-dialog-title"
+            >
+              <DialogTitle id="responsive-dialog-title">
+                Leave a message for Ibikunle Ventures
+              </DialogTitle>
+              <DialogContent>
+                <DialogContentText>Not Available</DialogContentText>
+              </DialogContent>
+            </Dialog>
           </Grid>
           <Grid item style={{ position: matchesSM ? "relative" : undefined }}>
             {matchesSM && <div className={classes.squareBgTwo} />}
@@ -446,11 +490,25 @@ const Distributors = ({ setValue }) => {
                   variant="contained"
                   size="small"
                   className={classes.cardBtn}
+                  onClick={() => setOpenDialogThree(true)}
                 >
                   Contact
                 </Button>
               </CardActions>
             </Card>
+            <Dialog
+              open={openDialogThree}
+              onClose={() => setOpenDialogThree(false)}
+              // fullScreen={matchesXS}
+              aria-labelledby="responsive-dialog-title"
+            >
+              <DialogTitle id="responsive-dialog-title">
+                Leave a message for Rosemerry's Shop
+              </DialogTitle>
+              <DialogContent>
+                <DialogContentText>Not Available</DialogContentText>
+              </DialogContent>
+            </Dialog>
           </Grid>
         </Grid>
       </Grid>
