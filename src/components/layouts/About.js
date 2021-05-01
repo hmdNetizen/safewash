@@ -1,3 +1,5 @@
+import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 import Grid from "@material-ui/core/Grid";
 import { makeStyles, useTheme } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
@@ -183,7 +185,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const About = () => {
+const About = ({ setValue }) => {
   const classes = useStyles();
   const theme = useTheme();
 
@@ -245,6 +247,9 @@ const About = () => {
           <Grid item>
             <Button
               variant="contained"
+              component={Link}
+              to="/distributors"
+              onClick={() => setValue(2)}
               className={classes.btn}
               style={{ padding: matchesXXXXS ? ".75em 1em" : undefined }}
             >
@@ -276,6 +281,10 @@ const About = () => {
       {matchesSM && <div className={classes.circleBottom} />}
     </Grid>
   );
+};
+
+About.propTypes = {
+  setValue: PropTypes.func.isRequired,
 };
 
 export default About;

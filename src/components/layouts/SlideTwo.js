@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import Typography from "@material-ui/core/Typography";
 import Grid from "@material-ui/core/Grid";
@@ -567,7 +568,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const SlideTwo = () => {
+const SlideTwo = ({ setValue }) => {
   const classes = useStyles();
   const theme = useTheme();
   const matchesXXXXS = useMediaQuery("(max-width: 290px)");
@@ -708,6 +709,7 @@ const SlideTwo = () => {
               variant="contained"
               component={Link}
               to="/distributors"
+              onClick={() => setValue(2)}
               className={classes.btn}
             >
               Become A Distributor
@@ -740,6 +742,10 @@ const SlideTwo = () => {
       {!matchesSM && <div className={classes.planetShapeSmSix} />}{" "}
     </Grid>
   );
+};
+
+SlideTwo.propTypes = {
+  setValue: PropTypes.func.isRequired,
 };
 
 export default SlideTwo;

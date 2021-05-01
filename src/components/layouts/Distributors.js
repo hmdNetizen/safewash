@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import PropTypes from "prop-types";
 import Grid from "@material-ui/core/Grid";
 import { makeStyles, useTheme } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
@@ -270,7 +271,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const Distributors = () => {
+const Distributors = ({ setValue }) => {
   const classes = useStyles();
   const theme = useTheme();
   const matchesXXXXS = useMediaQuery("(max-width: 280px)");
@@ -467,16 +468,21 @@ const Distributors = () => {
       <Grid item style={{ marginTop: "1em" }}>
         <Button
           variant="contained"
+          component={Link}
+          to="/distributors"
+          onClick={() => setValue(2)}
           className={classes.btn}
           style={{ padding: matchesXXXS ? ".75em .25em" : undefined }}
-          component={Link}
-          to="/find_distributor"
         >
           Find Distributors Around You?
         </Button>
       </Grid>
     </Grid>
   );
+};
+
+Distributors.propTypes = {
+  setValue: PropTypes.func.isRequired,
 };
 
 export default Distributors;

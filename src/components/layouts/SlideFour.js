@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import Typography from "@material-ui/core/Typography";
 import Grid from "@material-ui/core/Grid";
@@ -219,7 +220,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const SlideFour = () => {
+const SlideFour = ({ setValue }) => {
   const classes = useStyles();
   const theme = useTheme();
 
@@ -279,9 +280,10 @@ const SlideFour = () => {
           <Grid item>
             <Button
               variant="contained"
-              classes={{ root: classes.btn }}
               component={Link}
               to="/distributors"
+              onClick={() => setValue(2)}
+              classes={{ root: classes.btn }}
             >
               {matchesXS
                 ? "Become A Distributor"
@@ -300,6 +302,10 @@ const SlideFour = () => {
       </Grid>
     </Grid>
   );
+};
+
+SlideFour.propTypes = {
+  setValue: PropTypes.func.isRequired,
 };
 
 export default SlideFour;

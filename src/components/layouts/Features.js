@@ -162,6 +162,9 @@ const useStyles = makeStyles((theme) => ({
       top: "50%",
       transform: "translate(-50%, -60%)",
     },
+    [theme.breakpoints.down("md")]: {
+      top: "60%",
+    },
     [theme.breakpoints.down("sm")]: {
       background:
         "radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(253,189,213,0.5) 100%)",

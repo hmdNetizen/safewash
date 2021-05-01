@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import { useState, useEffect, useRef } from "react";
 import "keen-slider/keen-slider.min.css";
 import SlideOne from "./SlideOne";
@@ -6,7 +7,7 @@ import SlideThree from "./SlideThree";
 import SlideFour from "./SlideFour";
 import { useKeenSlider } from "keen-slider/react";
 
-const Slides = () => {
+const Slides = ({ setValue }) => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [pause, setPause] = useState(false);
   const timer = useRef();
@@ -52,16 +53,16 @@ const Slides = () => {
     >
       <div ref={sliderRef} className="keen-slider">
         <div className="keen-slider__slide number-slide1">
-          <SlideOne />
+          <SlideOne setValue={setValue} />
         </div>
         <div className="keen-slider__slide number-slide2">
-          <SlideTwo />
+          <SlideTwo setValue={setValue} />
         </div>
         <div className="keen-slider__slide number-slide3">
-          <SlideThree />
+          <SlideThree setValue={setValue} />
         </div>
         <div className="keen-slider__slide number-slide4">
-          <SlideFour />
+          <SlideFour setValue={setValue} />
         </div>
       </div>
       {/* THE STYLES OF THE NAVIGATION DOTS IS IMPLEMENTED IN THE APP.CSS FILE */}
@@ -84,6 +85,10 @@ const Slides = () => {
       )}
     </section>
   );
+};
+
+Slides.propTypes = {
+  setValue: PropTypes.func.isRequired,
 };
 
 export default Slides;

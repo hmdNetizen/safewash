@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import Grid from "@material-ui/core/Grid";
 import About from "./About";
 import Distributors from "./Distributors";
@@ -6,7 +7,7 @@ import Slides from "./Slides";
 import Contact from "./Contact";
 import Testimonies from "./Testimonies";
 
-const Home = () => {
+const Home = ({ setValue }) => {
   return (
     <Grid
       container
@@ -14,25 +15,29 @@ const Home = () => {
       style={{ position: "relative", overflow: "hidden" }}
     >
       <Grid item>
-        <Slides />
+        <Slides setValue={setValue} />
       </Grid>
       <Grid item>
         <Features />
       </Grid>
       <Grid item>
-        <About />
+        <About setValue={setValue} />
       </Grid>
       <Grid item>
-        <Distributors />
+        <Distributors setValue={setValue} />
       </Grid>
       <Grid item>
-        <Contact />
+        <Contact setValue={setValue} />
       </Grid>
       <Grid item>
         <Testimonies />
       </Grid>
     </Grid>
   );
+};
+
+Home.propTypes = {
+  setValue: PropTypes.func.isRequired,
 };
 
 export default Home;

@@ -20,7 +20,11 @@ const App = () => {
           <ScrollToView>
             <Header value={value} setValue={setValue} />
             <Switch>
-              <Route exact path="/" component={Home} />
+              <Route
+                exact
+                path="/"
+                render={(props) => <Home {...props} setValue={setValue} />}
+              />
               <Route exact path="/distributors" component={FindDistributors} />
             </Switch>
             <Footer value={value} setValue={setValue} />

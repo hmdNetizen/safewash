@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import Typography from "@material-ui/core/Typography";
 import Grid from "@material-ui/core/Grid";
@@ -209,7 +210,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const SlideOne = () => {
+const SlideOne = ({ setValue }) => {
   const classes = useStyles();
   const theme = useTheme();
 
@@ -322,6 +323,7 @@ const SlideOne = () => {
               variant="contained"
               component={Link}
               to="/distributors"
+              onClick={() => setValue(2)}
               classes={{ root: classes.btn }}
               style={{
                 padding: !matchesXXS ? ".75em 2em" : ".75em",
@@ -360,6 +362,10 @@ const SlideOne = () => {
       </Grid>
     </Grid>
   );
+};
+
+SlideOne.propTypes = {
+  setValue: PropTypes.func.isRequired,
 };
 
 export default SlideOne;

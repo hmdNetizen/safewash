@@ -1,3 +1,5 @@
+import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 import Grid from "@material-ui/core/Grid";
 import { makeStyles, useTheme } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
@@ -22,6 +24,7 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.only("md")]: {
       paddingLeft: "5em",
       paddingRight: "5em",
+      paddingTop: "5em",
     },
 
     [theme.breakpoints.down("sm")]: {
@@ -67,6 +70,10 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   imagesWrapper: {
+    [theme.breakpoints.down("sm")]: {
+      marginTop: "5em",
+      marginBottom: "2em",
+    },
     [theme.breakpoints.down("xs")]: {
       position: "relative",
       marginTop: "5em",
@@ -131,11 +138,12 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const Contact = () => {
+const Contact = ({ setValue }) => {
   const classes = useStyles();
   const theme = useTheme();
   const matchesXXXS = useMediaQuery("(max-width: 340px)");
   const matchesSM = useMediaQuery(theme.breakpoints.down("sm"));
+  const matchesXS = useMediaQuery(theme.breakpoints.down("xs"));
   const matchesMDX = useMediaQuery("(max-width: 1096px)");
 
   return (
@@ -149,7 +157,10 @@ const Contact = () => {
       <Grid
         item
         className={classes.imagesWrapper}
-        style={{ marginBottom: matchesXXXS ? "18em" : undefined }}
+        style={{
+          marginBottom: matchesXXXS ? "18em" : undefined,
+          position: !matchesXS ? "relative" : undefined,
+        }}
       >
         <img
           src={safewashLady}
@@ -185,7 +196,13 @@ const Contact = () => {
               Reach Out To Us
             </Typography>
           </Grid>
-          <Grid item className={classes.descriptionTextWrapper}>
+          <Grid
+            item
+            className={classes.descriptionTextWrapper}
+            style={{
+              maxWidth: matchesSM ? "none" : matchesMDX ? "32em" : "none",
+            }}
+          >
             <Typography
               variant="body1"
               align={matchesSM ? "center" : undefined}
@@ -201,7 +218,13 @@ const Contact = () => {
             </Typography>
           </Grid>
           <Grid item>
-            <Button variant="contained" className={classes.btn}>
+            <Button
+              variant="contained"
+              component={Link}
+              to="/contact"
+              className={classes.btn}
+              onClick={() => setValue(3)}
+            >
               Contact Us Now!
             </Button>
           </Grid>
@@ -209,6 +232,9 @@ const Contact = () => {
       </Grid>
     </Grid>
   );
+};
+Contact.propTypes = {
+  setValue: PropTypes.func.isRequired,
 };
 
 export default Contact;

@@ -126,6 +126,7 @@ const socialIcons = [
 const Footer = ({ value, setValue }) => {
   const classes = useStyles();
   const theme = useTheme();
+  const matchesXXXXS = useMediaQuery("(max-width: 290px)");
   const matchesXXS = useMediaQuery("(max-width: 450px)");
   const matchesXS = useMediaQuery(theme.breakpoints.down("xs"));
   const matchesSM = useMediaQuery(theme.breakpoints.down("sm"));
@@ -260,14 +261,29 @@ const Footer = ({ value, setValue }) => {
               <Grid item>
                 <Grid
                   container
-                  justify={matchesXS ? "space-between" : "space-around"}
-                  style={{ marginBottom: "3em" }}
+                  direction={matchesXXXXS ? "column" : "row"}
+                  justify={
+                    matchesXXXXS
+                      ? "flex-start"
+                      : matchesXS
+                      ? "space-between"
+                      : "space-around"
+                  }
+                  alignItems={matchesXXXXS ? "center" : "flex-start"}
+                  style={{ marginBottom: matchesXXXXS ? "2em" : "3em" }}
                 >
                   <Grid item>
-                    <Grid container direction="column">
+                    <Grid
+                      container
+                      direction="column"
+                      style={{
+                        marginBottom: matchesXXXXS ? "2em" : undefined,
+                      }}
+                    >
                       <Grid item>
                         <Typography
                           variant="h6"
+                          align={matchesXXXXS ? "center" : "left"}
                           className={classes.primaryHeading}
                           gutterBottom
                         >
@@ -275,7 +291,12 @@ const Footer = ({ value, setValue }) => {
                         </Typography>
                       </Grid>
                       <Grid item>
-                        <ul className={classes.list}>
+                        <ul
+                          className={classes.list}
+                          style={{
+                            textAlign: matchesXXXXS ? "center" : "left",
+                          }}
+                        >
                           {customerServiceList.map((list) => (
                             <li
                               key={list.id}
@@ -314,6 +335,7 @@ const Footer = ({ value, setValue }) => {
                           variant="h6"
                           className={classes.primaryHeading}
                           gutterBottom
+                          align={matchesXXXXS ? "center" : "left"}
                         >
                           Information
                         </Typography>
@@ -326,6 +348,7 @@ const Footer = ({ value, setValue }) => {
                               className={classes.listItem}
                               style={{
                                 fontSize: matchesXXS ? ".7rem" : undefined,
+                                textAlign: matchesXXXXS ? "center" : "left",
                               }}
                             >
                               <Link
@@ -347,8 +370,21 @@ const Footer = ({ value, setValue }) => {
                 {/* CONTACT US */}
                 <Grid
                   container
-                  justify={matchesXS ? "space-between" : "space-around"}
-                  alignItems={matchesXS ? "center" : "flex-start"}
+                  direction={matchesXXXXS ? "column" : "row"}
+                  justify={
+                    matchesXXXXS
+                      ? "flex-start"
+                      : matchesXS
+                      ? "space-between"
+                      : "space-around"
+                  }
+                  alignItems={
+                    matchesXXXXS
+                      ? "center"
+                      : matchesXS
+                      ? "center"
+                      : "flex-start"
+                  }
                 >
                   <Grid item>
                     <Grid container direction="column">
@@ -357,12 +393,18 @@ const Footer = ({ value, setValue }) => {
                           variant="h6"
                           className={classes.primaryHeading}
                           gutterBottom
+                          align={matchesXXXXS ? "center" : "left"}
                         >
                           Contact Us
                         </Typography>
                       </Grid>
                       <Grid item>
-                        <ul className={classes.list}>
+                        <ul
+                          className={classes.list}
+                          style={{
+                            textAlign: matchesXXXXS ? "center" : "left",
+                          }}
+                        >
                           {contacts.map((contact) => (
                             <li
                               className={classes.listItem}
@@ -401,7 +443,12 @@ const Footer = ({ value, setValue }) => {
                     </Grid>
                   </Grid>
                   {/* BQ LOGO GRID */}
-                  <Grid item>
+                  <Grid
+                    item
+                    style={{
+                      marginTop: matchesXXXXS ? "2em" : undefined,
+                    }}
+                  >
                     <img
                       src={bqGlobalLogo}
                       alt="The logo of BQ Global solution limited"

@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import Typography from "@material-ui/core/Typography";
 import Grid from "@material-ui/core/Grid";
@@ -221,7 +222,7 @@ const useStyles = makeStyles((theme) => ({
     },
   },
 }));
-const SlideThree = () => {
+const SlideThree = ({ setValue }) => {
   const classes = useStyles();
   const theme = useTheme();
   const matchesXXXXS = useMediaQuery("(max-width: 280px)");
@@ -288,6 +289,7 @@ const SlideThree = () => {
               variant="contained"
               component={Link}
               to="/distributors"
+              onClick={() => setValue(2)}
               classes={{ root: classes.btn }}
               style={{
                 padding: !matchesXXXS ? ".75em 2em" : ".75em",
@@ -318,6 +320,10 @@ const SlideThree = () => {
       </Grid>
     </Grid>
   );
+};
+
+SlideThree.propTypes = {
+  setValue: PropTypes.func.isRequired,
 };
 
 export default SlideThree;

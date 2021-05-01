@@ -64,6 +64,7 @@ const useStyles = makeStyles((theme) => ({
   listItemSelected: {
     "& .MuiListItemText-primary": {
       fontWeight: 700,
+      color: theme.palette.common.brown,
     },
   },
   squareSmOne: {
