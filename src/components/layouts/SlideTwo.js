@@ -232,7 +232,7 @@ const useStyles = makeStyles((theme) => ({
     },
     [theme.breakpoints.down("xs")]: {
       top: "9em",
-      left: "5%",
+      left: "5em",
     },
   },
   squareSmTwo: {
@@ -293,7 +293,7 @@ const useStyles = makeStyles((theme) => ({
 
     [theme.breakpoints.down("sm")]: {
       left: "3em",
-      top: "25em",
+      top: "22em",
     },
 
     [theme.breakpoints.down("xs")]: {
@@ -307,7 +307,7 @@ const useStyles = makeStyles((theme) => ({
     width: 20,
     height: 20,
     left: "41em",
-    top: "3.5em",
+    top: "11em",
 
     "&::after": {
       content: '""',
@@ -323,8 +323,8 @@ const useStyles = makeStyles((theme) => ({
       transform: "translate(-50%, -50%)",
     },
     [theme.breakpoints.down("md")]: {
-      left: "31em",
-      top: "1.5em",
+      left: "30em",
+      top: "7em",
     },
   },
   planetShapeSmThree: {
@@ -332,7 +332,7 @@ const useStyles = makeStyles((theme) => ({
     width: 20,
     height: 20,
     left: "54em",
-    top: "-3em",
+    top: "7em",
 
     "&::after": {
       content: '""',
@@ -357,7 +357,7 @@ const useStyles = makeStyles((theme) => ({
     width: 20,
     height: 20,
     left: "73.5em",
-    top: "-1.5em",
+    top: "10.5em",
 
     "&::after": {
       content: '""',
@@ -382,7 +382,7 @@ const useStyles = makeStyles((theme) => ({
     width: 20,
     height: 20,
     left: "78em",
-    top: "-4em",
+    top: "9.5em",
 
     "&::after": {
       content: '""',
@@ -403,8 +403,8 @@ const useStyles = makeStyles((theme) => ({
     width: 20,
     height: 20,
     left: "50%",
+    bottom: "7em",
     transform: "translateX(-50%)",
-    top: "-12em",
 
     "&::after": {
       content: '""',
@@ -420,7 +420,6 @@ const useStyles = makeStyles((theme) => ({
       transform: "translate(-50%, -50%)",
     },
     [theme.breakpoints.down("md")]: {
-      top: "-15em",
       left: "25em",
       transform: "translateX(0)",
     },
@@ -430,7 +429,7 @@ const useStyles = makeStyles((theme) => ({
     width: 40,
     height: 40,
     top: "21em",
-    left: "27.5em",
+    left: "28.5em",
 
     "&::after": {
       content: '""',
@@ -452,11 +451,11 @@ const useStyles = makeStyles((theme) => ({
     },
 
     [theme.breakpoints.down("sm")]: {
-      top: "24em",
-      left: "14em",
+      top: "27em",
+      left: "5em",
     },
     [theme.breakpoints.down("xs")]: {
-      top: "13em",
+      top: "15em",
       left: "27%",
     },
   },
@@ -464,7 +463,7 @@ const useStyles = makeStyles((theme) => ({
     ...theme.typography.planetShape,
     width: 30,
     height: 30,
-    top: "12em",
+    top: "15em",
     left: "35em",
 
     "&::after": {
@@ -483,16 +482,16 @@ const useStyles = makeStyles((theme) => ({
 
     [theme.breakpoints.down("md")]: {
       left: "23em",
-      top: "9em",
+      top: "12em",
     },
 
     [theme.breakpoints.down("sm")]: {
       left: "15em",
-      top: "10em",
+      top: "14.5em",
     },
 
     [theme.breakpoints.down("xs")]: {
-      left: "15%",
+      left: "8em",
       top: "7em",
     },
   },
@@ -500,25 +499,25 @@ const useStyles = makeStyles((theme) => ({
     ...theme.typography.planetShape,
     width: 40,
     height: 40,
-    top: "7em",
+    top: "12em",
     left: "38em",
 
     [theme.breakpoints.down("md")]: {
-      top: "5em",
-      left: "27em",
+      top: "9em",
+      left: "26em",
     },
 
     [theme.breakpoints.down("sm")]: {
       width: 30,
       height: 30,
-      top: "12em",
+      top: "15em",
       left: "3em",
     },
 
     [theme.breakpoints.down("xs")]: {
-      left: "50%",
+      left: "53%",
       transform: "translateX(-50%)",
-      top: "1em",
+      top: "3em",
     },
 
     "&::after": {
@@ -545,7 +544,7 @@ const useStyles = makeStyles((theme) => ({
     ...theme.typography.planetShape,
     width: 60,
     height: 60,
-    top: "3em",
+    top: "9em",
     left: "51em",
 
     "&::after": {
@@ -598,8 +597,8 @@ const SlideTwo = () => {
       <div
         className={classes.planetShapeMdOne}
         style={{
-          left: matchesXXS ? "10%" : undefined,
-          top: matchesXXS ? "11em" : undefined,
+          left: matchesXXXXS ? "1em" : matchesXXS ? "12%" : undefined,
+          top: matchesXXS ? "13em" : undefined,
         }}
       />{" "}
       <Grid
@@ -624,7 +623,7 @@ const SlideTwo = () => {
         <div
           className={classes.squareSmOne}
           style={{
-            left: matchesXXS ? "-2em" : undefined,
+            left: matchesXXS ? 0 : undefined,
             top: matchesXXS ? "10em" : undefined,
           }}
         />{" "}
@@ -634,7 +633,7 @@ const SlideTwo = () => {
         <div
           className={classes.planetShapeMdTwo}
           style={{
-            left: matchesXXS ? "-1em" : undefined,
+            left: matchesXXS ? "1em" : undefined,
             top: matchesXXS ? "6em" : undefined,
           }}
         />{" "}
@@ -657,7 +656,7 @@ const SlideTwo = () => {
             style={{
               top: matchesXXS ? "23em" : undefined,
               right: matchesXXS ? "1em" : undefined,
-              left: matchesXXXXS ? "-2em" : matchesXXS ? 0 : undefined,
+              left: matchesXXS ? "1em" : undefined,
             }}
           >
             <Typography
@@ -680,7 +679,7 @@ const SlideTwo = () => {
             className={classes.secondaryHeadingWrapper}
             style={{
               top: matchesXXS ? "31em" : undefined,
-              left: matchesXXXXS ? "-2em" : matchesXXS ? 0 : undefined,
+              left: matchesXXS ? "1em" : undefined,
             }}
           >
             <Typography
@@ -702,13 +701,13 @@ const SlideTwo = () => {
             className={classes.btnWrapperGrid}
             style={{
               top: matchesXXS ? "38em" : undefined,
-              left: matchesXXXXS ? "-2em" : matchesXXS ? 0 : undefined,
+              left: matchesXXS ? "1em" : undefined,
             }}
           >
             <Button
               variant="contained"
               component={Link}
-              to="/signup"
+              to="/distributors"
               className={classes.btn}
             >
               Become A Distributor

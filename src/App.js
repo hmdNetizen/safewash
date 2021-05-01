@@ -21,11 +21,7 @@ const App = () => {
             <Header value={value} setValue={setValue} />
             <Switch>
               <Route exact path="/" component={Home} />
-              <Route
-                exact
-                path="/find_distributor"
-                component={FindDistributors}
-              />
+              <Route exact path="/distributors" component={FindDistributors} />
             </Switch>
             <Footer value={value} setValue={setValue} />
           </ScrollToView>

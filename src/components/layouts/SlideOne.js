@@ -321,7 +321,7 @@ const SlideOne = () => {
             <Button
               variant="contained"
               component={Link}
-              to="/find_distributor"
+              to="/distributors"
               classes={{ root: classes.btn }}
               style={{
                 padding: !matchesXXS ? ".75em 2em" : ".75em",

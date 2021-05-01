@@ -8,7 +8,11 @@ import Testimonies from "./Testimonies";
 
 const Home = () => {
   return (
-    <Grid container direction="column">
+    <Grid
+      container
+      direction="column"
+      style={{ position: "relative", overflow: "hidden" }}
+    >
       <Grid item>
         <Slides />
       </Grid>

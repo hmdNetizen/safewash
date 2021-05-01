@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import Typography from "@material-ui/core/Typography";
 import Grid from "@material-ui/core/Grid";
 import Button from "@material-ui/core/Button";
@@ -285,6 +286,8 @@ const SlideThree = () => {
           <Grid item>
             <Button
               variant="contained"
+              component={Link}
+              to="/distributors"
               classes={{ root: classes.btn }}
               style={{
                 padding: !matchesXXXS ? ".75em 2em" : ".75em",

@@ -95,7 +95,7 @@ const useStyles = makeStyles((theme) => ({
 const tabOptions = [
   { id: 0, title: "Home", link: "/" },
   { id: 1, title: "About Us", link: "/about" },
-  { id: 2, title: "Become a Distributor", link: "/signup" },
+  { id: 2, title: "Become a Distributor", link: "/distributors" },
   { id: 3, title: "Contact Us", link: "/contact" },
 ];
 

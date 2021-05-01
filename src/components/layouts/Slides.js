@@ -3,7 +3,7 @@ import "keen-slider/keen-slider.min.css";
 import SlideOne from "./SlideOne";
 import SlideTwo from "./SlideTwo";
 import SlideThree from "./SlideThree";
-// import SlideFour from "./SlideFour";
+import SlideFour from "./SlideFour";
 import { useKeenSlider } from "keen-slider/react";
 
 const Slides = () => {
@@ -60,22 +60,22 @@ const Slides = () => {
         <div className="keen-slider__slide number-slide3">
           <SlideThree />
         </div>
-        {/* <div className="keen-slider__slide number-slide4">
+        <div className="keen-slider__slide number-slide4">
           <SlideFour />
-        </div> */}
+        </div>
       </div>
       {/* THE STYLES OF THE NAVIGATION DOTS IS IMPLEMENTED IN THE APP.CSS FILE */}
       {slider && (
         <div className="dots__container">
           <div className="dots">
-            {[...Array(slider.details().size).keys()].map((idx) => {
+            {[...Array(slider.details().size).keys()].map((index) => {
               return (
                 <button
-                  key={idx}
+                  key={index}
                   onClick={() => {
-                    slider.moveToSlideRelative(idx);
+                    slider.moveToSlideRelative(index);
                   }}
-                  className={"dot" + (currentSlide === idx ? " active" : "")}
+                  className={"dot" + (currentSlide === index ? " active" : "")}
                 />
               );
             })}

@@ -78,7 +78,7 @@ const useStyles = makeStyles((theme) => ({
 // The tabIndex property is meant to route the footer navigation with the header navigation. So I am assigning the id available in the header nav to the footer nav that has a corresponding tab name and route.
 
 const customerServiceList = [
-  { id: 0, title: "Become a Distributor", path: "/signup", tabIndex: 2 },
+  { id: 0, title: "Become a Distributor", path: "/distributors", tabIndex: 2 },
   { id: 1, title: "Ordering and Payment", path: "/order", tabIndex: false },
   { id: 2, title: "Returns", path: "/returns", tabIndex: false },
   { id: 3, title: "FAQs", path: "/faq", tabIndex: false },
