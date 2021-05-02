@@ -9,6 +9,14 @@ import "./App.css";
 import Footer from "./components/layouts/Footer";
 import FindDistributors from "./components/pages/FindDistributors";
 import ScrollToView from "./components/utils/ScrollToView";
+import AboutPage from "./components/pages/AboutPage";
+import ContactPage from "./components/pages/ContactPage";
+import OrderAndPayment from "./components/pages/OrderAndPaymentPage";
+import ReturnsPage from "./components/pages/ReturnsPage";
+import Faq from "./components/pages/Faq";
+import Careers from "./components/pages/Careers";
+import Policy from "./components/pages/Policy";
+import TermsAndConditions from "./components/pages/TermsAndConditions";
 
 const App = () => {
   const [value, setValue] = useState(0);
@@ -25,6 +33,14 @@ const App = () => {
                 path="/"
                 render={(props) => <Home {...props} setValue={setValue} />}
               />
+              <Route exact path="/about" component={AboutPage} />
+              <Route exact path="/contact" component={ContactPage} />
+              <Route exact path="/order" component={OrderAndPayment} />
+              <Route exact path="/returns" component={ReturnsPage} />
+              <Route exact path="/faq" component={Faq} />
+              <Route exact path="/careers" component={Careers} />
+              <Route exact path="/policy" component={Policy} />
+              <Route exact path="/terms" component={TermsAndConditions} />
               <Route exact path="/distributors" component={FindDistributors} />
             </Switch>
             <Footer value={value} setValue={setValue} />
