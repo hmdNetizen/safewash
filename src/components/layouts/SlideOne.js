@@ -44,9 +44,6 @@ const useStyles = makeStyles((theme) => ({
       left: "7em",
       top: "5em",
     },
-    // [theme.breakpoints.down("sm")]: {
-    //   left: "40%",
-    // },
 
     [theme.breakpoints.down("xs")]: {
       left: "50%",
@@ -111,11 +108,6 @@ const useStyles = makeStyles((theme) => ({
     ...theme.typography.squareBg,
     top: "1.5em",
     left: "-5em",
-
-    // [theme.breakpoints.down("sm")]: {
-    //   top: "29em",
-    //   left: "2em",
-    // },
 
     [theme.breakpoints.down("xs")]: {
       top: "11em",

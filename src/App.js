@@ -17,6 +17,7 @@ import Faq from "./components/pages/Faq";
 import Careers from "./components/pages/Careers";
 import Policy from "./components/pages/Policy";
 import TermsAndConditions from "./components/pages/TermsAndConditions";
+import NotFound from "./components/pages/NotFound";
 
 const App = () => {
   const [value, setValue] = useState(0);
@@ -42,6 +43,7 @@ const App = () => {
               <Route exact path="/policy" component={Policy} />
               <Route exact path="/terms" component={TermsAndConditions} />
               <Route exact path="/distributors" component={FindDistributors} />
+              <Route path="*" component={NotFound} />
             </Switch>
             <Footer value={value} setValue={setValue} />
           </ScrollToView>

@@ -11,6 +11,10 @@ import Button from "@material-ui/core/Button";
 import Card from "@material-ui/core/Card";
 import CardActions from "@material-ui/core/CardActions";
 import CardContent from "@material-ui/core/CardContent";
+import Dialog from "@material-ui/core/Dialog";
+import DialogTitle from "@material-ui/core/DialogTitle";
+import DialogContent from "@material-ui/core/DialogContent";
+import DialogContentText from "@material-ui/core/DialogContentText";
 import { FiArrowRight } from "react-icons/fi";
 import distributor1 from "../../assets/Mask Group.png";
 import distributor2 from "../../assets/Mask Group-1.png";
@@ -324,6 +328,10 @@ const FindDistributors = () => {
   const classes = useStyles();
   const theme = useTheme();
 
+  const [openDialogOne, setOpenDialogOne] = useState(false);
+  const [openDialogTwo, setOpenDialogTwo] = useState(false);
+  const [openDialogThree, setOpenDialogThree] = useState(false);
+
   const matchesXXS = useMediaQuery("(max-width: 349px)");
   const matchesXXXS = useMediaQuery("(max-width: 279px)");
   const matchesXS = useMediaQuery(theme.breakpoints.down("xs"));
@@ -531,11 +539,25 @@ const FindDistributors = () => {
                   variant="contained"
                   size="small"
                   className={classes.cardBtn}
+                  onClick={() => setOpenDialogOne(true)}
                 >
                   Contact
                 </Button>
               </CardActions>
             </Card>
+            <Dialog
+              open={openDialogOne}
+              onClose={() => setOpenDialogOne(false)}
+              // fullScreen={matchesXS}
+              aria-labelledby="responsive-dialog-title"
+            >
+              <DialogTitle id="responsive-dialog-title">
+                Leave a message for Kudirat Abiola
+              </DialogTitle>
+              <DialogContent>
+                <DialogContentText>Not Available</DialogContentText>
+              </DialogContent>
+            </Dialog>
           </Grid>
           <Grid
             item
@@ -579,11 +601,25 @@ const FindDistributors = () => {
                   variant="contained"
                   size="small"
                   className={classes.cardBtn}
+                  onClick={() => setOpenDialogTwo(true)}
                 >
                   Contact
                 </Button>
               </CardActions>
             </Card>
+            <Dialog
+              open={openDialogTwo}
+              onClose={() => setOpenDialogTwo(false)}
+              // fullScreen={matchesXS}
+              aria-labelledby="responsive-dialog-title"
+            >
+              <DialogTitle id="responsive-dialog-title">
+                Leave a message for Ibikunle Ventures
+              </DialogTitle>
+              <DialogContent>
+                <DialogContentText>Not Available</DialogContentText>
+              </DialogContent>
+            </Dialog>
           </Grid>
           <Grid item>
             <Card className={classes.card}>
@@ -621,11 +657,25 @@ const FindDistributors = () => {
                   variant="contained"
                   size="small"
                   className={classes.cardBtn}
+                  onClick={() => setOpenDialogThree(true)}
                 >
                   Contact
                 </Button>
               </CardActions>
             </Card>
+            <Dialog
+              open={openDialogThree}
+              onClose={() => setOpenDialogThree(false)}
+              // fullScreen={matchesXS}
+              aria-labelledby="responsive-dialog-title"
+            >
+              <DialogTitle id="responsive-dialog-title">
+                Leave a message for Mallam Bashir Limited
+              </DialogTitle>
+              <DialogContent>
+                <DialogContentText>Not Available</DialogContentText>
+              </DialogContent>
+            </Dialog>
           </Grid>
         </Grid>
       </Grid>
