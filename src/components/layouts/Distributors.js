@@ -76,37 +76,44 @@ const useStyles = makeStyles((theme) => ({
 
   planetShapeOne: {
     ...theme.typography.planetShape,
-    width: 35,
-    height: 35,
-    left: "-25em",
-    top: "5em",
+    width: 30,
+    height: 30,
+    left: "22em",
+    top: "12em",
+
+    [theme.breakpoints.down("md")]: {
+      left: "16em",
+    },
 
     "&::after": {
       content: '""',
       display: "block",
-      width: 25,
-      height: 25,
+      width: 20,
+      height: 20,
       borderRadius: "50%",
       background:
         "radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(255,228,241,1) 100%)",
       position: "absolute",
       left: "50%",
       transform: "translate(-50%, 10%)",
-      // transform: "translate(-40%, -40%")
     },
   },
   planetShapeTwo: {
     ...theme.typography.planetShape,
-    width: 35,
-    height: 35,
-    left: "-24.5em",
-    top: "6em",
+    width: 30,
+    height: 30,
+    left: "23em",
+    top: "15em",
+
+    [theme.breakpoints.down("md")]: {
+      left: "17em",
+    },
 
     "&::after": {
       content: '""',
       display: "block",
-      width: 25,
-      height: 25,
+      width: 20,
+      height: 20,
       borderRadius: "50%",
       background:
         "radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(255,228,241,1) 100%)",
@@ -119,16 +126,20 @@ const useStyles = makeStyles((theme) => ({
 
   planetShapeSm: {
     ...theme.typography.planetShape,
-    width: 25,
-    height: 25,
-    left: "-28em",
-    top: ".5em",
+    width: 20,
+    height: 20,
+    left: "19.5em",
+    top: "12.5em",
+
+    [theme.breakpoints.down("md")]: {
+      left: "13.5em",
+    },
 
     "&::after": {
       content: '""',
       display: "block",
-      width: 15,
-      height: 15,
+      width: 12,
+      height: 12,
       borderRadius: "50%",
       background:
         "radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(255,228,241,1) 100%)",

@@ -108,7 +108,7 @@ const useStyles = makeStyles((theme) => ({
     width: 90,
     height: 90,
     top: "5em",
-    left: "2em",
+    left: "5em",
     "&::after": {
       content: '""',
       display: "block",
