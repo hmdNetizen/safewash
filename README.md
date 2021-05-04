@@ -2,21 +2,19 @@
 
 A liquid laundry detergent specifically formulated for babies and children clothing.
 
-## Version
-
 ## Installation and set up
 
 To clone and run this application, you'll need Git and Node.js (which comes with npm) installed on your computer. From your command line:
 
-```
-    # Clone this repository
-    $ git clone https://github.com/hmdNetizen/safewash.git
+```javascript
+   // Clone this repository
+    git clone "https://github.com/hmdNetizen/safewash.git"
 
-    # Install dependencies
-    $ npm install
+    //Install dependencies
+    npm install
 
-    # Run the app in the development mode.
-    $ npm start
+    // Run the app in the development mode.
+    npm start
 ```
 
 ## Built with:
@@ -28,8 +26,8 @@ To clone and run this application, you'll need Git and Node.js (which comes with
 
 ## Contributor
 
-**Hamed Jimoh**
+- **Hamed Jimoh**
 
-### Deployment
+## Deployment
 
 The project is hosted on vercel. The live version can be found at: [safewash](https://safewash.vercel.app "safewash")
