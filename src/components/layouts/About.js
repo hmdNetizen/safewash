@@ -191,6 +191,7 @@ const About = ({ setValue }) => {
 
   const matchesXXXXS = useMediaQuery("(max-width: 280px)");
   const matchesXXXS = useMediaQuery("(max-width: 340px)");
+  const matchesXXS = useMediaQuery("(max-width: 450px)");
   const matchesSM = useMediaQuery(theme.breakpoints.down("sm"));
   const matchesMD = useMediaQuery(theme.breakpoints.down("md"));
 
@@ -265,7 +266,7 @@ const About = ({ setValue }) => {
           alt="A pink wireframe wrapping around the safewash lady"
           className={classes.pinkWire}
           style={{
-            maxWidth: matchesXXXS ? "15em" : undefined,
+            maxWidth: matchesXXXS ? "13em" : matchesXXS ? "17em" : undefined,
           }}
         />
         <img
@@ -273,7 +274,7 @@ const About = ({ setValue }) => {
           alt="A lady representing the safewash brand"
           className={classes.ladyImg}
           style={{
-            maxWidth: matchesXXXS ? "20em" : undefined,
+            maxWidth: matchesXXXS ? "18em" : matchesXXS ? "22em" : undefined,
           }}
         />
       </Grid>
