@@ -41,6 +41,11 @@ const useStyles = makeStyles((theme) => ({
       fontSize: "2rem",
     },
 
+    [theme.breakpoints.down("sm")]: {
+      position: "absolute",
+      top: "5em",
+    },
+
     [theme.breakpoints.down("xs")]: {
       position: "absolute",
       top: "7em",
@@ -60,6 +65,11 @@ const useStyles = makeStyles((theme) => ({
       fontSize: "2rem",
     },
 
+    [theme.breakpoints.down("sm")]: {
+      position: "absolute",
+      top: "10em",
+    },
+
     [theme.breakpoints.down("xs")]: {
       position: "absolute",
       top: "11em",
@@ -75,9 +85,13 @@ const useStyles = makeStyles((theme) => ({
       background: theme.palette.secondary.dark,
     },
 
+    [theme.breakpoints.down("sm")]: {
+      position: "absolute",
+      top: "30em",
+      zIndex: 5,
+    },
     [theme.breakpoints.down("xs")]: {
       position: "absolute",
-      zIndex: 5,
       top: "32em",
     },
   },
@@ -137,6 +151,11 @@ const useStyles = makeStyles((theme) => ({
       left: "15em",
       top: "60%",
     },
+
+    [theme.breakpoints.down("sm")]: {
+      left: "10em",
+      top: "62%",
+    },
   },
   squareSmOne: {
     ...theme.typography.square,
@@ -144,6 +163,11 @@ const useStyles = makeStyles((theme) => ({
     top: "40%",
     left: "40%",
     transform: "translateX(-50%)",
+
+    [theme.breakpoints.down("sm")]: {
+      left: "20em",
+      top: "17em",
+    },
   },
   squareSmTwo: {
     ...theme.typography.square,
@@ -154,7 +178,7 @@ const useStyles = makeStyles((theme) => ({
   squareSmThree: {
     ...theme.typography.square,
     ...theme.typography.squareSm,
-    left: "30%",
+    left: "45%",
     bottom: "5em",
   },
   circleCenter: {

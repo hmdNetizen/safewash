@@ -10,7 +10,7 @@ import safeWashLady from "../../assets/safewash-lady-2.png";
 
 const useStyles = makeStyles((theme) => ({
   parentGrid: {
-    padding: "10em 0 10em 7em",
+    padding: "10em 5em 10em 7em",
     position: "relative",
     overflow: "hidden",
 
@@ -54,7 +54,12 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.down("md")]: {
       maxWidth: "35em",
     },
+
     [theme.breakpoints.down("sm")]: {
+      maxWidth: "none",
+    },
+
+    [theme.breakpoints.down("xs")]: {
       maxWidth: "none",
     },
   },
@@ -84,13 +89,14 @@ const useStyles = makeStyles((theme) => ({
 
     [theme.breakpoints.down("sm")]: {
       top: "10em",
+      right: 0,
       left: "50%",
       transform: "translate(-50%, 0)",
     },
   },
   pinkWire: {
     ...theme.typography.wire,
-    right: "2em",
+    right: "5em",
     top: "50%",
     transform: "translateY(-35%)",
     zIndex: 2,
@@ -98,6 +104,7 @@ const useStyles = makeStyles((theme) => ({
 
     [theme.breakpoints.down("md")]: {
       maxWidth: "20em",
+      right: 0,
     },
 
     [theme.breakpoints.down("sm")]: {
@@ -115,13 +122,13 @@ const useStyles = makeStyles((theme) => ({
     position: "absolute",
     top: "50%",
     transform: "translateY(-50%)",
-    right: "-2em",
+    right: "2em",
     maxWidth: "35em",
     zIndex: 3,
 
     [theme.breakpoints.down("md")]: {
       maxWidth: "25em",
-      right: "-1em",
+      right: "-2em",
     },
 
     [theme.breakpoints.down("sm")]: {

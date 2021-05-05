@@ -33,8 +33,12 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.down("md")]: {
       fontSize: "2rem",
 
-      [theme.breakpoints.down("xs")]: {
+      [theme.breakpoints.down("sm")]: {
         position: "absolute",
+        top: "7em",
+      },
+
+      [theme.breakpoints.down("xs")]: {
         top: "8em",
       },
     },
@@ -56,6 +60,11 @@ const useStyles = makeStyles((theme) => ({
       fontSize: "2rem",
     },
 
+    [theme.breakpoints.down("sm")]: {
+      position: "absolute",
+      top: "11em",
+    },
+
     [theme.breakpoints.down("xs")]: {
       position: "absolute",
       top: "12em",
@@ -72,6 +81,10 @@ const useStyles = makeStyles((theme) => ({
 
     "&:active": {
       background: theme.palette.secondary.dark,
+    },
+
+    [theme.breakpoints.down("sm")]: {
+      top: "5em",
     },
 
     [theme.breakpoints.down("xs")]: {
@@ -94,7 +107,7 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.down("sm")]: {
       maxWidth: "40em",
       left: "8em",
-      bottom: "6em",
+      bottom: "4em",
     },
 
     [theme.breakpoints.down("xs")]: {
@@ -164,7 +177,7 @@ const useStyles = makeStyles((theme) => ({
       left: "40em",
     },
 
-    [theme.breakpoints.down("xs")]: {
+    [theme.breakpoints.down("sm")]: {
       top: "5em",
       left: "50%",
     },
@@ -184,6 +197,10 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.down("md")]: {
       top: "40%",
     },
+    [theme.breakpoints.down("sm")]: {
+      left: "2em",
+      top: "12em",
+    },
     [theme.breakpoints.down("xs")]: {
       left: "2em",
       top: "10em",
@@ -197,6 +214,10 @@ const useStyles = makeStyles((theme) => ({
 
     [theme.breakpoints.down("md")]: {
       right: "3em",
+    },
+    [theme.breakpoints.down("sm")]: {
+      top: "65%",
+      left: "28em",
     },
     [theme.breakpoints.down("xs")]: {
       top: "72%",
@@ -213,6 +234,10 @@ const useStyles = makeStyles((theme) => ({
       left: "10em",
       top: "60%",
     },
+    [theme.breakpoints.down("sm")]: {
+      left: "11em",
+      top: "61%",
+    },
     [theme.breakpoints.down("xs")]: {
       left: "5em",
       top: "75%",
@@ -227,12 +252,14 @@ const SlideFour = ({ setValue }) => {
   const matchesXXXS = useMediaQuery("(max-width: 340px)");
   const matchesXXS = useMediaQuery("(max-width: 450px)");
   const matchesXS = useMediaQuery(theme.breakpoints.down("xs"));
+  const matchesSM = useMediaQuery(theme.breakpoints.down("sm"));
+
   return (
     <Grid container className={classes.parentGrid} alignItems="center">
       {/* The big planet-like circle shape on the top left */}
       <div className={classes.planetShapeLG} />
       {/* The small circle on the left close to letter P */}
-      {!matchesXS && <div className={classes.circleSmLeft} />}
+      {!matchesSM && <div className={classes.circleSmLeft} />}
       {/* The small circle on the right */}
       {!matchesXS && <div className={classes.circleSmRight} />}
       {/* The medium circle at the center */}
@@ -297,7 +324,6 @@ const SlideFour = ({ setValue }) => {
           src={safeWashLady}
           alt="Lady expressing excitement after washing clothes with safewash detergent"
           className={classes.slideImg}
-          style={{ display: matchesXXXS ? "none" : undefined }}
         />
       </Grid>
     </Grid>
