@@ -81,39 +81,39 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   greenWire: {
-    maxWidth: "30em",
+    maxWidth: "30.5em",
     position: "absolute",
     left: "0.5em",
     top: "-1em",
     transform: "rotate(-20deg)",
 
     [theme.breakpoints.down("md")]: {
-      maxWidth: "20em",
+      maxWidth: "20.5em",
     },
     [theme.breakpoints.down("sm")]: {
-      maxWidth: "25em",
+      maxWidth: "25.5em",
       left: "50%",
       transform: "translateX(-50%) rotate(-20deg)",
     },
     [theme.breakpoints.down("xs")]: {
-      maxWidth: "20em",
+      maxWidth: "20.5em",
     },
   },
   pinkWire: {
-    maxWidth: "30em",
+    maxWidth: "30.5em",
     position: "absolute",
     left: 0,
 
     [theme.breakpoints.down("md")]: {
-      maxWidth: "20em",
+      maxWidth: "20.5em",
     },
     [theme.breakpoints.down("sm")]: {
-      maxWidth: "25em",
+      maxWidth: "25.5em",
       left: "50%",
       transform: "translateX(-50%)",
     },
     [theme.breakpoints.down("xs")]: {
-      maxWidth: "20em",
+      maxWidth: "20.5em",
     },
   },
   safewashLady: {
@@ -166,19 +166,19 @@ const Contact = ({ setValue }) => {
           src={safewashLady}
           alt="A safewash representative holding the safewash detergent gallon"
           className={classes.safewashLady}
-          style={{ maxWidth: matchesXXXS ? "15em" : undefined }}
+          style={{ maxWidth: matchesXXXS ? "15.5em" : undefined }}
         />
         <img
           src={pinkWire}
           alt="A pink wireframe around the safewash lady"
           className={classes.pinkWire}
-          style={{ maxWidth: matchesXXXS ? "15em" : undefined }}
+          style={{ maxWidth: matchesXXXS ? "15.5em" : undefined }}
         />
         <img
           src={greenWire}
           alt="A green wireframe around the safewash lady"
           className={classes.greenWire}
-          style={{ maxWidth: matchesXXXS ? "15em" : undefined }}
+          style={{ maxWidth: matchesXXXS ? "15.5em" : undefined }}
         />
       </Grid>
       <Grid item>
