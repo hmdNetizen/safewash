@@ -28,15 +28,13 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   primaryHeading: {
-    position: "relative",
+    position: "absolute",
+    top: "3em",
     zIndex: 9,
-    [theme.breakpoints.down("md")]: {
-      fontSize: "2rem",
 
-      [theme.breakpoints.down("sm")]: {
-        position: "absolute",
-        top: "7em",
-      },
+    [theme.breakpoints.down("md")]: {
+      top: "7em",
+      fontSize: "2rem",
 
       [theme.breakpoints.down("xs")]: {
         top: "8em",
@@ -53,27 +51,28 @@ const useStyles = makeStyles((theme) => ({
     fontWeight: 700,
     color: "#fff",
     textShadow: `-1px -1px 0 ${theme.palette.primary.main}, 1px -1px 0 ${theme.palette.primary.main}, -1px  1px 0 ${theme.palette.primary.main}, 1px  1px 0 ${theme.palette.primary.main}`,
-    position: "relative",
+    position: "absolute",
+    top: "7em",
     zIndex: 9,
 
     [theme.breakpoints.down("md")]: {
+      top: "11em",
       fontSize: "2rem",
     },
 
     [theme.breakpoints.down("sm")]: {
-      position: "absolute",
       top: "11em",
     },
 
     [theme.breakpoints.down("xs")]: {
-      position: "absolute",
       top: "12em",
       zIndex: 9,
     },
   },
   btn: {
     ...theme.typography.btn,
-    position: "relative",
+    position: "absolute",
+    top: "32em",
     zIndex: 9,
     "&:hover": {
       background: theme.palette.secondary.light,
@@ -84,11 +83,10 @@ const useStyles = makeStyles((theme) => ({
     },
 
     [theme.breakpoints.down("sm")]: {
-      top: "5em",
+      top: "30em",
     },
 
     [theme.breakpoints.down("xs")]: {
-      position: "absolute",
       top: "35em",
     },
   },
@@ -152,7 +150,12 @@ const useStyles = makeStyles((theme) => ({
     width: 30,
     height: 30,
     left: "9em",
-    top: "23.5em",
+    top: "24em",
+
+    [theme.breakpoints.down("md")]: {
+      left: "4.5em",
+      top: "24.5em",
+    },
   },
   circleSmRight: {
     ...theme.typography.circle,
@@ -162,7 +165,8 @@ const useStyles = makeStyles((theme) => ({
     top: "25em",
 
     [theme.breakpoints.down("md")]: {
-      right: "3em",
+      right: 0,
+      display: "none",
       top: "32em",
     },
   },
@@ -190,12 +194,13 @@ const useStyles = makeStyles((theme) => ({
   squareSmOne: {
     ...theme.typography.square,
     ...theme.typography.squareSm,
-    top: "45%",
-    left: "50%",
+    top: "47%",
+    left: "44em",
     transform: "translateX(-50%) rotate(106deg)",
 
     [theme.breakpoints.down("md")]: {
-      top: "40%",
+      top: "48%",
+      left: "27em",
     },
     [theme.breakpoints.down("sm")]: {
       left: "2em",
@@ -229,14 +234,15 @@ const useStyles = makeStyles((theme) => ({
     ...theme.typography.squareBg,
     top: "10em",
     left: "57em",
+    zIndex: 2,
 
     [theme.breakpoints.down("md")]: {
-      left: "10em",
-      top: "60%",
+      left: "7em",
+      top: "67.5%",
     },
     [theme.breakpoints.down("sm")]: {
-      left: "11em",
-      top: "61%",
+      left: "5em",
+      top: "63%",
     },
     [theme.breakpoints.down("xs")]: {
       left: "5em",
