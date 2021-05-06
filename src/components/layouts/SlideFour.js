@@ -249,6 +249,7 @@ const SlideFour = ({ setValue }) => {
   const classes = useStyles();
   const theme = useTheme();
 
+  const matchesXXXXS = useMediaQuery("(max-width: 290px)");
   const matchesXXXS = useMediaQuery("(max-width: 340px)");
   const matchesXXS = useMediaQuery("(max-width: 450px)");
   const matchesXS = useMediaQuery(theme.breakpoints.down("xs"));
@@ -284,6 +285,7 @@ const SlideFour = ({ setValue }) => {
                   : matchesXXS
                   ? "1.75rem"
                   : undefined,
+                left: matchesXXXXS ? ".5em" : undefined,
               }}
             >
               Remove 99% Food and {!matchesXXXS && <br />} Tough Stains
@@ -299,6 +301,7 @@ const SlideFour = ({ setValue }) => {
                   : matchesXXS
                   ? "1.75rem"
                   : undefined,
+                left: matchesXXXXS ? ".5em" : undefined,
               }}
             >
               Preserve Clothing {matchesXS && <br />} Colors
@@ -311,6 +314,7 @@ const SlideFour = ({ setValue }) => {
               to="/distributors"
               onClick={() => setValue(2)}
               classes={{ root: classes.btn }}
+              style={{ left: matchesXXXXS ? ".5em" : undefined }}
             >
               {matchesXS
                 ? "Become A Distributor"

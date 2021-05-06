@@ -97,8 +97,8 @@ const useStyles = makeStyles((theme) => ({
     },
 
     [theme.breakpoints.down("xs")]: {
-      maxWidth: "19em",
-      transform: "translateX(-50%) rotate(-5deg)",
+      maxWidth: "17em",
+      transform: "translate(-55%, 10px) rotate(-5deg)",
     },
   },
   pinkWire: {

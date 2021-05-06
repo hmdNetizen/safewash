@@ -91,9 +91,9 @@ const useStyles = makeStyles((theme) => ({
       maxWidth: "20.5em",
     },
     [theme.breakpoints.down("sm")]: {
-      maxWidth: "25.5em",
+      maxWidth: "25em",
       left: "50%",
-      transform: "translateX(-50%) rotate(-20deg)",
+      transform: "translate(-55%, 5px) rotate(-15deg)",
     },
     [theme.breakpoints.down("xs")]: {
       maxWidth: "20.5em",
@@ -166,7 +166,7 @@ const Contact = ({ setValue }) => {
           src={safewashLady}
           alt="A safewash representative holding the safewash detergent gallon"
           className={classes.safewashLady}
-          style={{ maxWidth: matchesXXXS ? "15.5em" : undefined }}
+          style={{ maxWidth: matchesXXXS ? "15em" : undefined }}
         />
         <img
           src={pinkWire}
