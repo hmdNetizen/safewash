@@ -234,9 +234,9 @@ const useStyles = makeStyles((theme) => ({
     ...theme.typography.squareBg,
     top: "10em",
     left: "57em",
-    zIndex: 2,
 
     [theme.breakpoints.down("md")]: {
+      zIndex: 2,
       left: "7em",
       top: "67.5%",
     },
