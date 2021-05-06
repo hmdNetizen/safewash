@@ -31,8 +31,8 @@ const useStyles = makeStyles((theme) => ({
     background:
       "linear-gradient(180deg, rgba(254, 150, 198, 0.3) 0%, rgba(255, 255, 255, 0) 100%), #FFFFFF",
 
-    [theme.breakpoints.down("md")]: {
-      width: "30em",
+    [theme.breakpoints.down("sm")]: {
+      width: "25em",
     },
 
     [theme.breakpoints.down("xs")]: {
@@ -89,7 +89,11 @@ const useStyles = makeStyles((theme) => ({
     ...theme.typography.square,
     ...theme.typography.squareBg,
     top: "50%",
-    left: "2em",
+    left: "1em",
+
+    [theme.breakpoints.down("xs")]: {
+      left: "2em",
+    },
   },
 }));
 
@@ -105,7 +109,8 @@ const Navigation = ({ value, setValue }) => {
   const classes = useStyles();
   const theme = useTheme();
 
-  const matchesMD = useMediaQuery(theme.breakpoints.down("md"));
+  // This checks if the breakpoint is less than 960px
+  const matchesSM = useMediaQuery(theme.breakpoints.down("sm"));
 
   const handleChange = (value) => setValue(value);
 
@@ -113,7 +118,7 @@ const Navigation = ({ value, setValue }) => {
    iOS has a "swipe to go back" feature that interferes with the discovery feature, so discovery has to be disabled in the component prop. */
   const iOS = process.browser && /iPad|iPhone|iPod/.test(navigator.userAgent);
 
-  // This displays when the screen size is higher than 1280px
+  // This displays when the screen size is higher than or equal to 960px
   const tabs = (
     <Fragment>
       <Tabs
@@ -139,31 +144,7 @@ const Navigation = ({ value, setValue }) => {
     </Fragment>
   );
 
-  useEffect(() => {
-    [...tabOptions].forEach((tab) => {
-      switch (window.location.pathname) {
-        case tab.link:
-          if (value !== tab.id) {
-            setValue(tab.id);
-          }
-          break;
-        case "/order":
-        case "/returns":
-        case "/faq":
-        case "/careers":
-        case "/policy":
-        case "/terms":
-        case "/find_distributor":
-          if (value !== false) {
-            setValue(false);
-          }
-          break;
-        default:
-          break;
-      }
-    });
-  });
-
+  // The aside drawer is shown if the screen size is less than 960px
   const drawer = (
     <Fragment>
       <SwipeableDrawer
@@ -219,7 +200,32 @@ const Navigation = ({ value, setValue }) => {
     </Fragment>
   );
 
-  return <Fragment>{matchesMD ? drawer : tabs}</Fragment>;
+  useEffect(() => {
+    [...tabOptions].forEach((tab) => {
+      switch (window.location.pathname) {
+        case tab.link:
+          if (value !== tab.id) {
+            setValue(tab.id);
+          }
+          break;
+        case "/order":
+        case "/returns":
+        case "/faq":
+        case "/careers":
+        case "/policy":
+        case "/terms":
+        case "/find_distributor":
+          if (value !== false) {
+            setValue(false);
+          }
+          break;
+        default:
+          break;
+      }
+    });
+  });
+
+  return <Fragment>{matchesSM ? drawer : tabs}</Fragment>;
 };
 
 Navigation.propTypes = {

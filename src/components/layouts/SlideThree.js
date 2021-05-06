@@ -104,6 +104,7 @@ const useStyles = makeStyles((theme) => ({
     filter: `drop-shadow(0px 4px 20px ${theme.palette.primary.main})`,
 
     [theme.breakpoints.down("md")]: {
+      top: "9em",
       right: "5em",
     },
 
@@ -125,6 +126,7 @@ const useStyles = makeStyles((theme) => ({
     right: "3em",
 
     [theme.breakpoints.down("md")]: {
+      top: "12em",
       right: 0,
     },
 
@@ -174,6 +176,10 @@ const useStyles = makeStyles((theme) => ({
     ...theme.typography.squareSm,
     right: "10em",
     top: "20%",
+
+    [theme.breakpoints.down("sm")]: {
+      display: "none",
+    },
   },
   squareSmThree: {
     ...theme.typography.square,
